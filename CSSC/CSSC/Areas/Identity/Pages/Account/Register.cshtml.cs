@@ -98,6 +98,10 @@ namespace CSSC.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public string UtDataDeNascimento { get; set; }
+            public int UtNIF { get; set; }
+            public string UtMorada { get; set; }
         }
 
 
@@ -114,6 +118,9 @@ namespace CSSC.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+                user.UtDataDeNascimento = Input.UtDataDeNascimento;
+                user.UtMorada = Input.UtMorada;
+                user.UtNIF = Input.UtNIF;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

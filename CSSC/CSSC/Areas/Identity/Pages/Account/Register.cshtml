@@ -27,6 +27,19 @@
                 <label asp-for="Input.ConfirmPassword"></label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+            <div class="form-floating">
+                <input asp-for="Input.UtNIF" class="form-control" aria-required="true" />
+                <label asp-for="Input.UtNIF"></label>
+                <span asp-validation-for="Input.UtNIF" class="text-danger"></span>
+            </div><div class="form-floating">
+                <input asp-for="Input.UtMorada" class="form-control" aria-required="true" />
+                <label asp-for="Input.UtMorada"></label>
+                <span asp-validation-for="Input.UtMorada" class="text-danger"></span>
+            </div><div class="form-floating">
+                <input asp-for="Input.UtDataDeNascimento" class="form-control" aria-required="true" />
+                <label asp-for="Input.UtDataDeNascimento"></label>
+                <span asp-validation-for="Input.UtDataDeNascimento" class="text-danger"></span>
+            </div>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>

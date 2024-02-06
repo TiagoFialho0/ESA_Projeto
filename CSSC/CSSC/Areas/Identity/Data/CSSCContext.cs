@@ -27,7 +27,11 @@ public class UserEntityConfiguration : IEntityTypeConfiguration<CSSCUser>
 {
     public void Configure(EntityTypeBuilder<CSSCUser> builder)
     {
-        builder.Property(x => x.FirstName).HasMaxLength(100);
-        builder.Property(x => x.LastName).HasMaxLength(100);
+       // builder.Property(x => x.Email).HasMaxLength(250);
+      //  builder.Property(x => x.Password).HasMaxLength(250);
+        builder.Property(x => x.UtDataDeNascimento).HasMaxLength(10);
+        builder.Property(x => x.UtNIF);
+        builder.Property(x => x.UtMorada).HasMaxLength(250);
+       // builder.Property(x => x.UtContactoTelefonico).HasMaxLength(250);
     }
 }

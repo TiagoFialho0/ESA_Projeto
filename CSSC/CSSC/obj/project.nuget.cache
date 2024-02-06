@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KIf2RPzpllaOUuM2jmgXhjYw4PH05GDOt5iRZpn9QOi6DPfdSITLbGu72iOZ+PlfH255TpCRgS6ZltilOgvYxg==",
+  "dgSpecHash": "Hk+riHxn9GCaJ7UTaRHP/ICf/28nM8w4gfHOHvfgMOavB+vcmYRLzFPk8FN7vdXPZvwFIlrNJRxdbMza2+a8uQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Utilizador\\OneDrive\\Desktop\\IPS\\LEI\\3ºAno\\PV\\Projeto\\CSSC\\CSSC\\CSSC.csproj",
+  "projectFilePath": "C:\\Users\\Utilizador\\OneDrive\\Documentos\\GitHub\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Utilizador\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Utilizador\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
