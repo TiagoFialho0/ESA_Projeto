@@ -102,6 +102,8 @@ namespace CSSC.Areas.Identity.Pages.Account
             public string UtDataDeNascimento { get; set; }
             public int UtNIF { get; set; }
             public string UtMorada { get; set; }
+
+            public string PhoneNumber { get; set; }
         }
 
 
@@ -121,6 +123,7 @@ namespace CSSC.Areas.Identity.Pages.Account
                 user.UtDataDeNascimento = Input.UtDataDeNascimento;
                 user.UtMorada = Input.UtMorada;
                 user.UtNIF = Input.UtNIF;
+                user.PhoneNumber = Input.PhoneNumber;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
