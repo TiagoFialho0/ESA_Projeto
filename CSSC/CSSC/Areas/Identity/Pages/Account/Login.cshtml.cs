@@ -113,6 +113,8 @@ namespace CSSC.Areas.Identity.Pages.Account
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                _logger.LogInformation(ValidateEmail(Input.Email) + "");
+               
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
@@ -136,6 +138,29 @@ namespace CSSC.Areas.Identity.Pages.Account
 
             // If we got this far, something failed, redisplay form
             return Page();
+        }
+
+        static bool ValidateEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email)) { return false; }
+
+            string[] parts = email.Split('@');
+
+            if (parts.Length != 2) { return false; }
+
+            string localPart = parts[0];
+            string domainPart = parts[1];
+            if (string.IsNullOrWhiteSpace(localPart) || string.IsNullOrWhiteSpace(domainPart)) { return false; }
+
+            foreach (char c in localPart)
+            {
+                if (!char.IsLetterOrDigit(c) && c != '.' && c != '_' && c != '-') { return false; }
+            }
+
+            if (domainPart.Length < 2 || !domainPart.Contains(".") || domainPart.Split(".").Length != 2 || domainPart.EndsWith(".") || domainPart.StartsWith("."))
+            { return false; }
+
+            return true;
         }
     }
 }
