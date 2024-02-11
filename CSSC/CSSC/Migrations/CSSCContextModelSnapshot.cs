@@ -98,6 +98,106 @@ namespace CSSC.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "d9df29fc-919e-4849-b81a-eba906bed72d",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "75f0377e-eecb-4d01-86df-c2abd4afd800",
+                            TwoFactorEnabled = false,
+                            UtDataDeNascimento = "01/01/1970",
+                            UtMorada = "Rua teste",
+                            UtNIF = 123456789
+                        });
+                });
+
+            modelBuilder.Entity("CSSC.Models.Services", b =>
+                {
+                    b.Property<int>("IdServico")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdServico"), 1L, 1);
+
+                    b.Property<string>("EstadoDoServico")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ServClassificacao")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ServComentario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ServIdUtilizador")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ServMarcaVeiculo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServMatriculaVeiculo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServModeloVeiculo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ServPrazo")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("csscUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("IdServico");
+
+                    b.HasIndex("csscUserId");
+
+                    b.ToTable("ServiceModel");
+
+                    b.HasData(
+                        new
+                        {
+                            IdServico = 500,
+                            EstadoDoServico = "Em espera",
+                            ServIdUtilizador = new Guid("d7cd364c-f9db-491c-b7bb-92d5a6ab36bb"),
+                            ServMarcaVeiculo = "Fiat",
+                            ServMatriculaVeiculo = "AA-00-BB",
+                            ServModeloVeiculo = "Punto",
+                            ServPrazo = new DateTime(2029, 2, 11, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            IdServico = 510,
+                            EstadoDoServico = "Em reparação",
+                            ServIdUtilizador = new Guid("35ee0f7d-94e5-457d-b4fc-88983caed09d"),
+                            ServMarcaVeiculo = "Seat",
+                            ServMatriculaVeiculo = "BB-11-CC",
+                            ServModeloVeiculo = "Ibiza",
+                            ServPrazo = new DateTime(2028, 2, 11, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            IdServico = 520,
+                            EstadoDoServico = "Pronto para entrega",
+                            ServIdUtilizador = new Guid("a6e4aecd-71e7-4b26-97ee-14d20e39a6ae"),
+                            ServMarcaVeiculo = "Ford",
+                            ServMatriculaVeiculo = "CC-22-DD",
+                            ServModeloVeiculo = "Fiesta",
+                            ServPrazo = new DateTime(2027, 2, 11, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            IdServico = 530,
+                            EstadoDoServico = "Reparação Concluida",
+                            ServIdUtilizador = new Guid("99275f40-02be-49eb-bfdb-890eb740f329"),
+                            ServMarcaVeiculo = "Ferrari",
+                            ServMatriculaVeiculo = "DD-33-EE",
+                            ServModeloVeiculo = "F40",
+                            ServPrazo = new DateTime(2026, 2, 11, 0, 0, 0, 0, DateTimeKind.Local)
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -180,12 +280,10 @@ namespace CSSC.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -222,12 +320,10 @@ namespace CSSC.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -235,6 +331,15 @@ namespace CSSC.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("CSSC.Models.Services", b =>
+                {
+                    b.HasOne("CSSC.Areas.Identity.Data.CSSCUser", "csscUser")
+                        .WithMany()
+                        .HasForeignKey("csscUserId");
+
+                    b.Navigation("csscUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

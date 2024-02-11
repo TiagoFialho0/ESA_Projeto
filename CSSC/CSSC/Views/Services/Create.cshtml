@@ -1,0 +1,69 @@
+﻿@model CSSC.Models.Services
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>ServiceModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating" id="field">
+                <select asp-for="ServIdUtilizador" class="form-control" asp-items="ViewBag.Users"></select>
+                <label asp-for="ServIdUtilizador" class="control-label"></label>
+                <span asp-validation-for="ServIdUtilizador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServMarcaVeiculo" class="control-label"></label>
+                <input asp-for="ServMarcaVeiculo" class="form-control" />
+                <span asp-validation-for="ServMarcaVeiculo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServModeloVeiculo" class="control-label"></label>
+                <input asp-for="ServModeloVeiculo" class="form-control" />
+                <span asp-validation-for="ServModeloVeiculo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServMatriculaVeiculo" class="control-label"></label>
+                <input asp-for="ServMatriculaVeiculo" class="form-control" />
+                <span asp-validation-for="ServMatriculaVeiculo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServClassificacao" class="control-label"></label>
+                <input asp-for="ServClassificacao" class="form-control" />
+                <span asp-validation-for="ServClassificacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServComentario" class="control-label"></label>
+                <input asp-for="ServComentario" class="form-control" />
+                <span asp-validation-for="ServComentario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServPrazo" class="control-label"></label>
+                <input asp-for="ServPrazo" class="form-control" />
+                <span asp-validation-for="ServPrazo" class="text-danger"></span>
+            </div>
+            <div class="form-floating" id="field">
+                <select asp-for="EstadoDoServico" class="form-control" asp-items="ViewBag.Types"></select>
+                <label asp-for="EstadoDoServico" class="control-label"></label>
+                <span asp-validation-for="EstadoDoServico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

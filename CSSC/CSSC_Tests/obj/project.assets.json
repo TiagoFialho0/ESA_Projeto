@@ -12789,24 +12789,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tiago\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\jacki\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj",
+      "projectUniqueName": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj",
       "projectName": "CSSC_Tests",
-      "projectPath": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj",
-      "packagesPath": "C:\\Users\\tiago\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC_Tests\\obj\\",
+      "projectPath": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj",
+      "packagesPath": "C:\\Users\\jacki\\.nuget\\packages\\",
+      "outputPath": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC_Tests\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\tiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\jacki\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12820,8 +12815,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj": {
-              "projectPath": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj"
+            "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj": {
+              "projectPath": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj"
             }
           }
         }
@@ -12881,7 +12876,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,14 +1,19 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CSSC.Areas.Identity.Data;
+using CSSC;
+
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("CSSCContextConnection") ?? throw new InvalidOperationException("Connection string 'CSSCContextConnection' not found.");
 
 builder.Services.AddDbContext<CSSCContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<CSSCUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<CSSCContext>();
+builder.Services.AddIdentity<CSSCUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+ .AddEntityFrameworkStores<CSSCContext>()
+ .AddDefaultUI()
+ .AddDefaultTokenProviders();
+builder.Services.AddRazorPages();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -32,4 +37,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
+
+using var scope = app.Services.CreateScope();
+await Configurations.CreateRoles(scope.ServiceProvider);
+
 app.Run();
