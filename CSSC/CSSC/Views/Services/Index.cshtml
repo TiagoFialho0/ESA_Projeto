@@ -16,15 +16,16 @@
 <table class="table">
     <thead>
         <tr>
-            @if (User.IsInRole("Operador"))
-            {
-                <td>
-                    @Html.DisplayNameFor(model => model.csscUser.Email)
-                </td>
-            }
             <th>
                 @Html.DisplayNameFor(model => model.IdServico)
             </th>
+            @if (User.IsInRole("Operador"))
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.csscUser.Email)
+                </th>
+            }
+            
             <th>
                 @Html.DisplayNameFor(model => model.ServPrazo)
             </th>
@@ -33,7 +34,10 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr class="expandable-row">
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdServico)
+                </td>
             @if (User.IsInRole("Operador"))
             {
                 <td>
@@ -47,9 +51,7 @@
                     }
                 </td>
             }
-            <td>
-                @Html.DisplayFor(modelItem => item.IdServico)
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.ServPrazo)
             </td>
@@ -59,9 +61,82 @@
                     <a asp-action="Edit" asp-route-id="@item.IdServico">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.IdServico">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.IdServico">Delete</a>
-                </td>
+                        | <button class="btn btn-secondary toggle-details-btn dropdown-toggle" data-target="#detailsContainer-@item.IdServico" style="background-color: white; color: black"></button>
+                    </td>
             }
         </tr>
+            <tr class="hidden-row">
+                <!--<td colspan="3">-->
+                <td>
+                    <div class="details-container" id="detailsContainer-@item.IdServico">
+                        <p><strong>Serviço</strong></p>
+                        <p><strong>Marca Veiculo:</strong> @item.ServMarcaVeiculo</p>
+                        <p><strong>Modelo Veiculo:</strong> @item.ServModeloVeiculo</p>
+                        <p><strong>Matricula Veiculo:</strong> @item.ServMatriculaVeiculo</p>
+                        <p><strong>Prazo de serviço:</strong> @item.ServPrazo</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="details-container" id="detailsContainer-@item.IdServico">
+                        <p><strong>Cliente</strong></p>
+                        <p><strong>Nome do cliente:</strong>@Html.DisplayFor(modelItem => item.csscUser.Email)</p>
+                        <p><strong>Morada:</strong> @Html.DisplayFor(modelItem => item.csscUser.UtMorada)</p>
+                        <p><strong>Contacto:</strong> @Html.DisplayFor(modelItem => item.csscUser.PhoneNumber)</p>
+                        <p><strong>NIF:</strong> @Html.DisplayFor(modelItem => item.csscUser.UtNIF)</p>
+                        <p><strong>Data de Nascimento:</strong> @Html.DisplayFor(modelItem => item.csscUser.UtDataDeNascimento)</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="details-container" id="detailsContainer-@item.IdServico">
+                        <p><strong>Colaborador</strong></p>
+                        <p><strong>Nome do Colaborador:</strong></p>
+                        <p><strong>Contacto:</strong></p>
+                        <form>
+                            <button type="submit" class="btn btn-secondary" style="background-color: limegreen">Agendar Notificação</button>
+                        </form>
+                    </div>
+                </td>
+                <td>
+                    <form>
+                        <select asp-for="@item.EstadoDoServico" class="form-select">
+                            <option disabled selected hidden value="">Selecione o Estado do Serviço</option>
+                            @foreach (var estadoServico in Enum.GetValues(typeof(CSSC.Controllers.EstadoDoServico)))
+                            {
+                                <option value="@estadoServico">@estadoServico</option>
+                            }
+                        </select>
+                        <br />
+                        <button type="submit" class="btn btn-secondary" style="background-color: limegreen">Confirmar</button>
+                    </form>
+                    <!--<div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Em espera</a>
+                            <a class="dropdown-item" href="#">Em reparação</a>
+                            <a class="dropdown-item" href="#">Reparação concluída</a>
+                            <a class="dropdown-item" href="#">Pronto para entrega</a>
+                            <a class="dropdown-item" href="#">Entregue</a>
+                            <a class="dropdown-item" href="#">Cancelado</a>
+                        </div>
+                    </div>-->
+                </td>
+            </tr>
+            <!--<tr>
+                <td>
+                    <p>a</p>
+                </td>
+                <td>
+                    <p>b</p>
+                </td>
+                <td>
+                    <p>c</p>
+                </td>
+                <td>
+                    <p>d</p>
+                </td>
+            </tr>-->
 }
     </tbody>
 </table>
