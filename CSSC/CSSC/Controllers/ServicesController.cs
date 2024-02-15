@@ -184,6 +184,59 @@ namespace CSSC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> AgendarNotif(int? id)
+        {
+            if (id == null || _context.ServiceModel == null)
+            {
+                return NotFound();
+            }
+
+            var serviceModel = await _context.ServiceModel
+                .FirstOrDefaultAsync(m => m.IdServico == id);
+            if (serviceModel == null)
+            {
+                return NotFound();
+            }
+
+            return View(serviceModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AtualizarEstado(int id, string EstadoDoServico)
+        {
+            var serviceModel = await _context.ServiceModel.FindAsync(id);
+            if (serviceModel == null)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(serviceModel);
+            }
+
+            serviceModel.EstadoDoServico = EstadoDoServico;
+
+            try
+            {
+                _context.Update(serviceModel);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ServiceModelExists(serviceModel.IdServico))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+
         private bool ServiceModelExists(int id)
         {
           return (_context.ServiceModel?.Any(e => e.IdServico == id)).GetValueOrDefault();

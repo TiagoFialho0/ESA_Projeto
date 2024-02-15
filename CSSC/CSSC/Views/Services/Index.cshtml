@@ -92,51 +92,35 @@
                         <p><strong>Nome do Colaborador:</strong>@Html.DisplayFor(modelItem => item.csscOperador.Email)</p>
                         <p><strong>Contacto:</strong>@Html.DisplayFor(modelItem => item.csscOperador.PhoneNumber)</p>
                         <form>
-                            <button type="submit" class="btn btn-secondary" style="background-color: limegreen">Agendar Notificação</button>
+                            <!-- <button type="submit" class="btn btn-secondary" style="background-color: limegreen">Agendar Notificação</button> -->
+                            <a class="green-text" asp-action="AgendarNotif" asp-route-id="@item.IdServico"> Agendar notificação</a>
                         </form>
                     </div>
                 </td>
                 <td>
-                    <form>
-                        <select asp-for="@item.EstadoDoServico" class="form-select">
-                            <option disabled selected hidden value="">Selecione o Estado do Serviço</option>
+                    <form asp-action="AtualizarEstado" method="post">
+                        <input type="hidden" name="id" value="@item.IdServico" />
+                        <select name="EstadoDoServico" class="form-select">
+                            <option disabled hidden value="">Selecione o Estado do Serviço</option>
                             @foreach (var estadoServico in Enum.GetValues(typeof(CSSC.Controllers.EstadoDoServico)))
                             {
-                                <option value="@estadoServico">@estadoServico</option>
+                                if (estadoServico.ToString() == item.EstadoDoServico)
+                                {
+                                    <option value="@estadoServico" selected>@estadoServico</option>
+                                }
+                                else
+                                {
+                                    <option value="@estadoServico">@estadoServico</option>
+                                }
                             }
                         </select>
                         <br />
                         <button type="submit" class="btn btn-secondary" style="background-color: limegreen">Confirmar</button>
                     </form>
-                    <!--<div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown button
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Em espera</a>
-                            <a class="dropdown-item" href="#">Em reparação</a>
-                            <a class="dropdown-item" href="#">Reparação concluída</a>
-                            <a class="dropdown-item" href="#">Pronto para entrega</a>
-                            <a class="dropdown-item" href="#">Entregue</a>
-                            <a class="dropdown-item" href="#">Cancelado</a>
-                        </div>
-                    </div>-->
+
+
                 </td>
             </tr>
-            <!--<tr>
-                <td>
-                    <p>a</p>
-                </td>
-                <td>
-                    <p>b</p>
-                </td>
-                <td>
-                    <p>c</p>
-                </td>
-                <td>
-                    <p>d</p>
-                </td>
-            </tr>-->
 }
     </tbody>
 </table>
