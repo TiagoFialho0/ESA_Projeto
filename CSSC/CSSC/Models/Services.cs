@@ -12,6 +12,8 @@ namespace CSSC.Models
         public int IdServico { get; set; }
         public Guid ServIdUtilizador { get; set; }
         public CSSCUser? csscUser { get; set; }
+        public Guid? ServIdOperador { get; set; }
+        public CSSCUser? csscOperador { get; set; }
         public string? ServMarcaVeiculo { get; set; }
         public string? ServModeloVeiculo { get; set; }
         public string? ServMatriculaVeiculo { get; set; }
