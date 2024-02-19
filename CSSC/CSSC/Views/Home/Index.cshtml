@@ -1,8 +1,75 @@
-﻿@{
+﻿@model IEnumerable<CSSC.Models.Services>
+
+@{
     ViewData["Title"] = "Home Page";
+    ViewData["Services"] = "Services";
 }
+
+
 
 <div class="text-center">
     <h1 class="display-4">CSSC</h1>
-    <p>PÁGINA INICIAL</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Coluna esquerda para os serviços -->
+            <div class="text-center">
+                <h2>Serviços em Reparação</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Serviço</th>
+                            <th>Prazo do Serviço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            @foreach (var item in Model.Where(s => s.EstadoDoServico == CSSC.Controllers.EstadoDoServico.EmReparacao.ToString()))
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.IdServico)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.ServPrazo)</td>
+                                    <!-- Adicione aqui as ações para os serviços em andamento -->
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <!-- Coluna direita para as classificações -->
+            <div class="text-center">
+                <h2>Classificações</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Classificação</th>
+                            <th>Comentário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            @foreach (var item in Model.Where(s => s.EstadoDoServico == CSSC.Controllers.EstadoDoServico.ReparacaoConcluida.ToString()))
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.ServClassificacao)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.ServComentario)</td>
+
+
+
+                                    <!-- Adicione aqui as ações para os serviços concluídos -->
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                <h1 style="padding-top: 100px;"> EM MANUTENÇÃO</h1>
+            </div>
+        </div>
+    </div>
 </div>

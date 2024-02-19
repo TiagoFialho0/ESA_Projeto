@@ -1,6 +1,10 @@
-﻿using CSSC.Models;
+﻿using CSSC.Areas.Identity.Data;
+using CSSC.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace CSSC.Controllers
 {
@@ -8,14 +12,37 @@ namespace CSSC.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly CSSCContext _context;
+
+       
+
+        public HomeController(ILogger<HomeController> logger, CSSCContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            if (User.IsInRole("Operador"))
+            {
+                var services = _context.ServiceModel
+                    .Include(r => r.csscUser)
+                    .ToList();
+                return View(services);
+            }
+            else if (User.IsInRole("Default"))
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var userServices = await _context.ServiceModel
+                    .Include(r => r.csscUser)
+                    .Where(r => r.ServIdUtilizador == Guid.Parse(userId)).ToListAsync();
+                return View(userServices);
+            }
+            else
+            {
+                return RedirectToPage("/Account/Login", new { area = "Identity" });
+            }
         }
 
         public IActionResult Privacy()
