@@ -78,6 +78,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
     }
 
     public DbSet<CSSC.Models.Services>? ServiceModel { get; set; }
+    public DbSet<CSSC.Models.Notificacao>? Notificacao { get;set; }
 }
 
 public class UserEntityConfiguration : IEntityTypeConfiguration<CSSCUser>

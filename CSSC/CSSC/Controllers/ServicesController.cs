@@ -207,6 +207,37 @@ namespace CSSC.Controllers
             return View(notificacaoModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AgendarNotifForm([Bind("IdServico,DataInicial,IntervaloDeEnvio,TipoDeNotif")] Notificacao notificacao)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(notificacao);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(notificacao);
+            //if (id == null || _context.ServiceModel == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //var serviceModel = await _context.ServiceModel
+            //    .FirstOrDefaultAsync(m => m.IdServico == id);
+
+            //var notificacaoModel = new CSSC.Models.Notificacao
+            //{
+            //    IdServico = serviceModel.IdServico
+
+            //};
+            //if (serviceModel == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return View(notificacaoModel);
+        }
 
         [HttpPost]
         public async Task<IActionResult> AtualizarEstado(int id, string EstadoDoServico)

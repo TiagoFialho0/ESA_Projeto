@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSSC.Migrations
 {
     [DbContext(typeof(CSSCContext))]
-    [Migration("20240305173145_InitialMigration")]
+    [Migration("20240305184954_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,16 +106,41 @@ namespace CSSC.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "accde3b3-8c13-43e4-a896-33a2aaf4d18a",
+                            ConcurrencyStamp = "bea30a6c-4445-42d3-a795-2120ef2b4f32",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "70f9b241-58fc-494a-a7ec-967fd7998409",
+                            SecurityStamp = "0d78e71f-d491-4cfd-a7b8-3d7d223b76b0",
                             TwoFactorEnabled = false,
                             UtDataDeNascimento = "01/01/1970",
                             UtMorada = "Rua teste",
                             UtNIF = 123456789
                         });
+                });
+
+            modelBuilder.Entity("CSSC.Models.Notificacao", b =>
+                {
+                    b.Property<int>("IdNotif")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdNotif"), 1L, 1);
+
+                    b.Property<DateTime>("DataInicial")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdServico")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IntervaloDeEnvio")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TipoDeNotif")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdNotif");
+
+                    b.ToTable("Notificacao");
                 });
 
             modelBuilder.Entity("CSSC.Models.Services", b =>
@@ -172,7 +197,7 @@ namespace CSSC.Migrations
                         {
                             IdServico = 500,
                             EstadoDoServico = "Em espera",
-                            ServIdUtilizador = new Guid("857a2f5e-e912-481e-a4de-e38a116ed645"),
+                            ServIdUtilizador = new Guid("18b3b99f-83b4-49aa-a461-9c82b5072b6c"),
                             ServMarcaVeiculo = "Fiat",
                             ServMatriculaVeiculo = "AA-00-BB",
                             ServModeloVeiculo = "Punto",
@@ -182,7 +207,7 @@ namespace CSSC.Migrations
                         {
                             IdServico = 510,
                             EstadoDoServico = "Em reparação",
-                            ServIdUtilizador = new Guid("8f49edb5-3c92-45fe-899f-f7fb1aba1db4"),
+                            ServIdUtilizador = new Guid("ed7863b6-a8c7-4c7d-abe1-d5d0c3b2aa74"),
                             ServMarcaVeiculo = "Seat",
                             ServMatriculaVeiculo = "BB-11-CC",
                             ServModeloVeiculo = "Ibiza",
@@ -192,7 +217,7 @@ namespace CSSC.Migrations
                         {
                             IdServico = 520,
                             EstadoDoServico = "Pronto para entrega",
-                            ServIdUtilizador = new Guid("cfd33279-8c51-4abe-a44e-79edb5fc797d"),
+                            ServIdUtilizador = new Guid("7e76faad-47a4-4760-8556-a4303b793775"),
                             ServMarcaVeiculo = "Ford",
                             ServMatriculaVeiculo = "CC-22-DD",
                             ServModeloVeiculo = "Fiesta",
@@ -202,7 +227,7 @@ namespace CSSC.Migrations
                         {
                             IdServico = 530,
                             EstadoDoServico = "Reparação Concluida",
-                            ServIdUtilizador = new Guid("99535d24-c1c5-43ab-bb70-adfb7af8c715"),
+                            ServIdUtilizador = new Guid("a7dc2c4c-0a4a-4513-bbef-3eb1bc526ecb"),
                             ServMarcaVeiculo = "Ferrari",
                             ServMatriculaVeiculo = "DD-33-EE",
                             ServModeloVeiculo = "F40",

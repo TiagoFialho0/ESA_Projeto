@@ -52,6 +52,22 @@ namespace CSSC.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Notificacao",
+                columns: table => new
+                {
+                    IdNotif = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdServico = table.Column<int>(type: "int", nullable: false),
+                    DataInicial = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IntervaloDeEnvio = table.Column<int>(type: "int", nullable: true),
+                    TipoDeNotif = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notificacao", x => x.IdNotif);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -193,17 +209,17 @@ namespace CSSC.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "UtDataDeNascimento", "UtMorada", "UtNIF" },
-                values: new object[] { "1", 0, "accde3b3-8c13-43e4-a896-33a2aaf4d18a", null, false, false, null, null, null, null, null, false, "70f9b241-58fc-494a-a7ec-967fd7998409", false, null, "01/01/1970", "Rua teste", 123456789 });
+                values: new object[] { "1", 0, "bea30a6c-4445-42d3-a795-2120ef2b4f32", null, false, false, null, null, null, null, null, false, "0d78e71f-d491-4cfd-a7b8-3d7d223b76b0", false, null, "01/01/1970", "Rua teste", 123456789 });
 
             migrationBuilder.InsertData(
                 table: "ServiceModel",
                 columns: new[] { "IdServico", "EstadoDoServico", "ServClassificacao", "ServComentario", "ServIdOperador", "ServIdUtilizador", "ServMarcaVeiculo", "ServMatriculaVeiculo", "ServModeloVeiculo", "ServPrazo", "csscOperadorId", "csscUserId" },
                 values: new object[,]
                 {
-                    { 500, "Em espera", null, null, null, new Guid("857a2f5e-e912-481e-a4de-e38a116ed645"), "Fiat", "AA-00-BB", "Punto", new DateTime(2029, 3, 5, 0, 0, 0, 0, DateTimeKind.Local), null, null },
-                    { 510, "Em reparação", null, null, null, new Guid("8f49edb5-3c92-45fe-899f-f7fb1aba1db4"), "Seat", "BB-11-CC", "Ibiza", new DateTime(2028, 3, 5, 0, 0, 0, 0, DateTimeKind.Local), null, null },
-                    { 520, "Pronto para entrega", null, null, null, new Guid("cfd33279-8c51-4abe-a44e-79edb5fc797d"), "Ford", "CC-22-DD", "Fiesta", new DateTime(2027, 3, 5, 0, 0, 0, 0, DateTimeKind.Local), null, null },
-                    { 530, "Reparação Concluida", null, null, null, new Guid("99535d24-c1c5-43ab-bb70-adfb7af8c715"), "Ferrari", "DD-33-EE", "F40", new DateTime(2026, 3, 5, 0, 0, 0, 0, DateTimeKind.Local), null, null }
+                    { 500, "Em espera", null, null, null, new Guid("18b3b99f-83b4-49aa-a461-9c82b5072b6c"), "Fiat", "AA-00-BB", "Punto", new DateTime(2029, 3, 5, 0, 0, 0, 0, DateTimeKind.Local), null, null },
+                    { 510, "Em reparação", null, null, null, new Guid("ed7863b6-a8c7-4c7d-abe1-d5d0c3b2aa74"), "Seat", "BB-11-CC", "Ibiza", new DateTime(2028, 3, 5, 0, 0, 0, 0, DateTimeKind.Local), null, null },
+                    { 520, "Pronto para entrega", null, null, null, new Guid("7e76faad-47a4-4760-8556-a4303b793775"), "Ford", "CC-22-DD", "Fiesta", new DateTime(2027, 3, 5, 0, 0, 0, 0, DateTimeKind.Local), null, null },
+                    { 530, "Reparação Concluida", null, null, null, new Guid("a7dc2c4c-0a4a-4513-bbef-3eb1bc526ecb"), "Ferrari", "DD-33-EE", "F40", new DateTime(2026, 3, 5, 0, 0, 0, 0, DateTimeKind.Local), null, null }
                 });
 
             migrationBuilder.CreateIndex(
@@ -272,6 +288,9 @@ namespace CSSC.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Notificacao");
 
             migrationBuilder.DropTable(
                 name: "ServiceModel");

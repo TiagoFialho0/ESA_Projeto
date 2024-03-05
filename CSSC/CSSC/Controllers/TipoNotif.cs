@@ -2,11 +2,11 @@
 
 namespace CSSC.Controllers
 {
-        public enum TipoNotif
-        {
-            [EnumMember(Value = "Periódica")]
-            Periodica,
-            [EnumMember(Value = "Pontual")]
-            Pontual        }
-    
+    public enum TipoNotif
+    {
+        [EnumMember(Value = "Periodica")]
+        Periódica,
+        [EnumMember(Value = "Pontual")]
+        Pontual        
+    }
 }
