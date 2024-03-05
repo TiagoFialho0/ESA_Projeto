@@ -193,13 +193,20 @@ namespace CSSC.Controllers
 
             var serviceModel = await _context.ServiceModel
                 .FirstOrDefaultAsync(m => m.IdServico == id);
+
+            var notificacaoModel = new CSSC.Models.Notificacao
+            {
+                IdServico = serviceModel.IdServico
+
+            };
             if (serviceModel == null)
             {
                 return NotFound();
             }
 
-            return View(serviceModel);
+            return View(notificacaoModel);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> AtualizarEstado(int id, string EstadoDoServico)

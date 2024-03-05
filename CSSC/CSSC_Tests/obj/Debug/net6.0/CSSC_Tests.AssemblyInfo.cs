@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CSSC_Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d700886c8b5dca860b8a4a79eff7b1f3b9b4b2e2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d8ebde6878bd449e691ccf446d1ad2dc716f34a")]
 [assembly: System.Reflection.AssemblyProductAttribute("CSSC_Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CSSC_Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
