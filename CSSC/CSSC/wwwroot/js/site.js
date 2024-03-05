@@ -46,3 +46,22 @@ function validarCampos() {
 
     return true; // Permite o envio do formulário
 }
+
+
+
+
+function validarAgendarNotif() {
+    const dataAtual = new Date();
+    const dataInserida = new Date(document.getElementById("DataInicial").value);
+
+    // Adicione 1 hora à data atual
+    dataAtual.setHours(dataAtual.getHours() + 1);
+
+    if (dataInserida < dataAtual) {
+        alert("Data e hora devem ser pelo menos 1 hora após a data atual.");
+        return false;
+    } else {
+        //console.log('Data e hora válidas.');
+        return true;
+    }
+}

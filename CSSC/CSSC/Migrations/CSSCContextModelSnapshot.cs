@@ -104,11 +104,11 @@ namespace CSSC.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bea30a6c-4445-42d3-a795-2120ef2b4f32",
+                            ConcurrencyStamp = "3c83dceb-32ce-4df1-8fae-f21d5f7ed207",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0d78e71f-d491-4cfd-a7b8-3d7d223b76b0",
+                            SecurityStamp = "0b84205d-d9dc-49c4-8424-7bad98be1aab",
                             TwoFactorEnabled = false,
                             UtDataDeNascimento = "01/01/1970",
                             UtMorada = "Rua teste",
@@ -195,7 +195,7 @@ namespace CSSC.Migrations
                         {
                             IdServico = 500,
                             EstadoDoServico = "Em espera",
-                            ServIdUtilizador = new Guid("18b3b99f-83b4-49aa-a461-9c82b5072b6c"),
+                            ServIdUtilizador = new Guid("341fffc9-080d-441e-9fe9-f9a3af5c4ade"),
                             ServMarcaVeiculo = "Fiat",
                             ServMatriculaVeiculo = "AA-00-BB",
                             ServModeloVeiculo = "Punto",
@@ -205,7 +205,7 @@ namespace CSSC.Migrations
                         {
                             IdServico = 510,
                             EstadoDoServico = "Em reparação",
-                            ServIdUtilizador = new Guid("ed7863b6-a8c7-4c7d-abe1-d5d0c3b2aa74"),
+                            ServIdUtilizador = new Guid("a4715dbc-8c8e-4380-90c8-426edcc6c50b"),
                             ServMarcaVeiculo = "Seat",
                             ServMatriculaVeiculo = "BB-11-CC",
                             ServModeloVeiculo = "Ibiza",
@@ -215,7 +215,7 @@ namespace CSSC.Migrations
                         {
                             IdServico = 520,
                             EstadoDoServico = "Pronto para entrega",
-                            ServIdUtilizador = new Guid("7e76faad-47a4-4760-8556-a4303b793775"),
+                            ServIdUtilizador = new Guid("37cf994f-fac5-4dde-ad8b-383a893bb12f"),
                             ServMarcaVeiculo = "Ford",
                             ServMatriculaVeiculo = "CC-22-DD",
                             ServModeloVeiculo = "Fiesta",
@@ -225,7 +225,7 @@ namespace CSSC.Migrations
                         {
                             IdServico = 530,
                             EstadoDoServico = "Reparação Concluida",
-                            ServIdUtilizador = new Guid("a7dc2c4c-0a4a-4513-bbef-3eb1bc526ecb"),
+                            ServIdUtilizador = new Guid("85d3da15-0b05-4f58-aa98-3d67fc6acdb5"),
                             ServMarcaVeiculo = "Ferrari",
                             ServMatriculaVeiculo = "DD-33-EE",
                             ServModeloVeiculo = "F40",
