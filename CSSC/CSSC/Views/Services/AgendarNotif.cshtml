@@ -44,13 +44,20 @@
                 </select>
                 <span asp-validation-for="IntervaloDeEnvio" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <br />
+            <div class="form-group" align="center">
                 <input type="submit" value="Gravar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
-<div>
+<br />
+<div align="center">
     <a asp-action="Index">Voltar</a>
 </div>
+
+<style>
+    .row{
+        justify-content: center;
+    }
+</style>
