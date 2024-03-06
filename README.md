@@ -5,5 +5,5 @@
 </p>
 
 <h3 align="center">
-  Sistema de gestão e otimização dos serviços da oficina Car Shop, destinado a proprietários de veículo auto que necessitem de auxílio momentâneo ou pretendam assistência periódica dos seus automóveis.
+  Sistema de gestão e otimização dos serviços da oficina Car Shop, destinado a proprietários de automoveis que necessitem de auxílio momentâneo ou pretendam assistência periódica.
 </h3>
