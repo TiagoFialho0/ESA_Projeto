@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel;
 
 namespace CSSC.Areas.Identity.Pages.Account
 {
@@ -95,14 +96,20 @@ namespace CSSC.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
+            [Display(Name = "Confirmar Password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
+            [DisplayName("Data de Nascimento")]
             public string UtDataDeNascimento { get; set; }
+
+            [DisplayName("NIF")]
             public int UtNIF { get; set; }
+
+            [DisplayName("Morada")]
             public string UtMorada { get; set; }
 
+            [DisplayName("Número de Telemóvel")]
             public string PhoneNumber { get; set; }
         }
 

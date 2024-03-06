@@ -26,14 +26,15 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
                 <div class="form-floating" style="margin-top: 10px;">
-                    <input id="nifInput"  asp-for="Input.UtNIF" class="form-control" aria-required="true" />
+                <input id="nifInput"  asp-for="Input.UtNIF" class="form-control" aria-required="true" />
                 <label asp-for="Input.UtNIF"></label>
                 <span asp-validation-for="Input.UtNIF" class="text-danger"></span>
-                </div><div class="form-floating" style="margin-top: 10px;">
+                </div>
+            <div class="form-floating" style="margin-top: 10px;">
                 <input asp-for="Input.UtMorada" class="form-control" aria-required="true" />
                 <label asp-for="Input.UtMorada"></label>
                 <span asp-validation-for="Input.UtMorada" class="text-danger"></span>
-                </div><div class="form-floating" style="margin-top: 10px;">
+            </div><div class="form-floating" style="margin-top: 10px;">
                     <input id="dataNascimentoInput" asp-for="Input.UtDataDeNascimento" class="form-control" type="date" aria-required="true" />
                 <label asp-for="Input.UtDataDeNascimento"></label>
                 <span asp-validation-for="Input.UtDataDeNascimento" class="text-danger"></span>
