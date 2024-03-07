@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CSSC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38cb1e03be24653a944d169007034f59f48ff1bd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6008a2e3be113a314de807391ade7db25b4b36b9")]
 [assembly: System.Reflection.AssemblyProductAttribute("CSSC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CSSC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

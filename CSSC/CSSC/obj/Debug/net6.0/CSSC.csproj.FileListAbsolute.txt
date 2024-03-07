@@ -1280,9 +1280,9 @@ C:\Users\tiago\Documents\GitHub\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\staticweb
 C:\Users\tiago\Documents\GitHub\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\tiago\Documents\GitHub\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\scopedcss\bundle\CSSC.styles.css
 C:\Users\tiago\Documents\GitHub\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\scopedcss\projectbundle\CSSC.bundle.scp.css
-C:\Users\tiago\Documents\GitHub\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\CSSC.csproj.CopyComplete
 C:\Users\tiago\Documents\GitHub\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\CSSC.dll
 C:\Users\tiago\Documents\GitHub\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\refint\CSSC.dll
 C:\Users\tiago\Documents\GitHub\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\CSSC.pdb
 C:\Users\tiago\Documents\GitHub\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\CSSC.genruntimeconfig.cache
 C:\Users\tiago\Documents\GitHub\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\ref\CSSC.dll
+C:\Users\tiago\Documents\GitHub\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\CSSC.csproj.Up2Date
