@@ -14,12 +14,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
+//Função que valida os campos nif e data de nascimento do registo de utilizador
 function validarCampos() {
 
     var nifInput = document.getElementById('nifInput');
     var nifValue = nifInput.value;
 
+    //Verifica se nif inserido tem tamanho diferente de 9
     if (nifValue.length !== 9) {
         alert('O NIF deve ter 9 dígitos.');
         return false; // Impede o envio do formulário
@@ -49,14 +50,15 @@ function validarCampos() {
 
 
 
-
+//Função que verifica a data inserida para notificação de serviço ao cliente
 function validarAgendarNotif() {
     const dataAtual = new Date();
     const dataInserida = new Date(document.getElementById("DataInicial").value);
 
-    // Adicione 1 hora à data atual
+    // Adiciona 1 hora à data atual
     dataAtual.setHours(dataAtual.getHours() + 1);
 
+    //Verifica se a data inserida é inferior à data atual
     if (dataInserida < dataAtual) {
         alert("Data e hora devem ser pelo menos 1 hora após a data atual.");
         return false;
