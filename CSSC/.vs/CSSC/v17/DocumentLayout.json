@@ -1,0 +1,138 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|c:\\users\\tiago\\documents\\github\\esa_projeto\\cssc\\cssc\\vsdoc\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\vsdoc\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|c:\\users\\tiago\\documents\\github\\esa_projeto\\cssc\\cssc\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|c:\\users\\tiago\\documents\\github\\esa_projeto\\cssc\\cssc\\views\\services\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\views\\services\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|c:\\users\\tiago\\documents\\github\\esa_projeto\\cssc\\cssc\\areas\\identity\\data\\csscuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\areas\\identity\\data\\csscuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 237,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC\\VSdoc\\index.html",
+              "RelativeDocumentMoniker": "CSSC\\VSdoc\\index.html",
+              "ToolTip": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC\\VSdoc\\index.html",
+              "RelativeToolTip": "CSSC\\VSdoc\\index.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-03-07T11:47:58.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "CSSC\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeToolTip": "CSSC\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-07T11:44:57.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC\\Views\\Services\\Index.cshtml",
+              "RelativeDocumentMoniker": "CSSC\\Views\\Services\\Index.cshtml",
+              "ToolTip": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC\\Views\\Services\\Index.cshtml",
+              "RelativeToolTip": "CSSC\\Views\\Services\\Index.cshtml",
+              "ViewState": "AQIAAFgAAAAAAAAAAAAAAFgAAABiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-07T11:44:57.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CSSCUser.cs",
+              "DocumentMoniker": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC\\Areas\\Identity\\Data\\CSSCUser.cs",
+              "RelativeDocumentMoniker": "CSSC\\Areas\\Identity\\Data\\CSSCUser.cs",
+              "ToolTip": "C:\\Users\\tiago\\Documents\\GitHub\\ESA_Projeto\\CSSC\\CSSC\\Areas\\Identity\\Data\\CSSCUser.cs",
+              "RelativeToolTip": "CSSC\\Areas\\Identity\\Data\\CSSCUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-07T11:44:57.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 163,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

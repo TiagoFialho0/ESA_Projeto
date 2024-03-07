@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"CSSC Reference","topic_0000000000000073.html"],['20',"CSSC.Areas.Identity.Pages.Account Namespace","topic_000000000000000C.html"],['58',"ResetPasswordModel Class","topic_000000000000002B.html"],['59',"InputModel Class","topic_000000000000002E.html"],['60',"Properties","topic_000000000000002E_props--.html"]];
