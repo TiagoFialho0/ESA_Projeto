@@ -23,7 +23,10 @@ namespace CSSC.Controllers
             _context = context;
         }
 
-        // GET: ServiceModels
+        /// <summary>
+        /// Exibe a página inicial dos serviços com base no papel do utilizador.
+        /// </summary>
+        /// <returns>Um IActionResult representando a vista da página principal.</returns>
         public async Task<IActionResult> Index()
         {
             if (User.IsInRole("Operador"))
@@ -47,7 +50,11 @@ namespace CSSC.Controllers
             }
         }
 
-        // GET: ServiceModels/Details/5
+        /// <summary>
+        /// Exibe detalhes de um serviço com base no ID fornecido.
+        /// </summary>
+        /// <param name="id">O ID do serviço a ser exibido.</param>
+        /// <returns>Um IActionResult representando a vista de detalhes do serviço ou NotFound se o ID for nulo ou não existir.</returns>
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.ServiceModel == null)
@@ -65,7 +72,10 @@ namespace CSSC.Controllers
             return View(serviceModel);
         }
 
-        // GET: ServiceModels/Create
+        /// <summary>
+        /// Exibe a página de criação de um novo serviço.
+        /// </summary>
+        /// <returns>Um IActionResult representando a vista de criação de serviço.</returns>
         public IActionResult Create()
         {
             List<CSSCUser> users = _context.Users.ToList();
@@ -76,9 +86,11 @@ namespace CSSC.Controllers
             return View();
         }
 
-        // POST: ServiceModels/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Processa o pedido de criação de um novo serviço.
+        /// </summary>
+        /// <param name="serviceModel">O modelo de serviço a ser criado.</param>
+        /// <returns>Um IActionResult redirecionando para a página principal se a criação for bem-sucedida, ou a vista de criação com erros se houver problemas de validação.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdServico,ServIdUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServPrazo,EstadoDoServico")] Services serviceModel)
@@ -96,7 +108,11 @@ namespace CSSC.Controllers
             return View(serviceModel);
         }
 
-        // GET: ServiceModels/Edit/5
+        /// <summary>
+        /// Exibe a página de edição de um serviço com base no ID fornecido.
+        /// </summary>
+        /// <param name="id">O ID do serviço a ser editado.</param>
+        /// <returns>Um IActionResult representando a vista de edição do serviço ou NotFound se o ID for nulo ou o serviço não for encontrado.</returns>
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.ServiceModel == null)
@@ -112,9 +128,12 @@ namespace CSSC.Controllers
             return View(serviceModel);
         }
 
-        // POST: ServiceModels/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Processa o pedido de edição de um serviço com base no ID fornecido.
+        /// </summary>
+        /// <param name="id">O ID do serviço a ser editado.</param>
+        /// <param name="serviceModel">O modelo de serviço com as alterações.</param>
+        /// <returns>Um IActionResult redirecionando para a página principal se a edição for bem-sucedida, ou a vista de edição com erros se houver problemas de validação ou concorrência.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdServico,ServUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServPrazo,EstadoDoServico")] Services serviceModel)
@@ -147,7 +166,11 @@ namespace CSSC.Controllers
             return View(serviceModel);
         }
 
-        // GET: ServiceModels/Delete/5
+        /// <summary>
+        /// Exibe a página de confirmação para apagar um serviço com base no ID fornecido.
+        /// </summary>
+        /// <param name="id">O ID do serviço a ser apagado.</param>
+        /// <returns>Um IActionResult representando a vista de confirmação do apagamento do serviço ou NotFound se o ID for nulo ou o serviço não for encontrado.</returns>
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.ServiceModel == null)
@@ -165,7 +188,11 @@ namespace CSSC.Controllers
             return View(serviceModel);
         }
 
-        // POST: ServiceModels/Delete/5
+        /// <summary>
+        /// Confirma o apagamento de um serviço com base no ID fornecido.
+        /// </summary>
+        /// <param name="id">O ID do serviço a ser apagado.</param>
+        /// <returns>Um IActionResult redirecionando para a página principal após o apagamento bem-sucedida.</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -184,6 +211,11 @@ namespace CSSC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        /// <summary>
+        /// Exibe a página de agendamento de notificação para um serviço com base no ID fornecido.
+        /// </summary>
+        /// <param name="id">O ID do serviço para o qual agendar a notificação.</param>
+        /// <returns>Um IActionResult representando a vista de agendamento de notificação ou NotFound se o ID for nulo ou o serviço não for encontrado.</returns>
         public async Task<IActionResult> AgendarNotif(int? id)
         {
             if (id == null || _context.ServiceModel == null)
@@ -207,6 +239,11 @@ namespace CSSC.Controllers
             return View(notificacaoModel);
         }
 
+        /// <summary>
+        /// Processa o formulário de agendamento de notificação.
+        /// </summary>
+        /// <param name="notificacao">O modelo de notificação a ser agendado.</param>
+        /// <returns>Um IActionResult redirecionando para a página principal se o agendamento for bem-sucedido, ou a vista de agendamento com erros se houver problemas de validação.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AgendarNotifForm([Bind("IdServico,DataInicial,IntervaloDeEnvio,TipoDeNotif")] Notificacao notificacao)
@@ -239,6 +276,12 @@ namespace CSSC.Controllers
             //return View(notificacaoModel);
         }
 
+        /// <summary>
+        /// Atualiza o estado de um serviço com base no ID e no novo estado fornecidos.
+        /// </summary>
+        /// <param name="id">O ID do serviço a ser atualizado.</param>
+        /// <param name="estadoDoServico">O novo estado do serviço.</param>
+        /// <returns>Um IActionResult redirecionando para a página principal após a atualização bem-sucedida.</returns>
         [HttpPost]
         public async Task<IActionResult> AtualizarEstado(int id, string EstadoDoServico)
         {
@@ -274,7 +317,11 @@ namespace CSSC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
+        /// <summary>
+        /// Verifica se um serviço com o ID fornecido existe no contexto.
+        /// </summary>
+        /// <param name="id">O ID do serviço a ser verificado.</param>
+        /// <returns>True se o serviço existir, False caso contrário.</returns>
         private bool ServiceModelExists(int id)
         {
           return (_context.ServiceModel?.Any(e => e.IdServico == id)).GetValueOrDefault();
