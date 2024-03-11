@@ -11,6 +11,7 @@ using System.Security.Claims;
 using System.Reflection;
 using System.Runtime.Serialization;
 using CSSC.Extensions;
+using CSSC.CSSCServices;
 
 namespace CSSC.Controllers
 {
@@ -248,10 +249,28 @@ namespace CSSC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AgendarNotifForm([Bind("IdServico,DataInicial,IntervaloDeEnvio,TipoDeNotif")] Notificacao notificacao)
         {
+
             if (ModelState.IsValid)
             {
+                var serviceModel = await _context.ServiceModel
+               .FirstOrDefaultAsync(m => m.IdServico == notificacao.IdServico);
+
+
                 _context.Add(notificacao);
                 await _context.SaveChangesAsync();
+
+                var userId = serviceModel.ServIdUtilizador.ToString();
+                var csscUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+                var _destEmail = csscUser.Email;
+
+                
+                string _emailSubject = "Serviço de Reparação Agendado";
+                string _message = "CORPO MAIL";
+
+                //envia um mail de agendamento para o cliente
+                EmailSender emailSender = new EmailSender();
+                emailSender.SendEmail(_emailSubject,_destEmail,_message).Wait();
+
                 return RedirectToAction(nameof(Index));
             }
             return View(notificacao);
