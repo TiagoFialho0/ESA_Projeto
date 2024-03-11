@@ -17,9 +17,49 @@ public class CalendarController : Controller
         _context = context;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-        return View();
+        var months = GetMonthsBetween(DateTime.Today, DateTime.Today.AddMonths(11));
+
+        if (User.IsInRole("Operador"))
+        {
+            var services = _context.ServiceModel
+                .Include(r => r.csscUser)
+                .ToList();
+
+            var data = new List<List<Services>>();
+            foreach (var month in months)
+            {
+                var monthData = services.Where(s => s.ServPrazo.Month == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month
+                                                    && s.ServPrazo.Year == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
+                data.Add(monthData);
+            }
+
+            var viewModel = new CalendarViewModel() { Months = months, Data = data };
+            return View(viewModel);
+        }
+        else if (User.IsInRole("Default"))
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userServices = await _context.ServiceModel
+                .Include(r => r.csscUser)
+                .Where(r => r.ServIdUtilizador == Guid.Parse(userId)).ToListAsync();
+
+            var data = new List<List<Services>>();
+            foreach (var month in months)
+            {
+                var monthData = userServices.Where(s => s.ServPrazo.Month == DateTime.ParseExact(month, "MMMM", CultureInfo.CreateSpecificCulture("pt-PT")).Month
+                                                        && s.ServPrazo.Year == DateTime.ParseExact(month, "MMMM", CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
+                data.Add(monthData);
+            }
+
+            var viewModel = new CalendarViewModel() { Months = months, Data = data };
+            return View(viewModel);
+        }
+        else
+        {
+            return RedirectToPage("/Account/Login", new { area = "Identity" });
+        }
     }
 
     /// <summary>
@@ -29,7 +69,7 @@ public class CalendarController : Controller
     /// <param name="endDate">A data de término do calendário.</param>
     /// <returns>Um ActionResult representando a vista do calendário.</returns>
     [HttpPost]
-    public async Task<ActionResult> ShowCalendar(DateTime startDate, DateTime endDate)
+    public async Task<ActionResult> Index(DateTime startDate, DateTime endDate)
     {
         var months = GetMonthsBetween(startDate, endDate);
 

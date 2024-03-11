@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|f:\\repos github\\esa_projeto\\cssc\\cssc\\models\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\models\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|f:\\repos github\\esa_projeto\\cssc\\cssc\\models\\notificacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\models\\notificacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|f:\\repos github\\esa_projeto\\cssc\\cssc\\models\\calendarviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\models\\calendarviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|f:\\repos github\\esa_projeto\\cssc\\cssc\\controllers\\tiponotif.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\controllers\\tiponotif.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|f:\\repos github\\esa_projeto\\cssc\\cssc\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|f:\\repos github\\esa_projeto\\cssc\\cssc\\controllers\\calendarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\controllers\\calendarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|f:\\repos github\\esa_projeto\\cssc\\cssc\\controllers\\estadodoservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\controllers\\estadodoservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|f:\\repos github\\esa_projeto\\cssc\\cssc\\views\\calendar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6318D0CF-8062-430A-96C3-99BD1823DDEF}|CSSC\\CSSC.csproj|solutionrelative:cssc\\views\\calendar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,93 +54,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TipoNotif.cs",
-              "DocumentMoniker": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Controllers\\TipoNotif.cs",
-              "RelativeDocumentMoniker": "CSSC\\Controllers\\TipoNotif.cs",
-              "ToolTip": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Controllers\\TipoNotif.cs",
-              "RelativeToolTip": "CSSC\\Controllers\\TipoNotif.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-09T16:07:58.906Z",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Views\\Calendar\\Index.cshtml",
+              "RelativeDocumentMoniker": "CSSC\\Views\\Calendar\\Index.cshtml",
+              "ToolTip": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Views\\Calendar\\Index.cshtml",
+              "RelativeToolTip": "CSSC\\Views\\Calendar\\Index.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAACcAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-11T17:34:07.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Services.cs",
-              "DocumentMoniker": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Models\\Services.cs",
-              "RelativeDocumentMoniker": "CSSC\\Models\\Services.cs",
-              "ToolTip": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Models\\Services.cs",
-              "RelativeToolTip": "CSSC\\Models\\Services.cs",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAuwFMAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-09T16:00:29.189Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Notificacao.cs",
-              "DocumentMoniker": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Models\\Notificacao.cs",
-              "RelativeDocumentMoniker": "CSSC\\Models\\Notificacao.cs",
-              "ToolTip": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Models\\Notificacao.cs",
-              "RelativeToolTip": "CSSC\\Models\\Notificacao.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-09T15:53:53.785Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ServicesController.cs",
-              "DocumentMoniker": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Controllers\\ServicesController.cs",
-              "RelativeDocumentMoniker": "CSSC\\Controllers\\ServicesController.cs",
-              "ToolTip": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Controllers\\ServicesController.cs",
-              "RelativeToolTip": "CSSC\\Controllers\\ServicesController.cs",
-              "ViewState": "AQIAAPgAAAAAAAAAAAA7wEMBAABPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-09T15:45:45.826Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EstadoDoServico.cs",
-              "DocumentMoniker": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Controllers\\EstadoDoServico.cs",
-              "RelativeDocumentMoniker": "CSSC\\Controllers\\EstadoDoServico.cs",
-              "ToolTip": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Controllers\\EstadoDoServico.cs",
-              "RelativeToolTip": "CSSC\\Controllers\\EstadoDoServico.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-09T15:45:42.327Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "CalendarController.cs",
               "DocumentMoniker": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Controllers\\CalendarController.cs",
               "RelativeDocumentMoniker": "CSSC\\Controllers\\CalendarController.cs",
               "ToolTip": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Controllers\\CalendarController.cs",
               "RelativeToolTip": "CSSC\\Controllers\\CalendarController.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwFEAAABFAAAA",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAAIUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-09T11:31:47.947Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CalendarViewModel.cs",
-              "DocumentMoniker": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Models\\CalendarViewModel.cs",
-              "RelativeDocumentMoniker": "CSSC\\Models\\CalendarViewModel.cs",
-              "ToolTip": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\Models\\CalendarViewModel.cs",
-              "RelativeToolTip": "CSSC\\Models\\CalendarViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-09T13:50:55Z",
               "EditorCaption": ""
             }
           ]

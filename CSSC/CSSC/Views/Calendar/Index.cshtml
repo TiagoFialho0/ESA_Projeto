@@ -1,24 +1,68 @@
-﻿@model CalendarViewModel  
-@using (Html.BeginForm("ShowCalendar", "Calendar", FormMethod.Post))
+﻿@using System.Globalization
+@model CalendarViewModel
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
+@{
+    string currentDay = DateTime.Now.ToString("yyyy-MM-dd");
+    DateTime oneMonthAfter = DateTime.Now.AddMonths(1);
+    string minDateForEndDate = oneMonthAfter.ToString("yyyy-MM-dd");
+}
+@using (Html.BeginForm("Index", "Calendar", FormMethod.Post))
 {
     <div class="row align-items-end">
         <div class="col-md-2">
             <div class="form-group">
-                @Html.LabelFor(m => m.StartDate, "Start Date:")
-                @Html.TextBoxFor(m => m.StartDate, new { @type = "date", @class = "form-control form-control-sm" })
+                @Html.LabelFor(m => m.StartDate, "Data de Inicio:")
+                @Html.TextBoxFor(m => m.StartDate, new { @type = "date", @class = "form-control form-control-sm", @min = currentDay })
                 <span class="text-danger" asp-validation-for="StartDate"></span>
             </div>
         </div>
         <div class="col-md-2">
             <div class="form-group">
-                @Html.LabelFor(m => m.EndDate, "End Date:")
-                @Html.TextBoxFor(m => m.EndDate, new { @type = "date", @class = "form-control form-control-sm" })
+                @Html.LabelFor(m => m.EndDate, "Data de Fim:")
+                @Html.TextBoxFor(m => m.EndDate, new { @type = "date", @class = "form-control form-control-sm", @min = minDateForEndDate })
                 <span class="text-danger" asp-validation-for="EndDate"></span>
             </div>
         </div>
         <div class="col-md-1">
-            <button type="submit" class="btn btn-primary btn-sm float-end">Submit</button>
+            <button type="submit" class="btn btn-primary btn-sm float-end">Pesquisar</button>
         </div>
+        @section scripts {
+            <script>
+                $(document).ready(function () {
+                    $("#StartDate, #EndDate").on("change", function () {
+                        var startDate = $("#StartDate").val();
+                        var endDate = $("#EndDate").val();
+
+                        if (startDate && endDate && startDate > endDate) {
+                            alert("End date must be after the start date.");
+                            $("#EndDate").val("");
+                            $("#StartDate").val("");
+                        }
+                    });
+                });
+            </script>
+        }
         <div class="col-md-1" style="padding-left: 30px;">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="agendadoCheckbox" name="agendadoCheckbox">
@@ -36,7 +80,35 @@
             </div>
         </div>
     </div>
-    
-        
 
+    <table>
+        <tbody>
+        @* Create a header row for months *@
+        <tr>
+            @foreach (var month in Model.Months)
+            {
+                <th>@month</th>
+            }
+        </tr>
+
+        @* Iterate through services and create rows dynamically based on month *@
+        @foreach (var service in Model.Data.SelectMany(x => x))
+        {
+            <tr>
+                @* Check month of service and create corresponding data cells *@
+                @foreach (var month in Model.Months)
+                {
+                    @if (service.ServPrazo.Month == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month)
+                    {
+                        <td>@service.IdServico</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                }
+            </tr>
+        }
+        </tbody>
+    </table>
 }
