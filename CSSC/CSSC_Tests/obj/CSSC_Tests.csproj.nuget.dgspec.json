@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Erica\\Documents\\Faculdade\\22.23\\ATAD\\Projeto\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj": {}
+    "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Erica\\Documents\\Faculdade\\22.23\\ATAD\\Projeto\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj": {
+    "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Erica\\Documents\\Faculdade\\22.23\\ATAD\\Projeto\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj",
+        "projectUniqueName": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj",
         "projectName": "CSSC",
-        "projectPath": "C:\\Users\\Erica\\Documents\\Faculdade\\22.23\\ATAD\\Projeto\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj",
-        "packagesPath": "C:\\Users\\Erica\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Erica\\Documents\\Faculdade\\22.23\\ATAD\\Projeto\\ESA_Projeto\\CSSC\\CSSC\\obj\\",
+        "projectPath": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj",
+        "packagesPath": "C:\\Users\\jacki\\.nuget\\packages\\",
+        "outputPath": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Erica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jacki\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -86,21 +91,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Erica\\Documents\\Faculdade\\22.23\\ATAD\\Projeto\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj": {
+    "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Erica\\Documents\\Faculdade\\22.23\\ATAD\\Projeto\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj",
+        "projectUniqueName": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj",
         "projectName": "CSSC_Tests",
-        "projectPath": "C:\\Users\\Erica\\Documents\\Faculdade\\22.23\\ATAD\\Projeto\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj",
-        "packagesPath": "C:\\Users\\Erica\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Erica\\Documents\\Faculdade\\22.23\\ATAD\\Projeto\\ESA_Projeto\\CSSC\\CSSC_Tests\\obj\\",
+        "projectPath": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC_Tests\\CSSC_Tests.csproj",
+        "packagesPath": "C:\\Users\\jacki\\.nuget\\packages\\",
+        "outputPath": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC_Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Erica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jacki\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -114,8 +119,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Erica\\Documents\\Faculdade\\22.23\\ATAD\\Projeto\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj": {
-                "projectPath": "C:\\Users\\Erica\\Documents\\Faculdade\\22.23\\ATAD\\Projeto\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj"
+              "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj": {
+                "projectPath": "F:\\Repos GitHub\\ESA_Projeto\\CSSC\\CSSC\\CSSC.csproj"
               }
             }
           }
@@ -124,6 +129,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -175,7 +185,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

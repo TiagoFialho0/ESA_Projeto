@@ -22,31 +22,33 @@
         background-color: #f5f5f5;
     }
 </style>
-@{
-    string currentDay = DateTime.Now.ToString("yyyy-MM-dd");
-    DateTime oneMonthAfter = DateTime.Now.AddMonths(1);
-    string minDateForEndDate = oneMonthAfter.ToString("yyyy-MM-dd");
-}
 @using (Html.BeginForm("Index", "Calendar", FormMethod.Post))
 {
     <div class="row align-items-end">
         <div class="col-md-2">
             <div class="form-group">
                 @Html.LabelFor(m => m.StartDate, "Data de Inicio:")
-                @Html.TextBoxFor(m => m.StartDate, new { @type = "date", @class = "form-control form-control-sm", @min = currentDay })
+                @Html.TextBoxFor(m => m.StartDate, new { @type = "date", @class = "form-control form-control-sm", @min = "2023-01-01", @id = "StartDateField" })
                 <span class="text-danger" asp-validation-for="StartDate"></span>
             </div>
         </div>
         <div class="col-md-2">
             <div class="form-group">
                 @Html.LabelFor(m => m.EndDate, "Data de Fim:")
-                @Html.TextBoxFor(m => m.EndDate, new { @type = "date", @class = "form-control form-control-sm", @min = minDateForEndDate })
+                @Html.TextBoxFor(m => m.EndDate, new { @type = "date", @class = "form-control form-control-sm", @id = "EndDateField" })
                 <span class="text-danger" asp-validation-for="EndDate"></span>
             </div>
         </div>
         <div class="col-md-1">
             <button type="submit" class="btn btn-primary btn-sm float-end">Pesquisar</button>
         </div>
+        @if (TempData["IncompleteDates"] != null && (bool)TempData["IncompleteDates"])
+        {
+            <script>
+                alert("Tem de preencher ambas as datas.");
+            </script>
+        }
+
         @section scripts {
             <script>
                 $(document).ready(function () {
@@ -55,17 +57,25 @@
                         var endDate = $("#EndDate").val();
 
                         if (startDate && endDate && startDate > endDate) {
-                            alert("End date must be after the start date.");
+                            alert("Introduza um intervalo válido.");
                             $("#EndDate").val("");
                             $("#StartDate").val("");
                         }
+                    });
+                    $("#StartDateField").on("change", function () {
+                        var startDate = new Date($(this).val());
+                        var oneMonthAfter = new Date(startDate.getFullYear(), startDate.getMonth() + 1, startDate.getDate());
+                        var minEndDate = oneMonthAfter.toISOString().split('T')[0];
+
+                        $("#EndDateField").attr('min', minEndDate);
                     });
                 });
             </script>
         }
         <div class="col-md-1" style="padding-left: 30px;">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="agendadoCheckbox" name="agendadoCheckbox">
+                <input class="form-check-input" type="checkbox" id="agendadoCheckbox" name="agendadoCheckbox" value="true">
+                <input type="hidden" name="agendadoCheckbox" value="false">
                 <label class="form-check-label" for="agendadoCheckbox">
                     Agendado
                 </label>
@@ -73,7 +83,8 @@
         </div>
         <div class="col-md-2" style="padding-left: 30px;">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="concluidoCheckbox" name="concluidoCheckbox">
+                <input class="form-check-input" type="checkbox" id="concluidoCheckbox" name="concluidoCheckbox" value="true">
+                <input type="hidden" name="concluidoCheckbox" value="false"/>
                 <label class="form-check-label" for="concluidoCheckbox">
                     Concluído
                 </label>

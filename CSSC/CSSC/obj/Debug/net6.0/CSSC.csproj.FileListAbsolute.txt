@@ -1547,3 +1547,5 @@ C:\Users\Erica\Documents\Faculdade\22.23\ATAD\Projeto\ESA_Projeto\CSSC\CSSC\obj\
 C:\Users\Erica\Documents\Faculdade\22.23\ATAD\Projeto\ESA_Projeto\CSSC\CSSC\obj\Debug\net6.0\ref\CSSC.dll
 C:\Users\Erica\Documents\Faculdade\22.23\ATAD\Projeto\ESA_Projeto\CSSC\CSSC\bin\Debug\net6.0\SendGrid.dll
 C:\Users\Erica\Documents\Faculdade\22.23\ATAD\Projeto\ESA_Projeto\CSSC\CSSC\bin\Debug\net6.0\StarkbankEcdsa.dll
+F:\Repos GitHub\ESA_Projeto\CSSC\CSSC\bin\Debug\net6.0\SendGrid.dll
+F:\Repos GitHub\ESA_Projeto\CSSC\CSSC\bin\Debug\net6.0\StarkbankEcdsa.dll
