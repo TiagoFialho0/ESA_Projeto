@@ -263,9 +263,22 @@ namespace CSSC.Controllers
                 var csscUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
                 var _destEmail = csscUser.Email;
 
-                
+
+                var marca = serviceModel.ServMarcaVeiculo.ToString();
+                var campoMarca = await _context.ServiceModel.FirstOrDefaultAsync(u => u.ServMarcaVeiculo == marca);
+
+                var modelo = serviceModel.ServModeloVeiculo.ToString();
+                var campoModelo = await _context.ServiceModel.FirstOrDefaultAsync(u => u.ServModeloVeiculo == modelo);
+
+                var matricula = serviceModel.ServMatriculaVeiculo.ToString();
+                var campoMatricula = await _context.ServiceModel.FirstOrDefaultAsync(u => u.ServMarcaVeiculo == matricula);
+
+                var data = serviceModel.ServPrazo;
+                var campoData = await _context.ServiceModel.FirstOrDefaultAsync(u => u.ServPrazo == data);
+
                 string _emailSubject = "Serviço de Reparação Agendado";
-                string _message = "CORPO MAIL";
+                string _message = "Foi agendado um serviço na sua oficina CarShopSolutions.\n\n" +
+                    "Matricula:"+ matricula + "\nVeículo:"+ marca +" "+ modelo +"\nData:" + data;
 
                 //envia um mail de agendamento para o cliente
                 EmailSender emailSender = new EmailSender();
