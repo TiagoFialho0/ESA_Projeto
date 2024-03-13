@@ -26,7 +26,25 @@ namespace CSSC.CSSCServices
         /// await emailSender.SendEmail("Teste de Assunto", "destinatario@example.com", "Este é um teste de mensagem.");
         /// </code>
         /// </example>
-        public async Task SendEmail(string subject, string toEmail , string message)
+        /// 
+
+
+        private readonly ISendGridClient _client;
+        
+
+        public EmailSender()
+        {
+        }
+
+        // Ajuste o construtor para aceitar ISendGridClient como dependência
+        public EmailSender(ISendGridClient client)
+        {
+            _client = client;
+        }
+
+         
+       
+        public async Task<Response> SendEmail(string subject, string toEmail , string message)
         {
             var apiKey = "";
             var client = new SendGridClient(apiKey);
@@ -36,6 +54,11 @@ namespace CSSC.CSSCServices
             var htmlContent = "";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
+
+            return response;
         }
+ 
+
+
     }
 }

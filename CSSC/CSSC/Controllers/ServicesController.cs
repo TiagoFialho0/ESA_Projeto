@@ -281,8 +281,8 @@ namespace CSSC.Controllers
                     "Matricula:"+ matricula + "\nVeículo:"+ marca +" "+ modelo +"\nData:" + data;
 
                 //envia um mail de agendamento para o cliente
-                EmailSender emailSender = new EmailSender();
-                emailSender.SendEmail(_emailSubject,_destEmail,_message).Wait();
+               EmailSender emailSender = new EmailSender();
+                await emailSender.SendEmail(_emailSubject, _destEmail, _message);
 
                 return RedirectToAction(nameof(Index));
             }

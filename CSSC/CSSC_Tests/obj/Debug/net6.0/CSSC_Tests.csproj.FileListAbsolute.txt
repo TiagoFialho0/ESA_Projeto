@@ -1847,3 +1847,5 @@ C:\Users\Erica\Documents\Faculdade\22.23\ATAD\Projeto\ESA_Projeto\CSSC\CSSC_Test
 C:\Users\Erica\Documents\Faculdade\22.23\ATAD\Projeto\ESA_Projeto\CSSC\CSSC_Tests\obj\Debug\net6.0\CSSC_Tests.pdb
 C:\Users\Erica\Documents\Faculdade\22.23\ATAD\Projeto\ESA_Projeto\CSSC\CSSC_Tests\obj\Debug\net6.0\CSSC_Tests.genruntimeconfig.cache
 C:\Users\Erica\Documents\Faculdade\22.23\ATAD\Projeto\ESA_Projeto\CSSC\CSSC_Tests\obj\Debug\net6.0\ref\CSSC_Tests.dll
+C:\Users\Erica\Documents\Faculdade\22.23\ATAD\Projeto\ESA_Projeto\CSSC\CSSC_Tests\bin\Debug\net6.0\SendGrid.dll
+C:\Users\Erica\Documents\Faculdade\22.23\ATAD\Projeto\ESA_Projeto\CSSC\CSSC_Tests\bin\Debug\net6.0\StarkbankEcdsa.dll

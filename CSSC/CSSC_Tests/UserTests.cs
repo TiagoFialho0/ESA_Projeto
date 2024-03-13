@@ -18,7 +18,7 @@ namespace CSSC_Tests
         {
             _context = context.DbContext;
         }
-
+        
         public UserManager<CSSCUser> setUpUserManager()
         {
             var options = new Mock<IOptions<IdentityOptions>>();
