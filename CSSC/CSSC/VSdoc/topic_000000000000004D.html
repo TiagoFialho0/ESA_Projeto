@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; https://www.helixoft.com" />
 	<link rel="icon" href="favicon.ico">
-	<title>ServicesController.AgendarNotifForm Method</title>
+	<title>ServicesController.Edit (Int32, Services) Method</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn2019/toc.css" />
 	<script src="msdn2019/toc.js"></script>
@@ -74,11 +74,11 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
   </div>
 
 <div id="mainBody">
-		<h1 class="title">ServicesController.AgendarNotifForm Method</h1>
+		<h1 class="title">ServicesController.Edit (Int32, Services) Method</h1>
         
 		<div class="metadata">
         Namespace:
-<a href="topic_0000000000000035.html">CSSC.Controllers</a>
+<a href="topic_0000000000000039.html">CSSC.Controllers</a>
 
 
 
@@ -89,6 +89,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 
        
        
+        <summary-info>Processa o pedido de edição de um serviço com base no ID fornecido.</summary-info>
 
 
 
@@ -138,7 +139,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">&lt;HttpPost()&gt; _&nbsp;<br />&lt;ValidateAntiForgeryToken()&gt; _&nbsp;<br />Public Function AgendarNotifForm( _&nbsp;<br />   &lt;Bind(&quot;IdServico,DataInicial,IntervaloDeEnvio,TipoDeNotif&quot;)&gt; _&nbsp;<br />   ByVal <i>notificacao</i> As <a target="_top" href="topic_000000000000005F.html" onclick="this.target='';return true;">Notificacao</a> _&nbsp;<br />) As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1">Task</a>(Of <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a>)</pre>			
+					<pre xml:space="preserve" class="brush: vb">&lt;HttpPost()&gt; _&nbsp;<br />&lt;ValidateAntiForgeryToken()&gt; _&nbsp;<br />Public Function Edit( _&nbsp;<br />   ByVal <i>id</i> As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.int32">Integer</a>, _&nbsp;<br />   &lt;Bind(&quot;IdServico,ServUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServPrazo,EstadoDoServico&quot;)&gt; _&nbsp;<br />   ByVal <i>serviceModel</i> As <a target="_top" href="topic_0000000000000073.html" onclick="this.target='';return true;">Services</a> _&nbsp;<br />) As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1">Task</a>(Of <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a>)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -177,7 +178,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">[HttpPost()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a>&gt; AgendarNotifForm(&nbsp;<br />   [Bind(&quot;IdServico,DataInicial,IntervaloDeEnvio,TipoDeNotif&quot;)]&nbsp;<br />   <a target="_top" href="topic_000000000000005F.html" onclick="this.target='';return true;">Notificacao</a> <i>notificacao</i>&nbsp;<br />)</pre>			
+					<pre xml:space="preserve" class="brush: csharp">[HttpPost()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a>&gt; Edit(&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.int32">int</a> <i>id</i>,&nbsp;<br />   [Bind(&quot;IdServico,ServUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServPrazo,EstadoDoServico&quot;)]&nbsp;<br />   <a target="_top" href="topic_0000000000000073.html" onclick="this.target='';return true;">Services</a> <i>serviceModel</i>&nbsp;<br />)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -217,7 +218,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">[HttpPost()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a>^&gt;^ AgendarNotifForm(&nbsp;<br />   [Bind(&quot;IdServico,DataInicial,IntervaloDeEnvio,TipoDeNotif&quot;)]&nbsp;<br />   <a target="_top" href="topic_000000000000005F.html" onclick="this.target='';return true;">Notificacao</a>^ <i>notificacao</i>&nbsp;<br />) </pre>			
+					<pre xml:space="preserve" class="brush: cpp">[HttpPost()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a>^&gt;^ Edit(&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.int32">int</a> <i>id</i>,&nbsp;<br />   [Bind(&quot;IdServico,ServUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServPrazo,EstadoDoServico&quot;)]&nbsp;<br />   <a target="_top" href="topic_0000000000000073.html" onclick="this.target='';return true;">Services</a>^ <i>serviceModel</i>&nbsp;<br />) </pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -268,18 +269,31 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 
 
 <h4 class="subHeading">
-	Parameters</h4><dl paramName="notificacao" class="parameterList">
+	Parameters</h4><dl paramName="id" class="parameterList">
 	<dt>
 		<span class="parameter">
-			notificacao
+			id
 		</span>
 	</dt>
 	<dd>
-		<a target="_top" href="topic_000000000000005F.html" onclick="this.target='';return true;">Notificacao</a> 
+		<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.int32">int</a> 
 	</dd>
 </dl>
 <p>
-	 
+	O ID do serviço a ser editado. 
+</p>
+<dl paramName="serviceModel" class="parameterList">
+	<dt>
+		<span class="parameter">
+			serviceModel
+		</span>
+	</dt>
+	<dd>
+		<a target="_top" href="topic_0000000000000073.html" onclick="this.target='';return true;">Services</a> 
+	</dd>
+</dl>
+<p>
+	O modelo de serviço com as alterações. 
 </p>
 
 <p />
@@ -287,6 +301,9 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 	<h4 class="subHeading">
 		Return Value</h4>
 	<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a>&gt; 
+		<p>
+		Um IActionResult redirecionando para a página principal se a edição for bem-sucedida, ou a vista de edição com erros se houver problemas de validação ou concorrência. 
+	</p>
 	
 
 
@@ -375,11 +392,11 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 
 	<div id="seeAlsoSection" class="section">	
 		<div>
-			<a href="topic_0000000000000042.html">ServicesController Class</a><br />
+			<a href="topic_0000000000000046.html">ServicesController Class</a><br />
 
 
 
-<a href="topic_0000000000000035.html">CSSC.Controllers Namespace</a><br />
+<a href="topic_0000000000000039.html">CSSC.Controllers Namespace</a><br />
 
 
 			

@@ -1,1 +1,1 @@
-var breadcrumbs=[['-1',"",""],['2',"CSSC Reference","topic_0000000000000073.html"],['107',"CSSC.Models Namespace","topic_000000000000005B.html"],['108',"ErrorViewModel Class","topic_000000000000005C.html"]];
+var breadcrumbs=[['-1',"",""],['2',"CSSC Reference","topic_0000000000000081.html"],['109',"CSSC.Extensions Namespace","topic_000000000000005B.html"],['110',"EnumExtensions Class","topic_000000000000005C.html"]];

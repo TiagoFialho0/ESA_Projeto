@@ -1,1 +1,1 @@
-search_result['105']=["topic_0000000000000035.html","CSSC.Controllers Namespace",""];
+search_result['105']=["topic_0000000000000035.html","CalendarController Class",""];

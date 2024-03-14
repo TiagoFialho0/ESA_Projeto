@@ -1,1 +1,1 @@
-search_result['177']=["topic_0000000000000063.html","Notificacao.IntervaloDeEnvio Property",""];
+search_result['177']=["topic_0000000000000057.html","EmailSender Class","Classe responsável por enviar e-mails utilizando o serviço SendGrid."];
