@@ -24,9 +24,9 @@ public class CalendarController : Controller
 
         if (User.IsInRole("Operador"))
         {
-            var services = _context.ServiceModel
+            var services = await _context.ServiceModel
                 .Include(r => r.csscUser)
-                .ToList();
+                .ToListAsync();
 
             var data = new List<List<Services>>();
             foreach (var month in months)

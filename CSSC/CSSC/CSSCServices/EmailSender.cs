@@ -46,7 +46,7 @@ namespace CSSC.CSSCServices
        
         public async Task<Response> SendEmail(string subject, string toEmail , string message)
         {
-            var apiKey = "";
+            var apiKey = "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";
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("ericaferreiraepm@gmail.com", "CSSC");
             var to = new EmailAddress(toEmail);

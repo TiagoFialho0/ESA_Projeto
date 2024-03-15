@@ -2,8 +2,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CSSC.Areas.Identity.Data;
 using CSSC;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var cultureInfo = new CultureInfo("pt-PT");
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
 var connectionString = builder.Configuration.GetConnectionString("CSSCContextConnection") ?? throw new InvalidOperationException("Connection string 'CSSCContextConnection' not found.");
 
 builder.Services.AddDbContext<CSSCContext>(options =>
@@ -18,6 +24,17 @@ builder.Services.AddRazorPages();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("corsPolicy",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +45,9 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseCors("corsPolicy");
+
 app.UseAuthentication();;
 
 app.UseAuthorization();
