@@ -64,9 +64,9 @@
                         <form style="margin-right: 10px;">
                             <button type="submit" class="btn btn-secondary" asp-action="Delete" asp-route-id="@item.IdServico">Remover</button>
                         </form>
-                        <form style="margin-right: 10px;">
+                        @*<form style="margin-right: 10px;">
                             <button type="submit" class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdServico">Details</button>
-                        </form>
+                        </form>*@
                         <button class="btn btn-secondary toggle-details-btn dropdown-toggle" data-target="#detailsContainer-@item.IdServico" style="background-color: white; color: black;"></button>
                     </td>
 
