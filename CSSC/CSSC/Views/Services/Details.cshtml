@@ -43,6 +43,28 @@
         </dd>
     </dl>
 </div>
+<br />
+<div class="row">
+    <div class="col">
+        Contactar oficina
+        <form>
+            <br />
+            <div class="form-group">
+                @* <label for="subject">Assunto:</label> *@
+                <input type="text" class="form-control" id="subject" placeholder="Assunto">
+            </div>
+            <br />
+            <div class="form-group">
+                @* <label for="description">Descrição:</label> *@
+                <textarea class="form-control" id="description" rows="5" placeholder="Descrição"></textarea>
+            </div>
+            <br />
+            <div class="form-group" align="right">
+                <button type="submit" class="btn btn-primary" style="background-color: #45e745; border-color: #45e745; color:black">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
 <div>
     @*<a asp-action="Edit" asp-route-id="@Model?.IdServico">Edit</a> |*@
     <a href="javascript:history.back()">Voltar</a>
