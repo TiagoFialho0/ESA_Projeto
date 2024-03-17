@@ -1,67 +1,49 @@
 ﻿@model CSSC.Models.Services
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes do serviço";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Details</h1>
 
 <div>
-    <h4>ServiceModel</h4>
     <hr />
+    <br />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ServIdUtilizador)
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.IdServico)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ServIdUtilizador)
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.IdServico)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.ServMarcaVeiculo)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-6">
             @Html.DisplayFor(model => model.ServMarcaVeiculo)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.ServModeloVeiculo)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-6">
             @Html.DisplayFor(model => model.ServModeloVeiculo)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.ServMatriculaVeiculo)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-6">
             @Html.DisplayFor(model => model.ServMatriculaVeiculo)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ServClassificacao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ServClassificacao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ServComentario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ServComentario)
-        </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.ServPrazo)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-6">
             @Html.DisplayFor(model => model.ServPrazo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EstadoDoServico)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EstadoDoServico)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdServico">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    @*<a asp-action="Edit" asp-route-id="@Model?.IdServico">Edit</a> |*@
+    <a href="javascript:history.back()">Voltar</a>
 </div>
