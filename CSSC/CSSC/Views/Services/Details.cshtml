@@ -51,16 +51,16 @@
 <div class="row">
     <div class="col">
         Contactar oficina
-        <form>
+        <form method="post" asp-action="ContactOficina">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="idServico" value="@Model.IdServico" />
             <br />
             <div class="form-group">
-                @* <label for="subject">Assunto:</label> *@
-                <input type="text" class="form-control" id="subject" placeholder="Assunto">
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Assunto" required="">
             </div>
             <br />
             <div class="form-group">
-                @* <label for="description">Descrição:</label> *@
-                <textarea class="form-control" id="description" rows="5" placeholder="Descrição"></textarea>
+                <textarea class="form-control" id="description" name="description" rows="5" placeholder="Descrição" required=""></textarea>
             </div>
             <br />
             <div class="form-group" align="right">

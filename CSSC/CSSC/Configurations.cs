@@ -20,7 +20,7 @@ namespace CSSC
                 UtDataDeNascimento = "18/05/1992",
                 UtMorada = "Rua Teste",
                 UtNIF = 123456789,
-                UserName = "operador@gmail.com",
+                UserName = "Operador",
                 Email = "operador@gmail.com"
             };
             var _user = await userManager.FindByEmailAsync(manager.Email);

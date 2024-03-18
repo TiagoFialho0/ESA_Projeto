@@ -137,7 +137,7 @@ namespace CSSC.Controllers
         /// <returns>Um IActionResult redirecionando para a página principal se a edição for bem-sucedida, ou a vista de edição com erros se houver problemas de validação ou concorrência.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdServico,ServUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServPrazo,EstadoDoServico")] Services serviceModel)
+        public async Task<IActionResult> Edit(int id, [Bind("ServUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServPrazo")] Services serviceModel)
         {
             if (id != serviceModel.IdServico)
             {
@@ -287,25 +287,6 @@ namespace CSSC.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(notificacao);
-            //if (id == null || _context.ServiceModel == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //var serviceModel = await _context.ServiceModel
-            //    .FirstOrDefaultAsync(m => m.IdServico == id);
-
-            //var notificacaoModel = new CSSC.Models.Notificacao
-            //{
-            //    IdServico = serviceModel.IdServico
-
-            //};
-            //if (serviceModel == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //return View(notificacaoModel);
         }
 
         /// <summary>
@@ -345,6 +326,29 @@ namespace CSSC.Controllers
                 {
                     throw;
                 }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ContactOficina(string idServico, string subject, string description)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var serviceModel = await _context.ServiceModel
+                    .FirstOrDefaultAsync(m => m.IdServico == int.Parse(idServico));
+
+                var userId = serviceModel.ServIdUtilizador.ToString();
+                var csscUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+                var fromUserEmail = csscUser.Email;
+
+                //envia um mail de agendamento para o cliente
+                EmailSender emailSender = new EmailSender();
+                var responseEmail = await emailSender.SendEmailToOficina(subject, fromUserEmail, description);
+
+                return RedirectToAction(nameof(Index));
             }
             return RedirectToAction(nameof(Index));
         }

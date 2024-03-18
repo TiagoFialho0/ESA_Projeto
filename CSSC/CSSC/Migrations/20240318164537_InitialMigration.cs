@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CSSC.Migrations
 {
-    public partial class migration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -209,17 +209,17 @@ namespace CSSC.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "UtDataDeNascimento", "UtMorada", "UtNIF" },
-                values: new object[] { "1", 0, "9b51c051-2b00-4f90-bce7-8eb01d14c645", null, false, false, null, null, null, null, null, false, "00e533f5-7098-4f58-a611-5756181f866f", false, null, "01/01/1970", "Rua teste", 123456789 });
+                values: new object[] { "1", 0, "2f899721-2f9e-48da-a996-13fb19c8b157", null, false, false, null, null, null, null, null, false, "84245789-cf37-414a-800e-6ee9ce8d55e3", false, null, "01/01/1970", "Rua teste", 123456789 });
 
             migrationBuilder.InsertData(
                 table: "ServiceModel",
                 columns: new[] { "IdServico", "EstadoDoServico", "ServClassificacao", "ServComentario", "ServIdOperador", "ServIdUtilizador", "ServMarcaVeiculo", "ServMatriculaVeiculo", "ServModeloVeiculo", "ServPrazo", "csscOperadorId", "csscUserId" },
                 values: new object[,]
                 {
-                    { 500, "Em espera", null, null, null, new Guid("525c1fd5-94b8-4a3b-8359-001e5558dcc4"), "Fiat", "AA-00-BB", "Punto", new DateTime(2029, 3, 14, 0, 0, 0, 0, DateTimeKind.Local), null, null },
-                    { 510, "Em reparação", null, null, null, new Guid("f3f33567-0c94-4507-bccc-86c2d8cd3bef"), "Seat", "BB-11-CC", "Ibiza", new DateTime(2028, 3, 14, 0, 0, 0, 0, DateTimeKind.Local), null, null },
-                    { 520, "Pronto para entrega", null, null, null, new Guid("1db5b072-517b-498b-ace2-b57935c41eee"), "Ford", "CC-22-DD", "Fiesta", new DateTime(2027, 3, 14, 0, 0, 0, 0, DateTimeKind.Local), null, null },
-                    { 530, "Reparação Concluida", null, null, null, new Guid("c43a9063-4b1c-4941-9556-67ae70afa4ea"), "Ferrari", "DD-33-EE", "F40", new DateTime(2026, 3, 14, 0, 0, 0, 0, DateTimeKind.Local), null, null }
+                    { 500, "Em espera", null, null, null, new Guid("d1cb7ecd-314a-4c9b-b183-0d6577173147"), "Fiat", "AA-00-BB", "Punto", new DateTime(2029, 3, 18, 0, 0, 0, 0, DateTimeKind.Local), null, null },
+                    { 510, "Em reparação", null, null, null, new Guid("0ce4ba10-9e56-4491-bc7e-1bcaef601cda"), "Seat", "BB-11-CC", "Ibiza", new DateTime(2028, 3, 18, 0, 0, 0, 0, DateTimeKind.Local), null, null },
+                    { 520, "Pronto para entrega", null, null, null, new Guid("a1fe2489-3cae-49c2-b622-4e6c29d3f767"), "Ford", "CC-22-DD", "Fiesta", new DateTime(2027, 3, 18, 0, 0, 0, 0, DateTimeKind.Local), null, null },
+                    { 530, "Reparação Concluida", null, null, null, new Guid("77466463-63f9-4a72-a51a-3650b7933cd2"), "Ferrari", "DD-33-EE", "F40", new DateTime(2026, 3, 18, 0, 0, 0, 0, DateTimeKind.Local), null, null }
                 });
 
             migrationBuilder.CreateIndex(
