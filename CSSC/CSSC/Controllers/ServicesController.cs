@@ -137,7 +137,7 @@ namespace CSSC.Controllers
         /// <returns>Um IActionResult redirecionando para a página principal se a edição for bem-sucedida, ou a vista de edição com erros se houver problemas de validação ou concorrência.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ServUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServPrazo")] Services serviceModel)
+        public async Task<IActionResult> Edit(int id, [Bind("IdServico,ServUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServPrazo")] Services serviceModel)
         {
             if (id != serviceModel.IdServico)
             {
