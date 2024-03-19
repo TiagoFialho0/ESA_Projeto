@@ -50,31 +50,29 @@
 <style>
     .container {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-evenly;
+        align-items: flex-start;
         margin: 0 auto;
-        max-width: 600px;
+        max-width: 88%;
     }
 
     .option {
+        text-align: center;
+    }
+
+    .circle {
         background-color: #f2f2f2;
         border: 1px solid #ddd;
         border-radius: 50%;
-        font-size: 14px;
         height: 80px;
-        margin: 10px 0;
-        position: relative;
-        text-align: center;
         width: 80px;
+        margin-bottom: 10px; /* Add space between circles */
     }
 
-        .option span {
-            position: absolute;
-            bottom: -40%; /* Move the text below the circle */
-            left: 50%;
-            transform: translateX(-50%); /* Only shift horizontally */
-            margin-top: 100px; /* Add some space between the circle and the text */
-        }
+    .text {
+        font-size: 14px;
+    }
+
 </style>
 
 
@@ -121,13 +119,34 @@
     <button type="submit" class="btn btn-secondary" style="background-color: #45e745; border-color: #45e745; color:black">Classificar Serviço</button>
 </div>
 <div class="container">
-    <div class="option">Em Espera</div>
-    <div class="option">Em Reparação</div>
-    <div class="option">Reparação Concluida</div>
-    <div class="option">Pronto para Entrega</div>
-    <div class="option">Entregue</div>
-    <div class="option">Cancelado</div>
+    <div class="option">
+        <div class="circle"></div>
+        <div class="text">Em Espera</div>
+    </div>
+    <div class="option">
+        <div class="circle"></div>
+        <div class="text">Em Reparação</div>
+    </div>
+    <div class="option">
+        <div class="circle"></div>
+        <div class="text">Reparação Concluida</div>
+    </div>
+    <div class="option">
+        <div class="circle"></div>
+        <div class="text">Pronto para Entrega</div>
+    </div>
+    <div class="option">
+        <div class="circle"></div>
+        <div class="text">Entregue</div>
+    </div>
+    <div class="option">
+        <div class="circle"></div>
+        <div class="text">Cancelado</div>
+    </div>
 </div>
+
+
+
 <br />
 <br />
 <div class="row">
