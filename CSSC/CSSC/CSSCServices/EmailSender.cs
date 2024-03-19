@@ -2,7 +2,7 @@
 using SendGrid.Helpers.Mail;
 using System.Drawing;
 
-namespace CSSC.CSSCServices
+namespace CSSC.CSSCServices 
 {
     /// <summary>
     /// Classe responsável por enviar e-mails utilizando o serviço SendGrid.
