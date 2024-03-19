@@ -1,52 +1,11 @@
 ﻿@model CSSC.Models.Services
+@using CSSC.Controllers
 
 @{
     ViewData["Title"] = "Detalhes do serviço";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    
-@* 
-<style>  
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        margin: 0 auto;
-        max-width: 600px;
-    }
-
-    .option {
-        background-color: #f2f2f2;
-        border: 1px solid #ddd;
-        border-radius: 50%;
-        font-size: 14px;
-        height: 80px;
-        line-height: 80px;
-        margin: 10px 0;
-        position: relative;
-        text-align: center;
-        width: 80px;
-    }
-
-        .option:before {
-            content: "";
-            display: block;
-            background-color: #f2f2f2;
-            border: 1px solid #ddd;
-            border-radius: 50%;
-            height: 80px;
-            width: 80px;
-            line-height: 80px; 
-        }
-
-        .option span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-</style> *@
 <style>
     .container {
         display: flex;
@@ -58,10 +17,12 @@
 
     .option {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Align circles in the center vertically */
     }
 
     .circle {
-        background-color: #f2f2f2;
         border: 1px solid #ddd;
         border-radius: 50%;
         height: 80px;
@@ -73,79 +34,81 @@
         font-size: 14px;
     }
 
+    /* CSS para círculo verde */
+    .circle.green {
+        background-color: #45e745; /* Cor verde */
+    }
 </style>
 
-
-
-<h1>Details</h1>
+<h1>Detalhes</h1>
 
 <div>
     <hr />
     <br />
     <dl class="row">
-        <dt class = "col-sm-4">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.IdServico)
         </dt>
-        <dd class = "col-sm-6">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.IdServico)
         </dd>
-        <dt class = "col-sm-4">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.ServMarcaVeiculo)
         </dt>
-        <dd class = "col-sm-6">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.ServMarcaVeiculo)
         </dd>
-        <dt class = "col-sm-4">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.ServModeloVeiculo)
         </dt>
-        <dd class = "col-sm-6">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.ServModeloVeiculo)
         </dd>
-        <dt class = "col-sm-4">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.ServMatriculaVeiculo)
         </dt>
-        <dd class = "col-sm-6">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.ServMatriculaVeiculo)
         </dd>
-        <dt class = "col-sm-4">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.ServPrazo)
         </dt>
-        <dd class = "col-sm-6">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.ServPrazo)
         </dd>
     </dl>
 </div>
+
 <div align="right">
     <button type="submit" class="btn btn-secondary" style="background-color: #45e745; border-color: #45e745; color:black">Classificar Serviço</button>
 </div>
+
 <div class="container">
     <div class="option">
-        <div class="circle"></div>
+        <div class="circle @GetCircleClass(EstadoDoServico.Espera)"></div>
         <div class="text">Em Espera</div>
     </div>
     <div class="option">
-        <div class="circle"></div>
+        <div class="circle @GetCircleClass(EstadoDoServico.EmReparacao)"></div>
         <div class="text">Em Reparação</div>
     </div>
     <div class="option">
-        <div class="circle"></div>
+        <div class="circle @GetCircleClass(EstadoDoServico.ReparacaoConcluida)"></div>
         <div class="text">Reparação Concluida</div>
     </div>
     <div class="option">
-        <div class="circle"></div>
+        <div class="circle @GetCircleClass(EstadoDoServico.ProntoParaEntrega)"></div>
         <div class="text">Pronto para Entrega</div>
     </div>
     <div class="option">
-        <div class="circle"></div>
+        <div class="circle @GetCircleClass(EstadoDoServico.Entregue)"></div>
         <div class="text">Entregue</div>
     </div>
     <div class="option">
-        <div class="circle"></div>
+        <div class="circle @GetCircleClass(EstadoDoServico.Cancelado)"></div>
         <div class="text">Cancelado</div>
     </div>
 </div>
-
-
 
 <br />
 <br />
@@ -174,3 +137,11 @@
     @*<a asp-action="Edit" asp-route-id="@Model?.IdServico">Edit</a> |*@
     <a href="javascript:history.back()">Voltar</a>
 </div>
+
+
+@functions {
+    string GetCircleClass(EstadoDoServico estado)
+    {
+        return estado.ToString() == Model.EstadoDoServico ? "green" : "";
+    }
+}

@@ -2,7 +2,7 @@
 using SendGrid.Helpers.Mail;
 using System.Drawing;
 
-namespace CSSC.CSSCServices 
+namespace CSSC.CSSCServices
 {
     /// <summary>
     /// Classe responsável por enviar e-mails utilizando o serviço SendGrid.
@@ -48,7 +48,7 @@ namespace CSSC.CSSCServices
         {
             var apiKey = "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";
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("ericaferreiraepm@gmail.com", "CSSC");
+            var from = new EmailAddress("cssc.esa@gmail.com", "CSSC");
             var to = new EmailAddress(toEmail);
             var plainTextContent = message;
             var htmlContent = "";
@@ -57,8 +57,20 @@ namespace CSSC.CSSCServices
 
             return response;
         }
- 
 
+        public async Task<Response> SendEmailToOficina(string subject, string fromEmail, string message)
+        {
+            var apiKey = "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";
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress(fromEmail);
+            var to = new EmailAddress("cssc.esa@gmail.com", "CSSC");
+            var plainTextContent = message;
+            var htmlContent = "";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
+
+            return response;
+        }
 
     }
 }
