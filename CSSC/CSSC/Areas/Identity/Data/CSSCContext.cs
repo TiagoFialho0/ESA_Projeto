@@ -17,11 +17,12 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        
 
         builder.Entity<CSSCUser>().HasData(
             new CSSCUser
             {
-                Id = "asfknwdg-cdfn-dasd-lsdf-dasdasiclxcc",
+                Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                 UtDataDeNascimento = "01/01/1970",
                 UtMorada = "Rua das Laranjas",
                 UtNIF = 123456789
@@ -32,7 +33,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                     new Services
                     {
                         IdServico = 500,
-                        ServIdUtilizador = Guid.Parse("asfknwdg-cdfn-dasd-lsdf-dasdasiclxcc"),
+                        ServIdUtilizador = Guid.Parse("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                         ServMarcaVeiculo = "Fiat",
                         ServModeloVeiculo = "Punto",
                         ServMatriculaVeiculo = "AA-00-BB",
@@ -42,7 +43,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                     new Services
                     {
                         IdServico = 510,
-                        ServIdUtilizador = Guid.Parse("asfknwdg-cdfn-dasd-lsdf-dasdasiclxcc"),
+                        ServIdUtilizador = Guid.Parse("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                         ServMarcaVeiculo = "Seat",
                         ServModeloVeiculo = "Ibiza",
                         ServMatriculaVeiculo = "BB-11-CC",
@@ -52,7 +53,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                     new Services
                     {
                         IdServico = 520,
-                        ServIdUtilizador = Guid.Parse("asfknwdg-cdfn-dasd-lsdf-dasdasiclxcc"),
+                        ServIdUtilizador = Guid.Parse("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                         ServMarcaVeiculo = "Ford",
                         ServModeloVeiculo = "Fiesta",
                         ServMatriculaVeiculo = "CC-22-DD",
@@ -62,7 +63,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                     new Services
                     {
                         IdServico = 530,
-                        ServIdUtilizador = Guid.Parse("asfknwdg-cdfn-dasd-lsdf-dasdasiclxcc"),
+                        ServIdUtilizador = Guid.Parse("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                         ServMarcaVeiculo = "Ferrari",
                         ServModeloVeiculo = "F40",
                         ServMatriculaVeiculo = "DD-33-EE",
