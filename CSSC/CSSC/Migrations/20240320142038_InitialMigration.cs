@@ -209,7 +209,7 @@ namespace CSSC.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "UtDataDeNascimento", "UtMorada", "UtNIF" },
-                values: new object[] { "3e303350-d578-4a3a-abbb-1f9b76454f8e", 0, "e17271cf-b130-479e-8ceb-4f899d088e72", "teste@gmail.com", false, false, null, null, null, null, null, false, "ca675679-c8fa-4b35-a191-f192f9a1acfb", false, null, "01/01/1970", "Rua das Laranjas", 123456789 });
+                values: new object[] { "3e303350-d578-4a3a-abbb-1f9b76454f8e", 0, "7fc1fe30-99ca-4fcc-878a-96ff318915ff", "teste@gmail.com", false, false, null, null, null, null, null, false, "71a4628a-7d8f-4d5a-bb5a-ae1b8b06e86d", false, null, "01/01/1970", "Rua das Laranjas", 123456789 });
 
             migrationBuilder.InsertData(
                 table: "ServiceModel",

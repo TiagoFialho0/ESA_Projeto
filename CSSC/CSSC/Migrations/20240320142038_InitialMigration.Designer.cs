@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSSC.Migrations
 {
     [DbContext(typeof(CSSCContext))]
-    [Migration("20240320025453_InitialMigration")]
+    [Migration("20240320142038_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,12 +106,12 @@ namespace CSSC.Migrations
                         {
                             Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e17271cf-b130-479e-8ceb-4f899d088e72",
+                            ConcurrencyStamp = "7fc1fe30-99ca-4fcc-878a-96ff318915ff",
                             Email = "teste@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ca675679-c8fa-4b35-a191-f192f9a1acfb",
+                            SecurityStamp = "71a4628a-7d8f-4d5a-bb5a-ae1b8b06e86d",
                             TwoFactorEnabled = false,
                             UtDataDeNascimento = "01/01/1970",
                             UtMorada = "Rua das Laranjas",
