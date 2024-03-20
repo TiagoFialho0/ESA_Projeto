@@ -23,6 +23,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
             new CSSCUser
             {
                 Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
+                Email = "teste@gmail.com",
                 UtDataDeNascimento = "01/01/1970",
                 UtMorada = "Rua das Laranjas",
                 UtNIF = 123456789
@@ -37,7 +38,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                         ServMarcaVeiculo = "Fiat",
                         ServModeloVeiculo = "Punto",
                         ServMatriculaVeiculo = "AA-00-BB",
-                        ServPrazo = System.DateTime.Today.AddYears(5),
+                        ServPrazo = System.DateTime.Today.AddMonths(2),
                         EstadoDoServico = "Em espera"
                     },
                     new Services
@@ -47,7 +48,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                         ServMarcaVeiculo = "Seat",
                         ServModeloVeiculo = "Ibiza",
                         ServMatriculaVeiculo = "BB-11-CC",
-                        ServPrazo = System.DateTime.Today.AddYears(4),
+                        ServPrazo = System.DateTime.Today.AddMonths(1),
                         EstadoDoServico = "Em reparação"
                     },
                     new Services
@@ -57,7 +58,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                         ServMarcaVeiculo = "Ford",
                         ServModeloVeiculo = "Fiesta",
                         ServMatriculaVeiculo = "CC-22-DD",
-                        ServPrazo = System.DateTime.Today.AddYears(3),
+                        ServPrazo = System.DateTime.Today.AddMonths(4),
                         EstadoDoServico = "Pronto para entrega"
                     },
                     new Services
@@ -67,7 +68,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                         ServMarcaVeiculo = "Ferrari",
                         ServModeloVeiculo = "F40",
                         ServMatriculaVeiculo = "DD-33-EE",
-                        ServPrazo = System.DateTime.Today.AddYears(2),
+                        ServPrazo = System.DateTime.Today.AddMonths(1),
                         EstadoDoServico = "Reparação Concluida"
                     }
                 );

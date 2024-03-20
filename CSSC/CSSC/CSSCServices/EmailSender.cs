@@ -48,7 +48,7 @@ namespace CSSC.CSSCServices
         {
             var apiKey = "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";
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("tiagofialho2002@gmail.com", "CSSC");
+            var from = new EmailAddress("cssc.esa@gmail.com", "CSSC");
             var to = new EmailAddress(toEmail);
             var plainTextContent = message;
             var htmlContent = "";
