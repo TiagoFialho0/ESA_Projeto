@@ -6,12 +6,12 @@
 }
 
 
-@* @if (User.IsInRole("Operador"))
+@if (User.IsInRole("Operador"))
 {
     <p>
         <a asp-action="Create">Create New</a>
     </p>
-} *@
+} 
 <table class="table">
     <thead>
         <tr>

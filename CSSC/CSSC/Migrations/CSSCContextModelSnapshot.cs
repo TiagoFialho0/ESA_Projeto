@@ -104,11 +104,11 @@ namespace CSSC.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e0988456-3cfe-4998-8237-4f885525a22f",
+                            ConcurrencyStamp = "dcf303bd-6ac3-414a-85ae-937d8bf9aa48",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b1757440-25ae-4f8b-ae67-b08e2881caf1",
+                            SecurityStamp = "145b1177-346a-4b60-bc50-99b90166989e",
                             TwoFactorEnabled = false,
                             UtDataDeNascimento = "01/01/1970",
                             UtMorada = "Rua teste",
@@ -195,41 +195,41 @@ namespace CSSC.Migrations
                         {
                             IdServico = 500,
                             EstadoDoServico = "Em espera",
-                            ServIdUtilizador = new Guid("687c47ed-8f3a-40f1-b196-b0dcd01573f7"),
+                            ServIdUtilizador = new Guid("188b06e0-cd86-4cbe-be11-08f76772ae0b"),
                             ServMarcaVeiculo = "Fiat",
                             ServMatriculaVeiculo = "AA-00-BB",
                             ServModeloVeiculo = "Punto",
-                            ServPrazo = new DateTime(2029, 3, 19, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2029, 3, 20, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             IdServico = 510,
                             EstadoDoServico = "Em reparação",
-                            ServIdUtilizador = new Guid("24349f7f-5406-4df0-a3d5-327cdf3a10d5"),
+                            ServIdUtilizador = new Guid("b087d140-d9f0-4647-b071-6d69a15bab60"),
                             ServMarcaVeiculo = "Seat",
                             ServMatriculaVeiculo = "BB-11-CC",
                             ServModeloVeiculo = "Ibiza",
-                            ServPrazo = new DateTime(2028, 3, 19, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2028, 3, 20, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             IdServico = 520,
                             EstadoDoServico = "Pronto para entrega",
-                            ServIdUtilizador = new Guid("4caa603a-9693-45e0-9523-e19b5bc0388d"),
+                            ServIdUtilizador = new Guid("299307f9-edfc-4e54-8d67-07a9f415d142"),
                             ServMarcaVeiculo = "Ford",
                             ServMatriculaVeiculo = "CC-22-DD",
                             ServModeloVeiculo = "Fiesta",
-                            ServPrazo = new DateTime(2027, 3, 19, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2027, 3, 20, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             IdServico = 530,
                             EstadoDoServico = "Reparação Concluida",
-                            ServIdUtilizador = new Guid("51708998-de87-4be2-a5d2-355fcd1407f8"),
+                            ServIdUtilizador = new Guid("0de6bf43-8df9-4392-9170-8db60a959452"),
                             ServMarcaVeiculo = "Ferrari",
                             ServMatriculaVeiculo = "DD-33-EE",
                             ServModeloVeiculo = "F40",
-                            ServPrazo = new DateTime(2026, 3, 19, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2026, 3, 20, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 

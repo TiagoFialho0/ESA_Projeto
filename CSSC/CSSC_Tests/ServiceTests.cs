@@ -22,7 +22,7 @@ namespace CSSC_Tests
 
             var service = new EmailSender();
             var subject = "Test Subject";
-            var toEmail = "ericaferreiraepm@gmail.com";
+            var toEmail = "tiagofialho2002@gmail.com";
             var message = "This is a test message.";
 
 
