@@ -46,7 +46,7 @@ namespace CSSC.CSSCServices
 
         public async Task<Response> SendEmail(string subject, string toEmail, string message)
         {
-            var apiKey = "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";
+            var apiKey = "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";
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("cssc.esa@gmail.com", "CSSC");
             var to = new EmailAddress(toEmail);
@@ -58,15 +58,17 @@ namespace CSSC.CSSCServices
             return response;
         }
 
-        public async Task<Response> SendEmailToOficina(string subject, string fromEmail, string message)
+        public async Task<Response> SendEmailToOficina(string subject, string fromEmail, string fromUserName, string message)
         {
-            var apiKey = "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";
+            var apiKey = "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";
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress(fromEmail);
+            from.Name = fromUserName;
+
             var to = new EmailAddress("cssc.esa@gmail.com", "CSSC");
-            var plainTextContent = message;
+            var plainTextContent = "Dados do cliente:\n" + "Nome: " + from.Name + "\nEmail: " + from.Email + "\n\n" + message;
             var htmlContent = "";
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var msg = MailHelper.CreateSingleEmail(to, to, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
 
             return response;

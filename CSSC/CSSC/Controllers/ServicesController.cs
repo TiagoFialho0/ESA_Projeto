@@ -344,14 +344,15 @@ namespace CSSC.Controllers
                 var userId = serviceModel.ServIdUtilizador.ToString();
                 var csscUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
                 var fromUserEmail = csscUser.Email;
+                var fromUserName = csscUser.UserName;
 
                 //envia um mail de agendamento para o cliente
                 EmailSender emailSender = new EmailSender();
-                var responseEmail = await emailSender.SendEmailToOficina(subject, fromUserEmail, description);
+                var responseEmail = await emailSender.SendEmailToOficina(subject, fromUserEmail, fromUserName, description);
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Calendar");
             }
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Calendar");
         }
 
         /// <summary>
