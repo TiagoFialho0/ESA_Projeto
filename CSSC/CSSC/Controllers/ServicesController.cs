@@ -363,5 +363,10 @@ namespace CSSC.Controllers
         {
           return (_context.ServiceModel?.Any(e => e.IdServico == id)).GetValueOrDefault();
         }
+
+        public IActionResult Classificacao()
+        {
+            return View();
+        }
     }
 }
