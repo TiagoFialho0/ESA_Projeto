@@ -2,6 +2,14 @@
 @model CalendarViewModel
 
 <style>
+    body {
+        background-color: #EAEAEA; /* Define a cor de fundo da página */
+    }
+
+    .calendar-container {
+        background-color: #FFFFFF; /* Define a cor de fundo do calendário */
+    }
+
     table {
         border-collapse: collapse;
         width: 100%;
@@ -10,7 +18,7 @@
 
     th, td {
         border: 1px solid #dddddd;
-        text-align: left;
+        text-align: -webkit-center;
         padding: 5px;
     }
 
@@ -18,7 +26,7 @@
         background-color: #f2f2f2;
     }
 
-    tr:hover {
+    td:hover {
         background-color: #f5f5f5;
     }
 
@@ -32,22 +40,27 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .card p {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
+        .card p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
 
-    .card button {
-        background-color: forestgreen;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+        .card button {
+            background-color: #E36D3F;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    .card button:hover {
-                background-color: darkgreen;
+            .card button:hover {
+                background-color: #C95A2E;
+            }
+
+    .card-container {
+        display: flex;
+        justify-content: center;
     }
 
 </style>
@@ -69,10 +82,10 @@
             </div>
         </div>
         <div class="col-md-1">
-            <button type="submit" class="btn btn-primary btn-sm float-end">Pesquisar</button>
+            <button type="submit" class="btn btn-primary btn-sm float-end" style="background-color: #E36D3F; border: 1px solid white;">Pesquisar</button>
         </div>
         <div class="col-md-1">
-            <button type="button" class="btn btn-secondary btn-sm float-end" onclick="window.location.href='@Url.Action("Index", "Calendar")'">Limpar</button>
+            <button type="button" class="btn btn-secondary btn-sm float-end" onclick="window.location.href='@Url.Action("Index", "Calendar")'" style="background-color: #B22222; border: 1px solid white;">Limpar</button>
         </div>
         @if (TempData["IncompleteDates"] != null && (bool)TempData["IncompleteDates"])
         {
@@ -82,27 +95,27 @@
         }
 
         @section scripts {
-            <script>
-                $(document).ready(function () {
-                    $("#StartDate, #EndDate").on("change", function () {
-                        var startDate = $("#StartDate").val();
-                        var endDate = $("#EndDate").val();
+        <script>
+            $(document).ready(function () {
+                $("#StartDate, #EndDate").on("change", function () {
+                    var startDate = $("#StartDate").val();
+                    var endDate = $("#EndDate").val();
 
-                        if (startDate && endDate && startDate > endDate) {
-                            alert("Introduza um intervalo válido.");
-                            $("#EndDate").val("");
-                            $("#StartDate").val("");
-                        }
-                    });
-                    $("#StartDateField").on("change", function () {
-                        var startDate = new Date($(this).val());
-                        var oneMonthAfter = new Date(startDate.getFullYear(), startDate.getMonth() + 1, startDate.getDate());
-                        var minEndDate = oneMonthAfter.toISOString().split('T')[0];
-
-                        $("#EndDateField").attr('min', minEndDate);
-                    });
+                    if (startDate && endDate && startDate > endDate) {
+                        alert("Introduza um intervalo válido.");
+                        $("#EndDate").val("");
+                        $("#StartDate").val("");
+                    }
                 });
-            </script>
+                $("#StartDateField").on("change", function () {
+                    var startDate = new Date($(this).val());
+                    var oneMonthAfter = new Date(startDate.getFullYear(), startDate.getMonth() + 1, startDate.getDate());
+                    var minEndDate = oneMonthAfter.toISOString().split('T')[0];
+
+                    $("#EndDateField").attr('min', minEndDate);
+                });
+            });
+        </script>
         }
         <div class="col-md-1" style="padding-left: 30px;">
             <div class="form-check">
@@ -122,7 +135,7 @@
                     bool concluidoChecked = TempData["ConcluidoChecked"] != null ? (bool)TempData["ConcluidoChecked"] : false;
                 }
                 <input class="form-check-input" type="checkbox" id="concluidoCheckbox" name="concluidoCheckbox" value="true" @(concluidoChecked ? "checked" : "")>
-                <input type="hidden" name="concluidoCheckbox" value="false"/>
+                <input type="hidden" name="concluidoCheckbox" value="false" />
                 <label class="form-check-label" for="concluidoCheckbox">
                     Concluído
                 </label>
@@ -130,46 +143,48 @@
         </div>
     </div>
 
-    <table>
-        <tbody>
-        @* Create a header row for months *@
-        <tr>
-            @foreach (var month in Model.Months)
-            {
-                <th>@month</th>
-            }
-        </tr>
+    <div class="calendar-container">
 
-        @* Iterate through services and create rows dynamically based on month *@
-        @foreach (var service in Model.Data.SelectMany(x => x))
-        {
-            <tr>
-                @* Check month of service and create corresponding data cells *@
-                @foreach (var month in Model.Months)
+        <table>
+            <tbody>
+                @* Create a header row for months *@
+                <tr>
+                    @foreach (var month in Model.Months)
+                    {
+                        <th>@month</th>
+                    }
+                </tr>
+
+                @* Iterate through services and create rows dynamically based on month *@
+                @foreach (var service in Model.Data.SelectMany(x => x))
                 {
-                    @if (service.ServPrazo.Month == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month)
-                    {
-                        <td>
-                            <div class="card">
-                                    <button type="submit" asp-controller="Services" asp-action="Details" asp-route-id="@service.IdServico" style="text-align: left;">
-                                        <h5>@service.IdServico</h5>
-                                        <p style="font-size: 15px;"><b>Veiculo</b></p>
-                                        <p>Matricula: @service.ServMatriculaVeiculo</p>
-                                        <p>Marca: @service.ServMarcaVeiculo</p>
-                                        <p>Modelo: @service.ServModeloVeiculo</p>
-                                        <p style="font-size: 15px; text-align: right;"><b>Detalhes</b></p>
-                                    </button>
-
-                            </div>
-                        </td>
-                    }
-                    else
-                    {
-                        <td></td>
-                    }
+                    <tr>
+                        @* Check month of service and create corresponding data cells *@
+                        @foreach (var month in Model.Months)
+                        {
+                            @if (service.ServPrazo.Month == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month)
+                            {
+                                <td>
+                                    <div class="card">
+                                        <button type="submit" asp-controller="Services" asp-action="Details" asp-route-id="@service.IdServico" style="text-align: left;">
+                                            <h5>@service.IdServico</h5>
+                                            <p style="font-size: 15px;"><b>Veiculo</b></p>
+                                            <p>Matricula: @service.ServMatriculaVeiculo</p>
+                                            <p>Marca: @service.ServMarcaVeiculo</p>
+                                            <p>Modelo: @service.ServModeloVeiculo</p>
+                                            <p style="font-size: 15px; text-align: right;"><b>Detalhes</b></p>
+                                        </button>
+                                    </div>
+                                </td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                        }
+                    </tr>
                 }
-            </tr>
-        }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 }

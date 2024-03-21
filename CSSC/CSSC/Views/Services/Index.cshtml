@@ -4,7 +4,11 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    body {
+        background-color: #EAEAEA; /* Define a cor de fundo da página */
+    }
+</style>
 
 @*@if (User.IsInRole("Operador"))
 {
@@ -60,10 +64,10 @@
                 {
                     <td style="display: flex; align-items: center;">
                         <form style="margin-right: 10px;">
-                            <button type="submit" class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.IdServico">Editar</button>
+                            <button type="submit" class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.IdServico" style="background-color: #E36D3F; border: 1px solid white;">Editar</button>
                         </form>
                         <form style="margin-right: 10px;">
-                            <button type="submit" class="btn btn-secondary" asp-action="Delete" asp-route-id="@item.IdServico">Remover</button>
+                            <button type="submit" class="btn btn-secondary" asp-action="Delete" asp-route-id="@item.IdServico" style="background-color: #B22222; border: 1px solid white;">Remover</button>
                         </form>
                         @*<form style="margin-right: 10px;">
                             <button type="submit" class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdServico">Details</button>
@@ -119,8 +123,8 @@
                             }
                         </select>
                         <br />
-                        <button type="submit" class="btn btn-secondary" style="background-color: forestgreen" asp-action="AgendarNotif" asp-route-id="@item.IdServico"> Agendar notificação</button>
-                        <button type="submit" class="btn btn-secondary" style="background-color: forestgreen">Confirmar</button>
+                        <button type="submit" class="btn btn-secondary" style="background-color: #E36D3F; border: 1px solid white;" asp-action="AgendarNotif" asp-route-id="@item.IdServico"> Agendar notificação</button>
+                        <button type="submit" class="btn btn-secondary" style="background-color: #E36D3F; border: 1px solid white;">Confirmar</button>
                     </form>
 
 
