@@ -20,6 +20,7 @@
         display: flex;
         flex-direction: column;
         align-items: center; /* Align circles in the center vertically */
+        font-weight: bold;
     }
 
     .circle {
@@ -28,15 +29,21 @@
         height: 80px;
         width: 80px;
         margin-bottom: 10px; /* Add space between circles */
+        background-color: white;
     }
 
     .text {
         font-size: 14px;
     }
 
+    body {
+        background-color: #EAEAEA; /* Define a cor de fundo da página */
+    }
+
     /* CSS para círculo verde */
-    .circle.green {
-        background-color: #45e745; /* Cor verde */
+    .circle.colored {
+        background-color: #E36D3F; /* Cor verde */
+        border-color: dimgrey;
     }
 </style>
 
@@ -80,7 +87,7 @@
 </div>
 
 <div align="right">
-    <a class="btn btn-secondary" style="background-color: #45e745; border-color: #45e745; color:black" asp-action="Classificacao">Classificar Serviço</a>
+    <a class="btn btn-secondary" style="background-color: #E36D3F; border-color: white;" asp-action="Classificacao">Classificar Serviço</a>
 </div>
 
 <div class="container">
@@ -114,7 +121,7 @@
 <br />
 <div class="row">
     <div class="col">
-        Contactar oficina
+        <strong>Contactar oficina </strong>
         <form method="post" asp-action="ContactOficina">
             @Html.AntiForgeryToken()
             <input type="hidden" name="idServico" value="@Model.IdServico" />
@@ -128,20 +135,20 @@
             </div>
             <br />
             <div class="form-group" align="right">
-                <button type="submit" class="btn btn-primary" style="background-color: #45e745; border-color: #45e745; color:black">Enviar</button>
+                <button type="submit" class="btn btn-primary" style="background-color: #E36D3F; border-color: white;">Enviar</button>
             </div>
         </form>
     </div>
 </div>
 <div>
     @*<a asp-action="Edit" asp-route-id="@Model?.IdServico">Edit</a> |*@
-    <a href="javascript:history.back()">Voltar</a>
+    <a asp-action="Index" class="btn btn-secondary me-auto" style="background-color: #E36D3F; border-color: white;">Voltar</a>
 </div>
 
 
 @functions {
     string GetCircleClass(EstadoDoServico estado)
     {
-        return estado.ToString() == Model.EstadoDoServico ? "green" : "";
+        return estado.ToString() == Model.EstadoDoServico ? "colored" : "";
     }
 }
