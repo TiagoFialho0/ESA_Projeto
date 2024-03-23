@@ -86,9 +86,10 @@ namespace CSSC.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "A {0} tem de ter no minimo {2} caracteres e no máximo {1}.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
+            [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_#^])[A-Za-z\d@$!%*?&_#^]{6,}$", ErrorMessage = "A {0} tem de ter pelo menos uma letra minúscula, uma letra maiúscula, um dígito, um caráter especial (!@#$%^_&*) e ter pelo menos 6 caracteres.")]
             public string Password { get; set; }
 
             /// <summary>
@@ -97,19 +98,21 @@ namespace CSSC.Areas.Identity.Pages.Account
             /// </summary>
             [DataType(DataType.Password)]
             [Display(Name = "Confirmar Password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare("Password", ErrorMessage = "As passwords não são iguais.")]
             public string ConfirmPassword { get; set; }
 
             [DisplayName("Data de Nascimento")]
             public string UtDataDeNascimento { get; set; }
 
             [DisplayName("NIF")]
+            [RegularExpression(@"^\d{9}$", ErrorMessage = "O NIF deve ter exatamente 9 dígitos.")]
             public int UtNIF { get; set; }
 
             [DisplayName("Morada")]
             public string UtMorada { get; set; }
 
             [DisplayName("Número de Telemóvel")]
+            [RegularExpression(@"^9[1236]\d{7}$", ErrorMessage = "Por favor, introduza um número de telemóvel com formato válido. (iniciado por 91, 92, 93 ou 96 e com 9 digitos)")]
             public string PhoneNumber { get; set; }
         }
 
