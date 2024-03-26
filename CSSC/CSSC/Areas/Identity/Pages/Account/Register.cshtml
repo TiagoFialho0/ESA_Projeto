@@ -3,6 +3,17 @@
 @{
     ViewData["Title"] = "Registo";
 }
+<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
 
 <head>
     <!-- Include Font Awesome CSS -->
@@ -15,12 +26,12 @@
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" onsubmit="return validarCampos();">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-floating" style="margin-top: 10px;">
-                    <input asp-for="Input.Email"  class="form-control" autocomplete="username" aria-required="true" />
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
                     <label asp-for="Input.Email"></label>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating" style="margin-top: 10px; position: relative;">
-                    <input asp-for="Input.Password" id="passwordInput"  class="form-control" autocomplete="new-password" aria-required="true" />
+                    <input asp-for="Input.Password" id="passwordInput" class="form-control" autocomplete="new-password" aria-required="true" />
                     <label asp-for="Input.Password"></label>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                     <span id="toggleRegisterPassword" onclick="togglePasswordVisibility('register')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
@@ -69,7 +80,7 @@
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
                 <div class="form-floating" style="margin-top: 10px;">
-                    <input id="nifInput"  asp-for="Input.UtNIF"  class="form-control" aria-required="true" />
+                    <input id="nifInput" asp-for="Input.UtNIF" class="form-control" aria-required="true" type="text" onkeypress="return isNumberKey(event)" />
                     <label asp-for="Input.UtNIF"></label>
                     <span asp-validation-for="Input.UtNIF" class="text-danger"></span>
                 </div>
@@ -79,7 +90,7 @@
                     <span asp-validation-for="Input.UtMorada" class="text-danger"></span>
                 </div>
                 <div class="form-floating" style="margin-top: 10px;">
-                    <input id="dataNascimentoInput" asp-for="Input.UtDataDeNascimento"  class="form-control" type="date" aria-required="true" />
+                    <input id="dataNascimentoInput" asp-for="Input.UtDataDeNascimento" class="form-control" type="date" aria-required="true" />
                     <label asp-for="Input.UtDataDeNascimento"></label>
                     <span asp-validation-for="Input.UtDataDeNascimento" class="text-danger"></span>
                 </div>
@@ -91,20 +102,20 @@
 
                 <div style="width: 20%; margin: 0 auto; text-align: center; margin-top: 30px;">
                     <style>
-                    /* Custom button styles */
-                    #registerSubmit {
-                        background-color: #000; /* Change background color to white */
-                        color: #fff; /* Change text color to black */
-                        font-size: 14px; /* Adjust font size */
-                        padding: 0.5rem 1rem; /* Adjust padding */
-                        border: 1px solid #000; /* Add border */
-                    }
-                </style>
+                        /* Custom button styles */
+                        #registerSubmit {
+                            background-color: #000; /* Change background color to white */
+                            color: #fff; /* Change text color to black */
+                            font-size: 14px; /* Adjust font size */
+                            padding: 0.5rem 1rem; /* Adjust padding */
+                            border: 1px solid #000; /* Add border */
+                        }
+                    </style>
 
                     <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registar</button>
 
                 </div>
-                
+
             </form>
         </div>
     </div>
@@ -113,4 +124,13 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+    </script>
 }
