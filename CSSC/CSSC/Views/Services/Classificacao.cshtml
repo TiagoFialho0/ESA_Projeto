@@ -3,16 +3,86 @@
 *@
 @{
 }
+<style>
+    .rating-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+        .rating-container input[type="radio"] {
+            display: none;
+        }
+
+        .rating-container label {
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            width: 4rem;
+            height: 4rem;
+            margin: 0 2px;
+            cursor: pointer;
+        }
+
+        .rating-container input[type="radio"]:checked + label {
+            background-color: #4caf50;
+            border-color: #4caf50;
+            color: white;
+        }
+
+    .additional-comments {
+        margin-bottom: 10px;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .submit-button-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+</style>
 <h2>Classificação de Serviços</h2>
-<h3>EM MANUTENÇÃO</h3>
 
 <form>
-    <div class="row">
-        <div class="col-sm-2" style="padding-right: 0;">
-            <label for="additionalComments">Comentários adicionais</label>
-        </div>
-        <div class="col-sm-6">
-            <textarea class="form-control" id="additionalComments" rows="5" spellcheck="false"></textarea>
-        </div>
+<div class="rating-form">
+    <p>De 1(Não satisfeito) a 5(Totalmente satisfeito), qual considera o seu nivel de satisfação?</p>
+    <div class="rating-container">
+        <input type="radio" id="rating-1" name="rating" value="1">
+        <label for="rating-1">1</label>
+        <input type="radio" id="rating-2" name="rating" value="2">
+        <label for="rating-2">2</label>
+        <input type="radio" id="rating-3" name="rating" value="3" checked>
+        <label for="rating-3">3</label>
+        <input type="radio" id="rating-4" name="rating" value="4">
+        <label for="rating-4">4</label>
+        <input type="radio" id="rating-5" name="rating" value="5">
+        <label for="rating-5">5</label>
     </div>
+    <div class="additional-comments">
+        <label for="comments">Comentários adicionais:</label><br>
+        <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+    </div>
+    <div class="submit-button-container">
+        <button type="submit">Submeter</button>
+    </div>
+</div>
 </form>
