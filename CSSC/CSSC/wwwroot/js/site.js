@@ -17,6 +17,49 @@ document.addEventListener('DOMContentLoaded', function () {
 //Função que valida os campos nif e data de nascimento do registo de utilizador
 function validarCampos() {
 
+    // Array para armazenar os nomes dos campos vazios
+    var camposVazios = [];
+
+    // Obtém o formulário de registro
+    var form = document.getElementById('registerForm');
+
+    // Mapeia os nomes dos campos para seus DisplayNames
+    var camposDisplayNames = {
+        'Input.Email': 'Email',
+        'Input.Password': 'Password',
+        'Input.ConfirmPassword': 'Confirmar Password',
+        'Input.UtNIF': 'NIF',
+        'Input.UtDataDeNascimento': 'Data de Nascimento',
+        'Input.UtMorada': 'Morada',
+        'Input.PhoneNumber': 'Número de Telemóvel'
+    };
+
+    // Seleciona todos os inputs dentro do formulário
+    var inputs = form.querySelectorAll('input');
+
+    // Verifica cada input
+    inputs.forEach(function (input) {
+        // Verifica se o campo está vazio ou só contém espaços em branco
+        if (input.value.trim() === '') {
+            // Obtém o DisplayName do campo
+            var displayName = camposDisplayNames[input.getAttribute('name')];
+            // Adiciona o DisplayName do campo à lista de campos vazios
+            if (displayName) {
+                camposVazios.push(displayName);
+            } else {
+                // Se o DisplayName não for encontrado, adiciona o nome do campo ao invés disso
+                camposVazios.push(input.getAttribute('name'));
+            }
+        }
+    });
+
+
+    // Se houver campos vazios, exibe um alerta com os nomes desses campos
+    if (camposVazios.length > 0) {
+        alert('Os seguintes campos estão vazios:\n' + camposVazios.join('\n') + '\nPor favor, preencha!');
+        return false; // Impede o envio do formulário
+    }
+
     var nifInput = document.getElementById('nifInput');
     var nifValue = nifInput.value;
 

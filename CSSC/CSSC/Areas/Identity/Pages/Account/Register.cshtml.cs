@@ -78,7 +78,7 @@ namespace CSSC.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [DisplayName("Email")]
             public string Email { get; set; }
 
             /// <summary>
@@ -88,7 +88,7 @@ namespace CSSC.Areas.Identity.Pages.Account
             [Required]
             [StringLength(100, ErrorMessage = "A {0} tem de ter no minimo {2} caracteres e no máximo {1}.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [DisplayName("Password")]
             [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_#^])[A-Za-z\d@$!%*?&_#^]{6,}$", ErrorMessage = "A {0} tem de ter pelo menos uma letra minúscula, uma letra maiúscula, um dígito, um caráter especial (!@#$%^_&*) e ter pelo menos 6 caracteres.")]
             public string Password { get; set; }
 
@@ -97,7 +97,7 @@ namespace CSSC.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirmar Password")]
+            [DisplayName("Confirmar Password")]
             [Compare("Password", ErrorMessage = "As passwords não são iguais.")]
             public string ConfirmPassword { get; set; }
 

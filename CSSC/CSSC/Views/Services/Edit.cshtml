@@ -25,9 +25,9 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdServico" />
-            <div class="form-group">
+            <div class="form-group" hidden>
                 <label asp-for="ServIdUtilizador" class="control-label"></label>
-                <input asp-for="ServIdUtilizador" class="form-control" />
+                <input asp-for="ServIdUtilizador" class="form-control"  />
                 <span asp-validation-for="ServIdUtilizador" class="text-danger"></span>
             </div>
             <div class="form-group">

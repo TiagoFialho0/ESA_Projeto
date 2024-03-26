@@ -15,12 +15,12 @@
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" onsubmit="return validarCampos();">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-floating" style="margin-top: 10px;">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                    <input asp-for="Input.Email"  class="form-control" autocomplete="username" aria-required="true" />
                     <label asp-for="Input.Email"></label>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating" style="margin-top: 10px; position: relative;">
-                    <input asp-for="Input.Password" id="passwordInput" class="form-control" autocomplete="new-password" aria-required="true" />
+                    <input asp-for="Input.Password" id="passwordInput"  class="form-control" autocomplete="new-password" aria-required="true" />
                     <label asp-for="Input.Password"></label>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                     <span id="toggleRegisterPassword" onclick="togglePasswordVisibility('register')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
@@ -69,7 +69,7 @@
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
                 <div class="form-floating" style="margin-top: 10px;">
-                    <input id="nifInput"  asp-for="Input.UtNIF" class="form-control" aria-required="true" />
+                    <input id="nifInput"  asp-for="Input.UtNIF"  class="form-control" aria-required="true" />
                     <label asp-for="Input.UtNIF"></label>
                     <span asp-validation-for="Input.UtNIF" class="text-danger"></span>
                 </div>
@@ -79,7 +79,7 @@
                     <span asp-validation-for="Input.UtMorada" class="text-danger"></span>
                 </div>
                 <div class="form-floating" style="margin-top: 10px;">
-                    <input id="dataNascimentoInput" asp-for="Input.UtDataDeNascimento" class="form-control" type="date" aria-required="true" />
+                    <input id="dataNascimentoInput" asp-for="Input.UtDataDeNascimento"  class="form-control" type="date" aria-required="true" />
                     <label asp-for="Input.UtDataDeNascimento"></label>
                     <span asp-validation-for="Input.UtDataDeNascimento" class="text-danger"></span>
                 </div>

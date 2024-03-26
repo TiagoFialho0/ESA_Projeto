@@ -26,9 +26,10 @@
             <input type="hidden" asp-for="IdServico" />
             <div class="form-group">
                 <label asp-for="IdServico" class="control-label"></label>
-                <input asp-for="IdServico" class="form-control" />
+                <input asp-for="IdServico" class="form-control" readonly />
                 <span asp-validation-for="IdServico" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="DataInicial" class="control-label"></label>
                 <input asp-for="DataInicial" class="form-control" value="" required/>
