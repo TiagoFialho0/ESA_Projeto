@@ -46,7 +46,7 @@ namespace CSSC.CSSCServices
 
         public async Task<Response> SendEmail(string subject, string toEmail, string message)
         {
-            var apiKey = "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";
+            var apiKey = "";
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("cssc.esa@gmail.com", "CSSC");
             var to = new EmailAddress(toEmail);
@@ -60,7 +60,7 @@ namespace CSSC.CSSCServices
 
         public async Task<Response> SendEmailToOficina(string subject, string fromEmail, string fromUserName, string message)
         {
-            var apiKey = "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";
+            var apiKey = "";
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress(fromEmail);
             from.Name = fromUserName;

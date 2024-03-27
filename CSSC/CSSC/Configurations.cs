@@ -19,10 +19,9 @@ namespace CSSC
             {
                 UtDataDeNascimento = "18/05/1992",
                 UtMorada = "Rua Teste",
-                UtNIF = "123456789",
+                UtNIF = 123456789,
                 UserName = "cssc.esa@gmail.com",
-                Email = "cssc.esa@gmail.com",
-                PhoneNumber = "266129129"
+                Email = "cssc.esa@gmail.com"
             };
             var _user = await userManager.FindByEmailAsync(manager.Email);
             var code = await userManager.GenerateEmailConfirmationTokenAsync(manager);

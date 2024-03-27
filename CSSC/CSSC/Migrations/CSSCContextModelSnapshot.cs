@@ -84,9 +84,8 @@ namespace CSSC.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("UtNIF")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UtNIF")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -105,17 +104,17 @@ namespace CSSC.Migrations
                         {
                             Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3fa62064-e696-4b3f-867e-e852c31f0ba9",
+                            ConcurrencyStamp = "0e6975d1-3a3a-4f91-8bc9-3d4f605fdeb6",
                             Email = "tiagofialho2002@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b987b662-7b17-4fe1-9e67-55e9e40f3368",
+                            SecurityStamp = "25d6654f-84ab-409c-82bc-e58acf9dc49c",
                             TwoFactorEnabled = false,
                             UserName = "Tiago",
                             UtDataDeNascimento = "01/01/1970",
                             UtMorada = "Rua das Laranjas",
-                            UtNIF = "123456789"
+                            UtNIF = 123456789
                         });
                 });
 
@@ -208,6 +207,17 @@ namespace CSSC.Migrations
                         new
                         {
                             IdServico = 510,
+                            EstadoDoServico = "Em reparação",
+                            ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
+                            ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
+                            ServMarcaVeiculo = "Seat",
+                            ServMatriculaVeiculo = "BB-11-CC",
+                            ServModeloVeiculo = "Ibiza",
+                            ServPrazo = new DateTime(2024, 4, 27, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            IdServico = 520,
                             EstadoDoServico = "Pronto para entrega",
                             ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
                             ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),

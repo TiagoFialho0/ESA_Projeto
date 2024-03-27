@@ -27,7 +27,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                 UserName = "Tiago",
                 UtDataDeNascimento = "01/01/1970",
                 UtMorada = "Rua das Laranjas",
-                UtNIF = "123456789",
+                UtNIF = 123456789,
             }
             );
 
@@ -46,6 +46,17 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                     new Services
                     {
                         IdServico = 510,
+                        ServIdUtilizador = Guid.Parse("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
+                        ServIdOperador = Guid.Parse("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
+                        ServMarcaVeiculo = "Seat",
+                        ServModeloVeiculo = "Ibiza",
+                        ServMatriculaVeiculo = "BB-11-CC",
+                        ServPrazo = System.DateTime.Today.AddMonths(1),
+                        EstadoDoServico = "Em reparação"
+                    },
+                    new Services
+                    {
+                        IdServico = 520,
                         ServIdUtilizador = Guid.Parse("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                         ServIdOperador = Guid.Parse("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
                         ServMarcaVeiculo = "Ford",

@@ -77,7 +77,7 @@ namespace CSSC_Tests
         {
             // Arrange
             var userManager = setUpUserManager();
-            var bookUsr = new CSSCUser() { UtDataDeNascimento = "01/01/1970", UtMorada = "Lisboa", UtNIF = "123456789"};
+            var bookUsr = new CSSCUser() { UtDataDeNascimento = "01/01/1970", UtMorada = "Lisboa", UtNIF = 123456789 };
 
             // Act
             var result = await userManager.CreateAsync(bookUsr, "T€ste1");
@@ -91,7 +91,7 @@ namespace CSSC_Tests
         {
             // Arrange
             var userManager = setUpUserManager();
-            var bookUsr = new CSSCUser() { UtDataDeNascimento = "01/01/1970", UtMorada = "Lisboa", UtNIF = "123456789"};
+            var bookUsr = new CSSCUser() { UtDataDeNascimento = "01/01/1970", UtMorada = "Lisboa", UtNIF = 123456789 };
 
             // Act
             var result = await userManager.CreateAsync(bookUsr, "teste");
