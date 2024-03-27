@@ -107,6 +107,10 @@ namespace CSSC.Areas.Identity.Pages.Account
             [DisplayName("NIF")]
             [RegularExpression(@"^\d{9}$", ErrorMessage = "O NIF deve ter exatamente 9 dígitos.")]
             public int UtNIF { get; set; }
+            
+            /*Trocar o codigo de cima por este após trocar o nif para string
+             * [DisplayName("NIF")]
+            public string UtNIF { get; set; }*/
 
             [DisplayName("Morada")]
             public string UtMorada { get; set; }
@@ -129,6 +133,36 @@ namespace CSSC.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+
+                var selectedCountry = Request.Form["pais"];
+                if (selectedCountry == "PT")
+                {
+                    // Verifica se o NIF de Portugal é válido
+                    if (!IsValidPortugalNIF(Input.UtNIF.ToString())) //tirar .toString() após alterar campo NIF
+                    {
+                        ModelState.AddModelError("Input.UtNIF", "O NIF de Portugal é inválido.");
+                        return Page();
+                    }
+                }
+                else if (selectedCountry == "ESP")
+                {
+                    // Verifica se o NIF de Espanha é válido
+                    if (!IsValidSpainNIF(Input.UtNIF.ToString())) //tirar .toString() após alterar campo NIF
+                    {
+                        ModelState.AddModelError("Input.UtNIF", "O NIF de Espanha é inválido.");
+                        return Page();
+                    }
+                }
+                else if (selectedCountry == "FR")
+                {
+                    // Verifica se o NIF de França é válido
+                    if (!IsValidFranceNIF(Input.UtNIF.ToString())) //tirar .toString() após alterar campo NIF
+                    {
+                        ModelState.AddModelError("Input.UtNIF", "O NIF de França é inválido.");
+                        return Page();
+                    }
+                }
+
                 var user = CreateUser();
                 user.UtDataDeNascimento = Input.UtDataDeNascimento;
                 user.UtMorada = Input.UtMorada;
@@ -174,6 +208,92 @@ namespace CSSC.Areas.Identity.Pages.Account
 
             // If we got this far, something failed, redisplay form
             return Page();
+        }
+
+        private bool IsValidPortugalNIF(string nif)
+        {
+            String s;
+            char c;
+            int checkDigit;
+
+            nif = nif.Replace(" ", "");
+
+            s = nif;
+
+            if (s.Length == 9)
+            {
+                c = s[0];
+                //Digitos iniciais válidos
+                if (c == '1' || c == '2' || c == '5' || c == '6' || c == '8' || c == '9')
+                {
+                    checkDigit = (c - '0') * 9;
+
+                    for (int i = 2; i <= 8; i++)
+                        checkDigit += (s[i - 1] - '0') * (10 - i);
+
+                    checkDigit = 11 - (checkDigit % 11);
+
+                    if (checkDigit >= 10)
+                        checkDigit = 0;
+
+                    if (checkDigit == (s[8] - '0'))
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool IsValidSpainNIF(string nif)
+        {
+            nif = nif.Replace(" ", "").Replace("-", "");
+            // Verifica se o comprimento é 9 caracteres
+            if (nif.Length != 9)
+                return false;
+
+            // Verifica se o primeiro e o último caracteres não são ambos numéricos
+            if (char.IsDigit(nif[0]) && char.IsDigit(nif[8]))
+                return false;
+
+            // Verifica se o restante dos caracteres são numéricos
+            for (int i = 1; i < 8; i++)
+            {
+                if (!char.IsDigit(nif[i]))
+                    return false;
+            }
+
+            // Se passou por todas as verificações, o NIF é válido
+            return true;
+        }
+
+        private bool IsValidFranceNIF(string nif)
+        {
+            // Lógica de validação do NIF de França
+
+            nif = nif.Replace(" ", "").Replace("-", "");
+
+            // Verificar o comprimento do NIF
+            if (nif.Length == 13)
+            {
+                // Verificar se todos os caracteres são dígitos
+                if (nif.All(char.IsDigit))
+                {
+                    // Este é um NIF válido para pessoa individual
+                    return true;
+                }
+            }
+            else if (nif.Length == 9)
+            {
+                // Verificar se todos os caracteres são dígitos
+                if (nif.All(char.IsDigit))
+                {
+                    // Este é um SIREN válido para pessoa coletiva
+                    return true;
+                }
+            }
+
+            // Caso contrário, o NIF ou SIREN não é válido
+            return false;
         }
 
         private CSSCUser CreateUser()
