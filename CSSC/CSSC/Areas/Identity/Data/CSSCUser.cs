@@ -16,7 +16,7 @@ public class CSSCUser : IdentityUser
    // public string Password { get; set; }
     //[DataType(DataType.Date)]
     public string UtDataDeNascimento {  get; set; }
-    public int UtNIF { get; set; }
+    public string UtNIF { get; set; }
     public string UtMorada {  get; set; }
    // public string UtContactoTelefonico { get; set; }
 

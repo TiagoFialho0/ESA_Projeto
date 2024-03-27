@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSSC.Migrations
 {
     [DbContext(typeof(CSSCContext))]
-    [Migration("20240320154650_InitialMigration")]
+    [Migration("20240326233007_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,13 +106,14 @@ namespace CSSC.Migrations
                         {
                             Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8fcb16b4-1a79-4ae5-9ea7-985ae1727aa7",
+                            ConcurrencyStamp = "9939112f-c7bb-40ea-b62d-1b4353a6d630",
                             Email = "tiagofialho2002@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "be618eec-417b-4212-bd86-f193e70e1bda",
+                            SecurityStamp = "e5eb5685-ca5a-4111-baf2-fa7342cb3f21",
                             TwoFactorEnabled = false,
+                            UserName = "Tiago",
                             UtDataDeNascimento = "01/01/1970",
                             UtMorada = "Rua das Laranjas",
                             UtNIF = 123456789
@@ -198,41 +199,31 @@ namespace CSSC.Migrations
                         {
                             IdServico = 500,
                             EstadoDoServico = "Em espera",
-                            ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
+                            ServIdUtilizador = new Guid("00000000-0000-0000-0000-000000000000"),
                             ServMarcaVeiculo = "Fiat",
                             ServMatriculaVeiculo = "AA-00-BB",
                             ServModeloVeiculo = "Punto",
-                            ServPrazo = new DateTime(2024, 5, 20, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 5, 26, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             IdServico = 510,
-                            EstadoDoServico = "Em reparação",
-                            ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
-                            ServMarcaVeiculo = "Seat",
-                            ServMatriculaVeiculo = "BB-11-CC",
-                            ServModeloVeiculo = "Ibiza",
-                            ServPrazo = new DateTime(2024, 4, 20, 0, 0, 0, 0, DateTimeKind.Local)
-                        },
-                        new
-                        {
-                            IdServico = 520,
                             EstadoDoServico = "Pronto para entrega",
-                            ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
+                            ServIdUtilizador = new Guid("00000000-0000-0000-0000-000000000000"),
                             ServMarcaVeiculo = "Ford",
                             ServMatriculaVeiculo = "CC-22-DD",
                             ServModeloVeiculo = "Fiesta",
-                            ServPrazo = new DateTime(2024, 7, 20, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             IdServico = 530,
                             EstadoDoServico = "Reparação Concluida",
-                            ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
+                            ServIdUtilizador = new Guid("00000000-0000-0000-0000-000000000000"),
                             ServMarcaVeiculo = "Ferrari",
                             ServMatriculaVeiculo = "DD-33-EE",
                             ServModeloVeiculo = "F40",
-                            ServPrazo = new DateTime(2024, 4, 20, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 4, 26, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 
