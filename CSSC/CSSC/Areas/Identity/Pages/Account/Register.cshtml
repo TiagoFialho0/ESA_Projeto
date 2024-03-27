@@ -1,4 +1,4 @@
-﻿@page
+@using CSSC.Controllers
 @model RegisterModel
 @{
     ViewData["Title"] = "Registo";
@@ -75,25 +75,51 @@
                     </li>
                 </ul>
                 <div class="form-floating" style="margin-top: 10px;">
-                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-                    <label asp-for="Input.ConfirmPassword"></label>
-                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.ConfirmPassword"></label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div style="margin-top: 10px;" class="row">
+                <div class="col-sm-3">
+                    <select id="paisSelect" name="Pais" class="form-select" style="min-height: 58px">
+                        @foreach (var pais in Enum.GetValues(typeof(CSSC.Controllers.PaiseNIF)))
+                        {
+                            <option value="@pais">@pais</option>
+                        }
+                    </select>
+
+                    @*<select id="paisSelect" name="Pais" class="form-select" style="min-height: 58px; max-height: 58px">
+                        @foreach (var value in Enum.GetValues(typeof(CSSC.Controllers.PaiseNIF)))
+                        {
+                            var enumValue = (CSSC.Controllers.PaiseNIF)value;
+                            var imagePath = enumValue.GetImagePath();
+
+                            if (imagePath != null)
+                            {
+                                <option value="@enumValue">
+                                <img src="@imagePath" alt="@enumValue" width="20" height="20" />
+                                </option>
+                            }
+                        }
+                    </select>*@
+
                 </div>
-                <div class="form-floating" style="margin-top: 10px;">
-                    <input id="nifInput" asp-for="Input.UtNIF" class="form-control" aria-required="true" type="text" onkeypress="return isNumberKey(event)" />
-                    <label asp-for="Input.UtNIF"></label>
+                <div class="form-floating col-sm-9">
+                    <input asp-for="Input.UtNIF" class="form-control" />
+                    <label asp-for="Input.UtNIF" style="margin-left: 12px;"></label>
                     <span asp-validation-for="Input.UtNIF" class="text-danger"></span>
                 </div>
-                <div class="form-floating" style="margin-top: 10px;">
-                    <input asp-for="Input.UtMorada" class="form-control" aria-required="true" />
-                    <label asp-for="Input.UtMorada"></label>
-                    <span asp-validation-for="Input.UtMorada" class="text-danger"></span>
-                </div>
-                <div class="form-floating" style="margin-top: 10px;">
-                    <input id="dataNascimentoInput" asp-for="Input.UtDataDeNascimento" class="form-control" type="date" aria-required="true" />
-                    <label asp-for="Input.UtDataDeNascimento"></label>
-                    <span asp-validation-for="Input.UtDataDeNascimento" class="text-danger"></span>
-                </div>
+            </div>
+            <div class="form-floating" style="margin-top: 10px;">
+                <input asp-for="Input.UtMorada" class="form-control" aria-required="true" />
+                <label asp-for="Input.UtMorada"></label>
+                <span asp-validation-for="Input.UtMorada" class="text-danger"></span>
+            </div>
+            <div class="form-floating" style="margin-top: 10px;">
+                <input id="dataNascimentoInput" asp-for="Input.UtDataDeNascimento" class="form-control" type="date" aria-required="true" />
+                <label asp-for="Input.UtDataDeNascimento"></label>
+                <span asp-validation-for="Input.UtDataDeNascimento" class="text-danger"></span>
+            </div>
                 <div class="form-floating" style="margin-top: 10px;">
                     <input asp-for="Input.PhoneNumber" class="form-control" aria-required="true" onblur="validarNumeroTlm();" />
                     <label asp-for="Input.PhoneNumber"></label>

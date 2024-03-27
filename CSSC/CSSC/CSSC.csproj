@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Areas\Identity\Pages\Account\Login.cshtml.cs" />
+    <Content Include="Areas\Identity\Pages\Account\Logout.cshtml.cs" />
+    <Content Include="Areas\Identity\Pages\Account\Register.cshtml.cs" />
+    <Content Include="Areas\Identity\Pages\Account\ResetPassword.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\icons8-portugal-96.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.26" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.26" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.26" />
