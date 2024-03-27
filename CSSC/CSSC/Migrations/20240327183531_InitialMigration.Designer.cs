@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSSC.Migrations
 {
     [DbContext(typeof(CSSCContext))]
-    [Migration("20240326164130_InitialMigration")]
+    [Migration("20240327183531_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,8 +86,9 @@ namespace CSSC.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("UtNIF")
-                        .HasColumnType("int");
+                    b.Property<string>("UtNIF")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -106,17 +107,17 @@ namespace CSSC.Migrations
                         {
                             Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9007fab4-a334-460f-8d96-1e57a5b50641",
+                            ConcurrencyStamp = "3fa62064-e696-4b3f-867e-e852c31f0ba9",
                             Email = "tiagofialho2002@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "01025ac5-66ce-4c5b-8467-d8c7f617406c",
+                            SecurityStamp = "b987b662-7b17-4fe1-9e67-55e9e40f3368",
                             TwoFactorEnabled = false,
                             UserName = "Tiago",
                             UtDataDeNascimento = "01/01/1970",
                             UtMorada = "Rua das Laranjas",
-                            UtNIF = 123456789
+                            UtNIF = "123456789"
                         });
                 });
 
@@ -204,29 +205,18 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Fiat",
                             ServMatriculaVeiculo = "AA-00-BB",
                             ServModeloVeiculo = "Punto",
-                            ServPrazo = new DateTime(2024, 5, 26, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 5, 27, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             IdServico = 510,
-                            EstadoDoServico = "Em reparação",
-                            ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
-                            ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
-                            ServMarcaVeiculo = "Seat",
-                            ServMatriculaVeiculo = "BB-11-CC",
-                            ServModeloVeiculo = "Ibiza",
-                            ServPrazo = new DateTime(2024, 4, 26, 0, 0, 0, 0, DateTimeKind.Local)
-                        },
-                        new
-                        {
-                            IdServico = 520,
                             EstadoDoServico = "Pronto para entrega",
                             ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
                             ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                             ServMarcaVeiculo = "Ford",
                             ServMatriculaVeiculo = "CC-22-DD",
                             ServModeloVeiculo = "Fiesta",
-                            ServPrazo = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 7, 27, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -237,7 +227,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Ferrari",
                             ServMatriculaVeiculo = "DD-33-EE",
                             ServModeloVeiculo = "F40",
-                            ServPrazo = new DateTime(2024, 4, 26, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 4, 27, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 
