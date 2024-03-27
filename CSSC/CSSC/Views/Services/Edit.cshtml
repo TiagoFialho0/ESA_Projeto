@@ -5,16 +5,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Editar</h1>
+<style>
+    body {
+        background-color: #EAEAEA; /* Define a cor de fundo da página */
+    }
+
+    th, td {
+        border-color: #808080; /* cor mais escura para os divisores da tabela */
+    }
+
+</style>
+
+<div class="text-center">
+    <h1>Editar</h1>
+</div>
 <hr />
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdServico" />
-            <div class="form-group">
+            <div class="form-group" hidden>
                 <label asp-for="ServIdUtilizador" class="control-label"></label>
-                <input asp-for="ServIdUtilizador" class="form-control" />
+                <input asp-for="ServIdUtilizador" class="form-control"  />
                 <span asp-validation-for="ServIdUtilizador" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -48,16 +61,18 @@
                 <span asp-validation-for="ServPrazo" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="EstadoDoServico" />
-            <div class="form-group">
-                <input type="submit" value="Gravar" class="btn btn-primary" />
+            <div class="form-group" align="center">
+                <input type="submit" value="Gravar" class="btn btn-primary" style="background-color: #E36D3F; border-color: white;" />
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Voltar</a>
+<br />
+<div align="center">
+    <a asp-action="Index" class="btn btn-secondary me-auto" style="background-color: #E36D3F; border-color: white;">Voltar</a>
 </div>
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

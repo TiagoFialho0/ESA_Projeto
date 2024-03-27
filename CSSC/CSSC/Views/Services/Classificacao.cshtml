@@ -1,7 +1,90 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model CSSC.Models.Services
+@using CSSC.Controllers
+
+<style>
+    .rating-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rating-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+        .rating-container input[type="radio"] {
+            display: none;
+        }
+
+        .rating-container label {
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            width: 4rem;
+            height: 4rem;
+            margin: 0 2px;
+            cursor: pointer;
+        }
+
+        .rating-container input[type="radio"]:checked + label {
+            background-color: #E36D3F;
+            border-color: #E36D3F;
+            color: white;
+        }
+
+    .additional-comments {
+        margin-bottom: 10px;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    
+
+    body {
+        background-color: #EAEAEA; /* Define a cor de fundo da página */
+    }
+</style>
+
+
 <h2>Classificação de Serviços</h2>
-<h3>EM MANUTENÇÃO</h3>
+
+
+<form asp-action="Classificacao" method="post">
+    <input type="hidden" name="id" value="@Html.DisplayFor(model => model.IdServico)" />
+<div class="rating-form">
+    <p>De 1(Não satisfeito) a 5(Totalmente satisfeito), qual considera o seu nivel de satisfação?</p>
+    <div class="rating-container">
+        <input type="radio" id="rating-1" name="rating" value="1">
+        <label for="rating-1">1</label>
+        <input type="radio" id="rating-2" name="rating" value="2">
+        <label for="rating-2">2</label>
+        <input type="radio" id="rating-3" name="rating" value="3" checked>
+        <label for="rating-3">3</label>
+        <input type="radio" id="rating-4" name="rating" value="4">
+        <label for="rating-4">4</label>
+        <input type="radio" id="rating-5" name="rating" value="5">
+        <label for="rating-5">5</label>
+    </div>
+    <div class="additional-comments">
+        <label for="comments">Comentários adicionais:</label><br>
+        <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+    </div>
+    <div>
+            <button type="submit" style="background-color: #E36D3F; border: 1px solid white; color:white;">Submeter</button>
+    </div>
+</div>
+</form>
+<script>
+    // Verificar se o envio foi bem-sucedido
+    if (@TempData["Success"] != null && (bool)TempData["Success"]) {
+        alert("Dados submetidos com sucesso!");
+    }
+</script>
+

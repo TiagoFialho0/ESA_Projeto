@@ -3,6 +3,15 @@
     ViewData["Title"] = "AgendarNotif";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .row {
+        justify-content: center;
+    }
+
+    body {
+        background-color: #EAEAEA; /* Define a cor de fundo da página */
+    }
+</style>
 
 <div class="text-center">
     <h1>Agendar Notificação</h1>
@@ -17,9 +26,10 @@
             <input type="hidden" asp-for="IdServico" />
             <div class="form-group">
                 <label asp-for="IdServico" class="control-label"></label>
-                <input asp-for="IdServico" class="form-control" />
+                <input asp-for="IdServico" class="form-control" readonly />
                 <span asp-validation-for="IdServico" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="DataInicial" class="control-label"></label>
                 <input asp-for="DataInicial" class="form-control" value="" required/>
@@ -46,18 +56,13 @@
             </div>
             <br />
             <div class="form-group" align="center">
-                <input type="submit" value="Gravar" class="btn btn-primary" />
+                <input type="submit" value="Gravar" class="btn btn-primary" style="background-color: #E36D3F; border-color: white;" />
             </div>
         </form>
     </div>
 </div>
 <br />
 <div align="center">
-    <a asp-action="Index">Voltar</a>
+    <a asp-action="Index" class="btn btn-secondary me-auto" style="background-color: #E36D3F; border-color: white;">Voltar</a>
 </div>
 
-<style>
-    .row{
-        justify-content: center;
-    }
-</style>

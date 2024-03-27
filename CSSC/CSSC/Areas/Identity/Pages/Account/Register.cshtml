@@ -1,26 +1,79 @@
-﻿@page
 @using CSSC.Controllers
 @model RegisterModel
 @{
     ViewData["Title"] = "Registo";
 }
-<div class="text-center">
-<h1>@ViewData["Title"]</h1>
+<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
-<div class="row">
-    <div style="width: 50%; margin: 0 auto; text-align: center;">
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
+
+<head>
+    <!-- Include Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <div class="row">
+        <div style="width: 50%; margin: 0 auto; text-align: center;">
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" onsubmit="return validarCampos();">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-floating" style="margin-top: 10px;">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Input.Email"></label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-floating" style="margin-top: 10px;">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.Password"></label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                    <label asp-for="Input.Email"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating" style="margin-top: 10px; position: relative;">
+                    <input asp-for="Input.Password" id="passwordInput" class="form-control" autocomplete="new-password" aria-required="true" />
+                    <label asp-for="Input.Password"></label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    <span id="toggleRegisterPassword" onclick="togglePasswordVisibility('register')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                        <i id="registerPasswordIcon" class="fas fa-eye"></i>
+                    </span>
+                </div>
+                <div id="passwordStrength" class="progress mt-2" style="height: 10px;">
+                    <div id="strengthBar" class="progress-bar bg-danger" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p>A tua palavra-passe deve ter:</p>
+                <ul class="list-unstyled">
+                    <li class="eight-character">
+                        <span>
+                            <i class="fas fa-circle" aria-hidden="true"></i>
+                            &nbsp;Pelo menos, 6 caracteres
+                        </span>
+                    </li>
+                    <li class="upper-case">
+                        <span>
+                            <i class="fas fa-circle" aria-hidden="true"></i>
+                            &nbsp;Letras maiúsculas
+                        </span>
+                    </li>
+                    <li class="low-case">
+                        <span>
+                            <i class="fas fa-circle" aria-hidden="true"></i>
+                            &nbsp;Letras minúsculas
+                        </span>
+                    </li>
+                    <li class="one-number">
+                        <span>
+                            <i class="fas fa-circle" aria-hidden="true"></i>
+                            &nbsp;Números (0-9)
+                        </span>
+                    </li>
+                    <li class="one-special-char">
+                        <span>
+                            <i class="fas fa-circle" aria-hidden="true"></i>
+                            &nbsp;Caracteres especiais @Html.Raw("(!@#$%^_&*)")
+                        </span>
+                    </li>
+                </ul>
                 <div class="form-floating" style="margin-top: 10px;">
                 <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
                 <label asp-for="Input.ConfirmPassword"></label>
@@ -68,7 +121,7 @@
                 <span asp-validation-for="Input.UtDataDeNascimento" class="text-danger"></span>
             </div>
                 <div class="form-floating" style="margin-top: 10px;">
-                    <input asp-for="Input.PhoneNumber" class="form-control" aria-required="true" />
+                    <input asp-for="Input.PhoneNumber" class="form-control" aria-required="true" onblur="validarNumeroTlm();" />
                     <label asp-for="Input.PhoneNumber"></label>
                     <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                 </div>
@@ -88,12 +141,22 @@
                     <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registar</button>
 
                 </div>
-                
-        </form>
-    </div>
+
+            </form>
+        </div>
     </div>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+    </script>
 }

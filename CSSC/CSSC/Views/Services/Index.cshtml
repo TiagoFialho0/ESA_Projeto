@@ -4,7 +4,16 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    body {
+        background-color: #EAEAEA; /* Define a cor de fundo da página */
+    }
 
+    th, td {
+        border-color: #808080; /* cor mais escura para os divisores da tabela */
+    }
+    
+</style>
 
 @*@if (User.IsInRole("Operador"))
 {
@@ -15,7 +24,7 @@
 
 <table class="table">
     <thead>
-        <tr>
+        <tr >
             <th>
                 @Html.DisplayNameFor(model => model.IdServico)
             </th>
@@ -60,10 +69,10 @@
                 {
                     <td style="display: flex; align-items: center;">
                         <form style="margin-right: 10px;">
-                            <button type="submit" class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.IdServico">Editar</button>
+                            <button type="submit" class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.IdServico" style="background-color: #E36D3F; border: 1px solid white;">Editar</button>
                         </form>
                         <form style="margin-right: 10px;">
-                            <button type="submit" class="btn btn-secondary" asp-action="Delete" asp-route-id="@item.IdServico">Remover</button>
+                            <button type="submit" class="btn btn-secondary" asp-action="Delete" asp-route-id="@item.IdServico" style="background-color: #B22222; border: 1px solid white;">Remover</button>
                         </form>
                         @*<form style="margin-right: 10px;">
                             <button type="submit" class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdServico">Details</button>
@@ -102,9 +111,9 @@
                     </div>
                 </td>
                 <td>
-                    <form asp-action="AtualizarEstado" method="post">
+                    <form asp-action="AtualizarEstado" method="post" style="display: flex; align-items: center;">
                         <input type="hidden" name="id" value="@item.IdServico" />
-                        <select name="EstadoDoServico" class="form-select">
+                        <select name="EstadoDoServico" class="form-select" style="margin-right: 10px;">
                             <option disabled hidden value="">Selecione o Estado do Serviço</option>
                             @foreach (var estadoServico in Enum.GetValues(typeof(CSSC.Controllers.EstadoDoServico)))
                             {
@@ -118,12 +127,14 @@
                                 }
                             }
                         </select>
-                        <br />
-                        <button type="submit" class="btn btn-secondary" style="background-color: forestgreen" asp-action="AgendarNotif" asp-route-id="@item.IdServico"> Agendar notificação</button>
-                        <button type="submit" class="btn btn-secondary" style="background-color: forestgreen">Confirmar</button>
+                        <button type="submit" class="btn btn-secondary ml-auto" style="background-color: #E36D3F; border: 1px solid white; text-shadow: 1px 1px 2px black;">Confirmar</button>
                     </form>
-
-
+                    <div style="margin-top: 10px;">
+                        <form asp-action="AgendarNotif" method="post">
+                            <input type="hidden" name="id" value="@item.IdServico" />
+                            <button type="submit" class="btn btn-secondary" style="background-color: #E36D3F; border: 1px solid white;">Agendar notificação</button>
+                        </form>
+                    </div>
                 </td>
             </tr>
 

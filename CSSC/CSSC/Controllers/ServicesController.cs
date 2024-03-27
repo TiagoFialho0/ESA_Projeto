@@ -355,6 +355,67 @@ namespace CSSC.Controllers
             return RedirectToAction("Index", "Calendar");
         }
 
+        public async Task<IActionResult> Classificacao(int? id)
+        {
+            if (id == null || _context.ServiceModel == null)
+            {
+                return NotFound();
+            }
+
+            var serviceModel = await _context.ServiceModel.FindAsync(id);
+            if (serviceModel == null)
+            {
+                return NotFound();
+            }
+            return View(serviceModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Classificacao(int id, int rating, string comments)
+        {
+            // Encontrar o serviço pelo ID
+         
+            TempData["Success"] = false;
+            var serviceModel = await _context.ServiceModel.FirstOrDefaultAsync(m => m.IdServico == id);
+
+            if (serviceModel == null)
+            {
+                return NotFound();
+            }
+
+            // Atualizar a classificação e os comentários
+            serviceModel.ServClassificacao = rating;
+            serviceModel.ServComentario = comments;
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(serviceModel);
+                    await _context.SaveChangesAsync();
+
+                    // Indicar o sucesso do envio
+                    TempData["Success"] = true;
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ServiceModelExists(serviceModel.IdServico))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Classificacao), new { id = serviceModel.IdServico });
+            }
+
+            return RedirectToAction("Details", new { id = serviceModel.IdServico });
+        }
+
+
         /// <summary>
         /// Verifica se um serviço com o ID fornecido existe no contexto.
         /// </summary>
@@ -365,9 +426,6 @@ namespace CSSC.Controllers
           return (_context.ServiceModel?.Any(e => e.IdServico == id)).GetValueOrDefault();
         }
 
-        public IActionResult Classificacao()
-        {
-            return View();
-        }
+      
     }
 }
