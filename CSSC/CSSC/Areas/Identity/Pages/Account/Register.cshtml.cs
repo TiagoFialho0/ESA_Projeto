@@ -106,7 +106,7 @@ namespace CSSC.Areas.Identity.Pages.Account
 
             [DisplayName("NIF")]
             [RegularExpression(@"^\d{9}$", ErrorMessage = "O NIF deve ter exatamente 9 dígitos.")]
-            public int UtNIF { get; set; }
+            public string UtNIF { get; set; }
             
             /*Trocar o codigo de cima por este após trocar o nif para string
              * [DisplayName("NIF")]
