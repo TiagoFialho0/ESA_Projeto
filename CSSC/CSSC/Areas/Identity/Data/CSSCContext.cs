@@ -27,7 +27,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                 UserName = "Tiago",
                 UtDataDeNascimento = "01/01/1970",
                 UtMorada = "Rua das Laranjas",
-                UtNIF = 123456789,
+                UtNIF = "123456789",
             }
             );
 
