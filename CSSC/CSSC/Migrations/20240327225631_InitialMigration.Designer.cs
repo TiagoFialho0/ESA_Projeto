@@ -12,13 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSSC.Migrations
 {
     [DbContext(typeof(CSSCContext))]
-<<<<<<<< Updated upstream:CSSC/CSSC/Migrations/20240327225631_InitialMigration.Designer.cs
     [Migration("20240327225631_InitialMigration")]
     partial class InitialMigration
-========
-    [Migration("20240327235540_ennn")]
-    partial class ennn
->>>>>>>> Stashed changes:CSSC/CSSC/Migrations/20240327235540_ennn.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,9 +86,8 @@ namespace CSSC.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("UtNIF")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UtNIF")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -112,25 +106,17 @@ namespace CSSC.Migrations
                         {
                             Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                             AccessFailedCount = 0,
-<<<<<<<< Updated upstream:CSSC/CSSC/Migrations/20240327225631_InitialMigration.Designer.cs
                             ConcurrencyStamp = "f611cd1c-c8ef-4d22-80d6-748a50ed2b55",
-========
-                            ConcurrencyStamp = "a7fa113d-15d4-4ace-ad54-3faf1fbfb681",
->>>>>>>> Stashed changes:CSSC/CSSC/Migrations/20240327235540_ennn.Designer.cs
                             Email = "tiagofialho2002@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-<<<<<<<< Updated upstream:CSSC/CSSC/Migrations/20240327225631_InitialMigration.Designer.cs
                             SecurityStamp = "6b0d4b99-8a93-482d-8bdf-cc46644233d8",
-========
-                            SecurityStamp = "cc1ab51d-c9c8-4026-a0a8-71f9d5540ab6",
->>>>>>>> Stashed changes:CSSC/CSSC/Migrations/20240327235540_ennn.Designer.cs
                             TwoFactorEnabled = false,
                             UserName = "Tiago",
                             UtDataDeNascimento = "01/01/1970",
                             UtMorada = "Rua das Laranjas",
-                            UtNIF = "123456789"
+                            UtNIF = 123456789
                         });
                 });
 

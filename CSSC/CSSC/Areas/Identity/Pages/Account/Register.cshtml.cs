@@ -105,17 +105,12 @@ namespace CSSC.Areas.Identity.Pages.Account
             public string UtDataDeNascimento { get; set; }
 
             [DisplayName("NIF")]
-<<<<<<< Updated upstream
             [RegularExpression(@"^\d{9}$", ErrorMessage = "O NIF deve ter exatamente 9 dígitos.")]
             public int UtNIF { get; set; }
             
             /*Trocar o codigo de cima por este após trocar o nif para string
              * [DisplayName("NIF")]
             public string UtNIF { get; set; }*/
-=======
-            //[RegularExpression(@"^\d{9}$", ErrorMessage = "O NIF deve ter exatamente 9 dígitos.")]
-            public string UtNIF { get; set; }
->>>>>>> Stashed changes
 
             [DisplayName("Morada")]
             public string UtMorada { get; set; }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CSSC.Migrations
 {
-    public partial class ennn : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,7 +29,7 @@ namespace CSSC.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     UtDataDeNascimento = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    UtNIF = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UtNIF = table.Column<int>(type: "int", nullable: false),
                     UtMorada = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -209,11 +209,7 @@ namespace CSSC.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "UtDataDeNascimento", "UtMorada", "UtNIF" },
-<<<<<<<< Updated upstream:CSSC/CSSC/Migrations/20240327225631_InitialMigration.cs
                 values: new object[] { "3e303350-d578-4a3a-abbb-1f9b76454f8e", 0, "f611cd1c-c8ef-4d22-80d6-748a50ed2b55", "tiagofialho2002@gmail.com", false, false, null, null, null, null, null, false, "6b0d4b99-8a93-482d-8bdf-cc46644233d8", false, "Tiago", "01/01/1970", "Rua das Laranjas", 123456789 });
-========
-                values: new object[] { "3e303350-d578-4a3a-abbb-1f9b76454f8e", 0, "a7fa113d-15d4-4ace-ad54-3faf1fbfb681", "tiagofialho2002@gmail.com", false, false, null, null, null, null, null, false, "cc1ab51d-c9c8-4026-a0a8-71f9d5540ab6", false, "Tiago", "01/01/1970", "Rua das Laranjas", "123456789" });
->>>>>>>> Stashed changes:CSSC/CSSC/Migrations/20240327235540_ennn.cs
 
             migrationBuilder.InsertData(
                 table: "ServiceModel",
