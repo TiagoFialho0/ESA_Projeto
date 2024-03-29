@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSSC.Migrations
 {
     [DbContext(typeof(CSSCContext))]
-    [Migration("20240327225631_InitialMigration")]
+    [Migration("20240328161810_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,8 +86,9 @@ namespace CSSC.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("UtNIF")
-                        .HasColumnType("int");
+                    b.Property<string>("UtNIF")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -106,17 +107,17 @@ namespace CSSC.Migrations
                         {
                             Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f611cd1c-c8ef-4d22-80d6-748a50ed2b55",
+                            ConcurrencyStamp = "4964e984-6406-40ba-bc79-1a5b6ae364de",
                             Email = "tiagofialho2002@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6b0d4b99-8a93-482d-8bdf-cc46644233d8",
+                            SecurityStamp = "d1b6edf8-5580-4b7a-bf49-b0b3193cc897",
                             TwoFactorEnabled = false,
                             UserName = "Tiago",
                             UtDataDeNascimento = "01/01/1970",
                             UtMorada = "Rua das Laranjas",
-                            UtNIF = 123456789
+                            UtNIF = "123456789"
                         });
                 });
 
@@ -204,7 +205,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Fiat",
                             ServMatriculaVeiculo = "AA-00-BB",
                             ServModeloVeiculo = "Punto",
-                            ServPrazo = new DateTime(2024, 5, 27, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 5, 28, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -215,7 +216,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Seat",
                             ServMatriculaVeiculo = "BB-11-CC",
                             ServModeloVeiculo = "Ibiza",
-                            ServPrazo = new DateTime(2024, 4, 27, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 4, 28, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -226,7 +227,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Ford",
                             ServMatriculaVeiculo = "CC-22-DD",
                             ServModeloVeiculo = "Fiesta",
-                            ServPrazo = new DateTime(2024, 7, 27, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 7, 28, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -237,7 +238,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Ferrari",
                             ServMatriculaVeiculo = "DD-33-EE",
                             ServModeloVeiculo = "F40",
-                            ServPrazo = new DateTime(2024, 4, 27, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 4, 28, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 

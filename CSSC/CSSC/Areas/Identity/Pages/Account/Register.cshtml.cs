@@ -77,7 +77,7 @@ namespace CSSC.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [EmailAddress]
+            [EmailAddress (ErrorMessage = "O email inserido não é válido.")]
             [DisplayName("Email")]
             public string Email { get; set; }
 
@@ -105,7 +105,6 @@ namespace CSSC.Areas.Identity.Pages.Account
             public string UtDataDeNascimento { get; set; }
 
             [DisplayName("NIF")]
-            [RegularExpression(@"^\d{9}$", ErrorMessage = "O NIF deve ter exatamente 9 dígitos.")]
             public string UtNIF { get; set; }
             
             /*Trocar o codigo de cima por este após trocar o nif para string
