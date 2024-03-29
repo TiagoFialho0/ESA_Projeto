@@ -3,7 +3,9 @@ using CSSC.Controllers;
 using CSSC.CSSCServices;
 using CSSC.CSSCServices;
 using CSSC.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Controller;
 using Moq;
 using SendGrid;
@@ -18,9 +20,9 @@ using Xunit;
 namespace CSSC_Tests
 {
 
-    public class ServiceTests
+    public class ServiceTests : IClassFixture<CSSCContextFixture>
     {
-
+        private CSSCContext _context;
 
         [Fact]
         public async Task SendEmail_CallsSendGridClient()
@@ -38,19 +40,25 @@ namespace CSSC_Tests
 
         }
 
-        private readonly ServicesController _servicesController;
-
-        public ServiceTests(ServicesController servicesController)
+        public ServiceTests(CSSCContextFixture context)
         {
-            _servicesController = servicesController;
+            _context = context.DbContext;
         }
 
         [Fact]
         public async Task ClassifyService()
         {
-            var serviceID = 500;
-            var level = 4;
-            var message = "This is a test message.";
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            tempData["Success"] = "false";
+            ServicesController _servicesController = new ServicesController(_context)
+            {
+                TempData = tempData
+            };
+
+            int serviceID = 500;
+            int level = 4;
+            string message = "This is a test message.";
 
             var result = await _servicesController.Classificacao(serviceID, level, message);
 

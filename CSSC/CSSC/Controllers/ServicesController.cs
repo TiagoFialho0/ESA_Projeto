@@ -378,6 +378,7 @@ namespace CSSC.Controllers
             // Encontrar o serviço pelo ID
          
             TempData["Success"] = false;
+
             var serviceModel = await _context.ServiceModel.FirstOrDefaultAsync(m => m.IdServico == id);
 
             if (serviceModel == null)
