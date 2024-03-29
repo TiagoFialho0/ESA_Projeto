@@ -6,6 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <style>
     .container {
         display: flex;
@@ -86,9 +87,8 @@
     </dl>
 </div>
 
-<div align="right">
-    <a class="btn btn-secondary" style="background-color: #E36D3F; border-color: white;" asp-action="Classificacao" asp-route-id="@Model.IdServico">Classificar Serviço</a>
-</div>
+
+
 
 <div class="container">
     <div class="option">
@@ -116,6 +116,13 @@
         <div class="text">Cancelado</div>
     </div>
 </div>
+<br>
+@if (Model.EstadoDoServico.ToString() == "Entregue" /*|| Model.EstadoDoServico.ToString() == "Cancelado"*/)
+{
+    <div align="right">
+        <a class="btn btn-secondary" style="background-color: #E36D3F; border-color: white;" asp-action="Classificacao" asp-route-id="@Model.IdServico">Classificar Serviço</a>
+    </div>
+}
 
 <br />
 <br />
@@ -134,16 +141,21 @@
                 <textarea class="form-control" id="description" name="description" rows="5" placeholder="Descrição" required=""></textarea>
             </div>
             <br />
-            <div class="form-group" align="right">
+            <div class="form-group d-flex justify-content-between">
+                <!-- Adicionando classe d-flex e justify-content-between -->
+                <a href=" /Calendar/Index" class="btn btn-secondary" style="background-color: #E36D3F; border-color: white;">Voltar</a> <!-- Adicionando classe btn-secondary -->
                 <button type="submit" class="btn btn-primary" style="background-color: #E36D3F; border-color: white;">Enviar</button>
             </div>
         </form>
     </div>
 </div>
-<div>
-    @*<a asp-action="Edit" asp-route-id="@Model?.IdServico">Edit</a> |*@
-    <a asp-action="Index" class="btn btn-secondary me-auto" style="background-color: #E36D3F; border-color: white;">Voltar</a>
-</div>
+
+@if (TempData["Success"] != null && (bool)TempData["Success"])
+{
+    <script>
+        alert("Dados submetidos com sucesso!");
+    </script>
+}
 
 
 @functions {

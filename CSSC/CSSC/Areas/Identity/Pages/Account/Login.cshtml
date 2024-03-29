@@ -3,6 +3,11 @@
 @{
     ViewData["Title"] = "Iniciar Sessão";
 }
+<style>
+    body {
+        background-color: #EAEAEA; /* Define a cor de fundo da página */
+    }
+</style>
 
 <head>
     <!-- Include Font Awesome CSS -->
@@ -40,12 +45,12 @@
                             }
                         </style>
 
-                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Iniciar Sessão</button>
+                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary" style="background-color: #E36D3F; border: 1px solid white;">Iniciar Sessão</button>
                     
                     </div>
                     <div style="margin-top: 10px;">
                         <p>
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"> Não possui conta? Registar-me</a>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" style="color: #E36D3F;"> Não possui conta? Registar-me</a>
                         </p>
                     </div>
                 </form>

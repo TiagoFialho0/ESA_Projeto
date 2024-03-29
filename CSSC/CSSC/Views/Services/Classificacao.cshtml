@@ -1,6 +1,7 @@
 ﻿@model CSSC.Models.Services
 @using CSSC.Controllers
 
+
 <style>
     .rating-form {
         display: flex;
@@ -14,11 +15,11 @@
         margin-bottom: 10px;
     }
 
-        .rating-container input[type="radio"] {
+    .rating-container input[type="radio"] {
             display: none;
-        }
+    }
 
-        .rating-container label {
+    .rating-container label {
             border: 1px solid #ccc;
             border-radius: 50%;
             display: inline-flex;
@@ -29,13 +30,20 @@
             height: 4rem;
             margin: 0 2px;
             cursor: pointer;
-        }
+            background-color: #fff; /* Cor de fundo branca */
+            color: #333; /* Cor do texto preto */
+    }
 
-        .rating-container input[type="radio"]:checked + label {
+    .rating-container label:hover {
+                background-color: #f5f5f5; /* Cor de fundo mais clara ao passar o mouse */
+                border-color: #bbb; /* Borda mais escura ao passar o mouse */
+    }
+
+    .rating-container input[type="radio"]:checked + label {
             background-color: #E36D3F;
             border-color: #E36D3F;
             color: white;
-        }
+    }
 
     .additional-comments {
         margin-bottom: 10px;
@@ -45,10 +53,8 @@
         resize: none;
     }
 
-    
-
     body {
-        background-color: #EAEAEA; /* Define a cor de fundo da página */
+        background-color: #EAEAEA; /* Cor de fundo da página */
     }
 </style>
 
@@ -81,10 +87,17 @@
     </div>
 </div>
 </form>
-<script>
-    // Verificar se o envio foi bem-sucedido
-    if (@TempData["Success"] != null && (bool)TempData["Success"]) {
+@if (TempData["Success"] != null && (bool)TempData["Success"])
+{
+    <script>
         alert("Dados submetidos com sucesso!");
-    }
-</script>
+    </script>
+}
+else if (TempData["Failed"] != null && (bool)TempData["Failed"])
+{
+    <script>
+        alert("Por favor deixe um comentário");
+    </script>
+}
+
 

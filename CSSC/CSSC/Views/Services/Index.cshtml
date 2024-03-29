@@ -15,12 +15,13 @@
     
 </style>
 
-@*@if (User.IsInRole("Operador"))
+@if (User.IsInRole("Operador"))
 {
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-}*@
+    <div class="d-flex justify-content-end">
+        <a asp-action="Create" class="btn btn-primary" style="background-color: #E36D3F; border: 1px solid white;">Criar Serviço</a>
+    </div>
+
+}
 
 <table class="table">
     <thead>
@@ -113,9 +114,9 @@
                 <td>
                     <form asp-action="AtualizarEstado" method="post" style="display: flex; align-items: center;">
                         <input type="hidden" name="id" value="@item.IdServico" />
-                        <select name="EstadoDoServico" class="form-select" style="margin-right: 10px;">
+                        <select asp-items="ViewBag.Types" name="EstadoDoServico" class="form-select" style="margin-right: 10px;">
                             <option disabled hidden value="">Selecione o Estado do Serviço</option>
-                            @foreach (var estadoServico in Enum.GetValues(typeof(CSSC.Controllers.EstadoDoServico)))
+                           @* @foreach (var estadoServico in Enum.GetValues(typeof(CSSC.Controllers.EstadoDoServico)))
                             {
                                 if (estadoServico.ToString() == item.EstadoDoServico)
                                 {
@@ -125,7 +126,7 @@
                                 {
                                     <option value="@estadoServico">@estadoServico</option>
                                 }
-                            }
+                            }*@
                         </select>
                         <button type="submit" class="btn btn-secondary ml-auto" style="background-color: #E36D3F; border: 1px solid white; text-shadow: 1px 1px 2px black;">Confirmar</button>
                     </form>
@@ -139,5 +140,6 @@
             </tr>
 
         }
+        
     </tbody>
 </table>

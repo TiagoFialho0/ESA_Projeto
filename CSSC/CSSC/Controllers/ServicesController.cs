@@ -36,6 +36,8 @@ namespace CSSC.Controllers
                 var services = _context.ServiceModel
                     .Include(r => r.csscUser)
                     .ToList();
+                List<string> estados = typeof(EstadoDoServico).GetValuesWithDescriptions();
+                ViewBag.Types = new SelectList(estados);
                 return View(services);
             }
             else if (User.IsInRole("Default"))
@@ -376,7 +378,10 @@ namespace CSSC.Controllers
         public async Task<IActionResult> Classificacao(int id, int rating, string comments)
         {
             // Encontrar o serviço pelo ID
-         
+            if(comments == null)
+            {
+                comments = "nada a adicionar";
+            }
             TempData["Success"] = false;
 
             var serviceModel = await _context.ServiceModel.FirstOrDefaultAsync(m => m.IdServico == id);
@@ -411,10 +416,11 @@ namespace CSSC.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Classificacao), new { id = serviceModel.IdServico });
+                return RedirectToAction("Details", new { id = serviceModel.IdServico });
             }
+            TempData["Failed"] = true;
+            return RedirectToAction("Classificacao", new { id = serviceModel.IdServico });
 
-            return RedirectToAction("Details", new { id = serviceModel.IdServico });
         }
 
 
