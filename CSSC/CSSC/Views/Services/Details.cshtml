@@ -1,5 +1,6 @@
 ﻿@model CSSC.Models.Services
 @using CSSC.Controllers
+@using CSSC.Extensions
 
 @{
     ViewData["Title"] = "Detalhes do serviço";
@@ -161,6 +162,6 @@
 @functions {
     string GetCircleClass(EstadoDoServico estado)
     {
-        return estado.ToString() == Model.EstadoDoServico ? "colored" : "";
+        return estado.GetEnumMemberValue() == Model.EstadoDoServico ? "colored" : "";
     }
 }

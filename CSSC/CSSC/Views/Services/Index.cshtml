@@ -112,27 +112,17 @@
                     </div>
                 </td>
                 <td>
+                    <p><strong>Atualizar estado:</strong></p>
                     <form asp-action="AtualizarEstado" method="post" style="display: flex; align-items: center;">
-                        <input type="hidden" name="id" value="@item.IdServico" />
-                        <select asp-items="ViewBag.Types" name="EstadoDoServico" class="form-select" style="margin-right: 10px;">
-                            <option disabled hidden value="">Selecione o Estado do Serviço</option>
-                           @* @foreach (var estadoServico in Enum.GetValues(typeof(CSSC.Controllers.EstadoDoServico)))
-                            {
-                                if (estadoServico.ToString() == item.EstadoDoServico)
-                                {
-                                    <option value="@estadoServico" selected>@estadoServico</option>
-                                }
-                                else
-                                {
-                                    <option value="@estadoServico">@estadoServico</option>
-                                }
-                            }*@
+                        <input type="hidden" name="id" value="@item.IdServico"/>
+                        <select asp-items="ViewBag.Types" name="EstadoDoServico" class="form-select" style="margin-right: 10px;" onchange="enableButton(this)">
+                            <option disabled selected value="@item.EstadoDoServico">@item.EstadoDoServico</option>
                         </select>
-                        <button type="submit" class="btn btn-secondary ml-auto" style="background-color: #E36D3F; border: 1px solid white; text-shadow: 1px 1px 2px black;">Confirmar</button>
+                        <button type="submit" id="submitButton" class="btn btn-secondary ml-auto" style="background-color: #E36D3F; border: 1px solid white; text-shadow: 1px 1px 2px black;" disabled>Confirmar</button>
                     </form>
                     <div style="margin-top: 10px;">
                         <form asp-action="AgendarNotif" method="post">
-                            <input type="hidden" name="id" value="@item.IdServico" />
+                            <input type="hidden" name="id" value="@item.IdServico"/>
                             <button type="submit" class="btn btn-secondary" style="background-color: #E36D3F; border: 1px solid white;">Agendar notificação</button>
                         </form>
                     </div>
@@ -143,3 +133,18 @@
         
     </tbody>
 </table>
+
+<script>
+    function enableButton(select) {
+        var button = select.nextElementSibling; // Get the next sibling, which is the button
+        button.disabled = select.value === '';
+    }
+
+    // Attach event listeners to all select elements with the specified class
+    var selectElements = document.querySelectorAll('.form-select');
+    selectElements.forEach(function (select) {
+        select.addEventListener('change', function () {
+            enableButton(this); // 'this' refers to the select element being changed
+        });
+    });
+</script>

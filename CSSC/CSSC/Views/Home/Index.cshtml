@@ -1,4 +1,5 @@
-﻿@model IEnumerable<CSSC.Models.Services>
+﻿@using CSSC.Extensions
+@model IEnumerable<CSSC.Models.Services>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -42,7 +43,7 @@
                     <tbody>
                         @if (Model != null)
                         {
-                            @foreach (var item in Model.Where(s => s.EstadoDoServico == CSSC.Controllers.EstadoDoServico.EmReparacao.ToString()))
+                            @foreach (var item in Model.Where(s => s.EstadoDoServico == CSSC.Controllers.EstadoDoServico.EmReparacao.GetEnumMemberValue()))
                             {
                                 <tr>
                                     <td>@Html.DisplayFor(modelItem => item.IdServico)</td>
@@ -69,7 +70,7 @@
                     <tbody>
                         @if (Model != null)
                         {
-                            @foreach (var item in Model.Where(s => s.EstadoDoServico == CSSC.Controllers.EstadoDoServico.ReparacaoConcluida.ToString()))
+                            @foreach (var item in Model.Where(s => s.EstadoDoServico == CSSC.Controllers.EstadoDoServico.Entregue.GetEnumMemberValue()))
                             {
                                 <tr>
                                     <td>@Html.DisplayFor(modelItem => item.ServClassificacao)</td>
@@ -83,7 +84,6 @@
                         }
                     </tbody>
                 </table>
-                <h1 style="padding-top: 100px;"> EM MANUTENÇÃO</h1>
             </div>
         </div>
     </div>
