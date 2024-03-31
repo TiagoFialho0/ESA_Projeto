@@ -7,7 +7,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <style>
     .container {
         display: flex;
@@ -42,9 +41,9 @@
         background-color: #EAEAEA; /* Define a cor de fundo da página */
     }
 
-    /* CSS para círculo verde */
+    /* CSS para círculo laranja */
     .circle.colored {
-        background-color: #E36D3F; /* Cor verde */
+        background-color: #E36D3F; /* Cor laranja */
         border-color: dimgrey;
     }
 </style>
@@ -88,35 +87,26 @@
     </dl>
 </div>
 
-
-
-
 <div class="container">
+@foreach (var estado in Enum.GetValues(typeof(EstadoDoServico)).Cast<EstadoDoServico>())
+{
     <div class="option">
-        <div class="circle @GetCircleClass(EstadoDoServico.Espera)"></div>
-        <div class="text">Em Espera</div>
+        <div class="circle @GetCircleClass(estado)"></div>
+            <div class="text">@estado.GetEnumMemberValue()</div>
+    
+        @foreach (var servicesStates in ViewBag.ServicesStates)
+        {
+            if (servicesStates.EstadoDoServico == estado.GetEnumMemberValue())
+            {
+                    <div class="text" style="font-weight: normal;">
+                        @servicesStates.alteracaoEstado
+                    </div>            
+            }
+        }
     </div>
-    <div class="option">
-        <div class="circle @GetCircleClass(EstadoDoServico.EmReparacao)"></div>
-        <div class="text">Em Reparação</div>
-    </div>
-    <div class="option">
-        <div class="circle @GetCircleClass(EstadoDoServico.ReparacaoConcluida)"></div>
-        <div class="text">Reparação Concluida</div>
-    </div>
-    <div class="option">
-        <div class="circle @GetCircleClass(EstadoDoServico.ProntoParaEntrega)"></div>
-        <div class="text">Pronto para Entrega</div>
-    </div>
-    <div class="option">
-        <div class="circle @GetCircleClass(EstadoDoServico.Entregue)"></div>
-        <div class="text">Entregue</div>
-    </div>
-    <div class="option">
-        <div class="circle @GetCircleClass(EstadoDoServico.Cancelado)"></div>
-        <div class="text">Cancelado</div>
-    </div>
+}
 </div>
+
 <br>
 @if (Model.EstadoDoServico.ToString() == "Entregue" /*|| Model.EstadoDoServico.ToString() == "Cancelado"*/)
 {
@@ -165,3 +155,4 @@
         return estado.GetEnumMemberValue() == Model.EstadoDoServico ? "colored" : "";
     }
 }
+

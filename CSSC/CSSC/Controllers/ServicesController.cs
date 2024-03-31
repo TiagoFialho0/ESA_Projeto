@@ -73,6 +73,11 @@ namespace CSSC.Controllers
                 return NotFound();
             }
 
+            var servicesStates = await _context.ServicesStates.Where(m => m.ServIdServico == id).ToListAsync();
+
+            // Passando a lista de ONGs para a ViewBag
+            ViewBag.ServicesStates = servicesStates;
+
             return View(serviceModel);
         }
 
@@ -330,6 +335,40 @@ namespace CSSC.Controllers
                     throw;
                 }
             }
+
+            //var servicesStates = await _context.ServicesStates.FindAsync(id);
+            //if (servicesStates == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(servicesStates);
+            //}
+
+            var servicesStates = CreateServicesStates();
+            
+            servicesStates.ServIdServico = id;
+            servicesStates.EstadoDoServico = EstadoDoServico;
+            servicesStates.alteracaoEstado = DateTime.Now;
+
+            try
+            {
+                _context.Update(servicesStates);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ServicesStatesExists(servicesStates.IdEstadoServico))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
             return RedirectToAction(nameof(Index));
         }
 
@@ -434,6 +473,21 @@ namespace CSSC.Controllers
           return (_context.ServiceModel?.Any(e => e.IdServico == id)).GetValueOrDefault();
         }
 
-      
+        private bool ServicesStatesExists(int id)
+        {
+            return (_context.ServicesStates?.Any(e => e.IdEstadoServico == id)).GetValueOrDefault();
+        }
+
+        private ServicesStates CreateServicesStates()
+        {
+            try
+            {
+                return Activator.CreateInstance<ServicesStates>();
+            }
+            catch
+            {
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(ServicesStates)}'. ");
+            }
+        }
     }
 }

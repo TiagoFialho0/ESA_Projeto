@@ -74,7 +74,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                         ServModeloVeiculo = "F40",
                         ServMatriculaVeiculo = "DD-33-EE",
                         ServPrazo = System.DateTime.Today.AddMonths(1),
-                        EstadoDoServico = "Reparação Concluida"
+                        EstadoDoServico = "Reparação concluida"
                     }
                 );
 
@@ -87,6 +87,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
 
     public DbSet<CSSC.Models.Services>? ServiceModel { get; set; }
     public DbSet<CSSC.Models.Notificacao>? Notificacao { get;set; }
+    public DbSet<CSSC.Models.ServicesStates>? ServicesStates { get; set; }
 }
 
 public class UserEntityConfiguration : IEntityTypeConfiguration<CSSCUser>

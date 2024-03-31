@@ -206,20 +206,41 @@ namespace CSSC.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ServicesStates",
+                columns: table => new
+                {
+                    IdEstadoServico = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ServIdServico = table.Column<int>(type: "int", nullable: false),
+                    servicesIdServico = table.Column<int>(type: "int", nullable: true),
+                    EstadoDoServico = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    alteracaoEstado = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ServicesStates", x => x.IdEstadoServico);
+                    table.ForeignKey(
+                        name: "FK_ServicesStates_ServiceModel_servicesIdServico",
+                        column: x => x.servicesIdServico,
+                        principalTable: "ServiceModel",
+                        principalColumn: "IdServico");
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "UtDataDeNascimento", "UtMorada", "UtNIF" },
-                values: new object[] { "3e303350-d578-4a3a-abbb-1f9b76454f8e", 0, "0a75588b-7c41-4163-95ee-61bb1ab3f7fa", "tiagofialho2002@gmail.com", false, false, null, null, null, null, null, false, "f790ff6e-d656-48f2-b1e5-f4c544064dee", false, "Tiago", "01/01/1970", "Rua das Laranjas", "123456789" });
+                values: new object[] { "3e303350-d578-4a3a-abbb-1f9b76454f8e", 0, "45131e62-e28b-4c8d-ba49-ee2de9e9c92c", "tiagofialho2002@gmail.com", false, false, null, null, null, null, null, false, "9bd4b65d-0197-4c96-9630-4e7087e0ba72", false, "Tiago", "01/01/1970", "Rua das Laranjas", "123456789" });
 
             migrationBuilder.InsertData(
                 table: "ServiceModel",
                 columns: new[] { "IdServico", "EstadoDoServico", "ServClassificacao", "ServComentario", "ServIdOperador", "ServIdUtilizador", "ServMarcaVeiculo", "ServMatriculaVeiculo", "ServModeloVeiculo", "ServPrazo", "csscOperadorId", "csscUserId" },
                 values: new object[,]
                 {
-                    { 500, "Em espera", null, null, new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Fiat", "AA-00-BB", "Punto", new DateTime(2024, 5, 29, 0, 0, 0, 0, DateTimeKind.Local), null, null },
-                    { 510, "Em reparação", null, null, new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Seat", "BB-11-CC", "Ibiza", new DateTime(2024, 4, 29, 0, 0, 0, 0, DateTimeKind.Local), null, null },
-                    { 520, "Pronto para entrega", null, null, new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Ford", "CC-22-DD", "Fiesta", new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Local), null, null },
-                    { 530, "Reparação Concluida", null, null, new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Ferrari", "DD-33-EE", "F40", new DateTime(2024, 4, 29, 0, 0, 0, 0, DateTimeKind.Local), null, null }
+                    { 500, "Em espera", null, null, new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Fiat", "AA-00-BB", "Punto", new DateTime(2024, 5, 30, 0, 0, 0, 0, DateTimeKind.Local), null, null },
+                    { 510, "Em reparação", null, null, new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Seat", "BB-11-CC", "Ibiza", new DateTime(2024, 4, 30, 0, 0, 0, 0, DateTimeKind.Local), null, null },
+                    { 520, "Pronto para entrega", null, null, new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Ford", "CC-22-DD", "Fiesta", new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Local), null, null },
+                    { 530, "Reparação concluida", null, null, new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Ferrari", "DD-33-EE", "F40", new DateTime(2024, 4, 30, 0, 0, 0, 0, DateTimeKind.Local), null, null }
                 });
 
             migrationBuilder.CreateIndex(
@@ -270,6 +291,11 @@ namespace CSSC.Migrations
                 name: "IX_ServiceModel_csscUserId",
                 table: "ServiceModel",
                 column: "csscUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ServicesStates_servicesIdServico",
+                table: "ServicesStates",
+                column: "servicesIdServico");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -293,10 +319,13 @@ namespace CSSC.Migrations
                 name: "Notificacao");
 
             migrationBuilder.DropTable(
-                name: "ServiceModel");
+                name: "ServicesStates");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "ServiceModel");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

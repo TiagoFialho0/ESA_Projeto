@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSSC.Migrations
 {
     [DbContext(typeof(CSSCContext))]
-    [Migration("20240329180757_InitialMigration")]
+    [Migration("20240330011313_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -107,12 +107,12 @@ namespace CSSC.Migrations
                         {
                             Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0a75588b-7c41-4163-95ee-61bb1ab3f7fa",
+                            ConcurrencyStamp = "45131e62-e28b-4c8d-ba49-ee2de9e9c92c",
                             Email = "tiagofialho2002@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f790ff6e-d656-48f2-b1e5-f4c544064dee",
+                            SecurityStamp = "9bd4b65d-0197-4c96-9630-4e7087e0ba72",
                             TwoFactorEnabled = false,
                             UserName = "Tiago",
                             UtDataDeNascimento = "01/01/1970",
@@ -205,7 +205,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Fiat",
                             ServMatriculaVeiculo = "AA-00-BB",
                             ServModeloVeiculo = "Punto",
-                            ServPrazo = new DateTime(2024, 5, 29, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 5, 30, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -216,7 +216,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Seat",
                             ServMatriculaVeiculo = "BB-11-CC",
                             ServModeloVeiculo = "Ibiza",
-                            ServPrazo = new DateTime(2024, 4, 29, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 4, 30, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -227,19 +227,47 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Ford",
                             ServMatriculaVeiculo = "CC-22-DD",
                             ServModeloVeiculo = "Fiesta",
-                            ServPrazo = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             IdServico = 530,
-                            EstadoDoServico = "Reparação Concluida",
+                            EstadoDoServico = "Reparação concluida",
                             ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
                             ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                             ServMarcaVeiculo = "Ferrari",
                             ServMatriculaVeiculo = "DD-33-EE",
                             ServModeloVeiculo = "F40",
-                            ServPrazo = new DateTime(2024, 4, 29, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 4, 30, 0, 0, 0, 0, DateTimeKind.Local)
                         });
+                });
+
+            modelBuilder.Entity("CSSC.Models.ServicesStates", b =>
+                {
+                    b.Property<int>("IdEstadoServico")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEstadoServico"), 1L, 1);
+
+                    b.Property<string>("EstadoDoServico")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ServIdServico")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("alteracaoEstado")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("servicesIdServico")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdEstadoServico");
+
+                    b.HasIndex("servicesIdServico");
+
+                    b.ToTable("ServicesStates");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -388,6 +416,15 @@ namespace CSSC.Migrations
                     b.Navigation("csscOperador");
 
                     b.Navigation("csscUser");
+                });
+
+            modelBuilder.Entity("CSSC.Models.ServicesStates", b =>
+                {
+                    b.HasOne("CSSC.Models.Services", "services")
+                        .WithMany()
+                        .HasForeignKey("servicesIdServico");
+
+                    b.Navigation("services");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
