@@ -9,6 +9,16 @@
         background-color: #EAEAEA; /* Define a cor de fundo da página */
     }
 
+    /* CSS para círculo laranja */
+    .circle.colored {
+        background-color: #E36D3F; /* Cor laranja */
+        border-color: dimgrey;
+    }
+
+    .form-group {
+        position: relative;
+    }
+
     th, td {
         border-color: #808080; /* cor mais escura para os divisores da tabela */
     }
@@ -112,14 +122,20 @@
                     </div>
                 </td>
                 <td>
-                    <p><strong>Atualizar estado:</strong></p>
-                    <form asp-action="AtualizarEstado" method="post" style="display: flex; align-items: center;">
-                        <input type="hidden" name="id" value="@item.IdServico"/>
-                        <select asp-items="ViewBag.Types" name="EstadoDoServico" class="form-select" style="margin-right: 10px;" onchange="enableButton(this)">
-                            <option disabled selected value="@item.EstadoDoServico">@item.EstadoDoServico</option>
-                        </select>
-                        <button type="submit" id="submitButton" class="btn btn-secondary ml-auto" style="background-color: #E36D3F; border: 1px solid white; text-shadow: 1px 1px 2px black;" disabled>Confirmar</button>
-                    </form>
+                    <div class="form-group">
+                        <span class="info-icon" style="width: 20px; height: 20px;">
+                            <img src="/info-button.png" style="width: 100%; height: 100%;">
+                        </span>
+                        <span class="info-text">Selecione um estado para atualizar.</span>
+                        <p><strong>Atualizar estado:</strong></p>
+                        <form asp-action="AtualizarEstado" method="post" style="display: flex; align-items: center;">
+                            <input type="hidden" name="id" value="@item.IdServico"/>
+                            <select asp-items="ViewBag.Types" name="EstadoDoServico" class="form-select" style="margin-right: 10px;" onchange="enableButton(this)">
+                                <option disabled selected value="@item.EstadoDoServico">@item.EstadoDoServico</option>
+                            </select>
+                            <button type="submit" id="submitButton" class="btn btn-secondary ml-auto" style="background-color: #E36D3F; border: 1px solid white; text-shadow: 1px 1px 2px black;" disabled>Confirmar</button>
+                        </form>
+                    </div>
                     <div style="margin-top: 10px;">
                         <form asp-action="AgendarNotif" method="post">
                             <input type="hidden" name="id" value="@item.IdServico"/>
