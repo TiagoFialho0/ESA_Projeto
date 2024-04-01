@@ -123,10 +123,10 @@
                 </td>
                 <td>
                     <div class="form-group">
-                        <span class="info-icon" style="width: 20px; height: 20px; right: -25px;">
+                        <span class="info-icon" style="width: 20px; height: 20px; right: 55px;">
                             <img src="/info-button.png" style="width: 100%; height: 100%;">
                         </span>
-                        <span class="info-text">Selecione um estado para atualizar.</span>
+                        <span class="info-text" style="position: absolute; right: -60px; top: -38px;">Selecione um estado para atualizar.</span>
                         <p><strong>Atualizar estado:</strong></p>
                         <form asp-action="AtualizarEstado" method="post" style="display: flex; align-items: center;">
                             <input type="hidden" name="id" value="@item.IdServico"/>
