@@ -1,0 +1,26 @@
+﻿
+.info-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    color: #E36D3F !important; /* Altera a cor do ícone */
+    z-index: 1; /* Garante que o ícone esteja acima do texto */
+}
+
+.info-text {
+    display: none;
+    position: absolute;
+    right: -150px; /* Posiciona o texto ao lado direito do ícone */
+    bottom: calc(100% + 5px); /* Posiciona o texto acima do ícone */
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Garante que o texto esteja acima do ícone */
+}
+
+.info-icon:hover + .info-text {
+    display: block;
+}

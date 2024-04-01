@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSSC.Migrations
 {
     [DbContext(typeof(CSSCContext))]
-    [Migration("20240330011313_InitialMigration")]
+    [Migration("20240401142923_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -107,12 +107,12 @@ namespace CSSC.Migrations
                         {
                             Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "45131e62-e28b-4c8d-ba49-ee2de9e9c92c",
+                            ConcurrencyStamp = "4e495d17-889d-47c1-9196-64c89a71d9af",
                             Email = "tiagofialho2002@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9bd4b65d-0197-4c96-9630-4e7087e0ba72",
+                            SecurityStamp = "5294de24-b49d-48ed-8f77-aeba3acf0828",
                             TwoFactorEnabled = false,
                             UserName = "Tiago",
                             UtDataDeNascimento = "01/01/1970",
@@ -205,7 +205,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Fiat",
                             ServMatriculaVeiculo = "AA-00-BB",
                             ServModeloVeiculo = "Punto",
-                            ServPrazo = new DateTime(2024, 5, 30, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 6, 1, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -216,7 +216,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Seat",
                             ServMatriculaVeiculo = "BB-11-CC",
                             ServModeloVeiculo = "Ibiza",
-                            ServPrazo = new DateTime(2024, 4, 30, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 5, 1, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -227,7 +227,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Ford",
                             ServMatriculaVeiculo = "CC-22-DD",
                             ServModeloVeiculo = "Fiesta",
-                            ServPrazo = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -238,7 +238,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Ferrari",
                             ServMatriculaVeiculo = "DD-33-EE",
                             ServModeloVeiculo = "F40",
-                            ServPrazo = new DateTime(2024, 4, 30, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 5, 1, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 

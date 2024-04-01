@@ -46,42 +46,51 @@
         background-color: #E36D3F; /* Cor laranja */
         border-color: dimgrey;
     }
-</style>
 
+    .form-group {
+        position: relative;
+    }
+
+    
+</style>
+<head>
+    <!-- Include Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
 <h1>Detalhes</h1>
 
 <div>
     <hr />
     <br />
     <dl class="row">
-        <dt class="col-sm-4">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.IdServico)
         </dt>
-        <dd class="col-sm-6">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.IdServico)
         </dd>
-        <dt class="col-sm-4">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ServMarcaVeiculo)
         </dt>
-        <dd class="col-sm-6">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.ServMarcaVeiculo)
         </dd>
-        <dt class="col-sm-4">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ServModeloVeiculo)
         </dt>
-        <dd class="col-sm-6">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.ServModeloVeiculo)
         </dd>
-        <dt class="col-sm-4">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ServMatriculaVeiculo)
         </dt>
-        <dd class="col-sm-6">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.ServMatriculaVeiculo)
         </dd>
-        <dt class="col-sm-4">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ServPrazo)
         </dt>
-        <dd class="col-sm-6">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.ServPrazo)
         </dd>
     </dl>
@@ -126,10 +135,18 @@
             <br />
             <div class="form-group">
                 <input type="text" class="form-control" id="subject" name="subject" placeholder="Assunto" required="">
+                <span class="info-icon" style="width: 20px; height: 20px;">
+                    <img src="/info-button.png" style="width: 100%; height: 100%;">
+                </span>
+                <span class="info-text">Insira um breve assunto que pretende tratar com a oficina!</span>
             </div>
             <br />
             <div class="form-group">
                 <textarea class="form-control" id="description" name="description" rows="5" placeholder="Descrição" required=""></textarea>
+                <span class="info-icon" style="width: 20px; height: 20px;">
+                    <img src="/info-button.png" style="width: 100%; height: 100%;">
+                </span>
+                <span class="info-text">Descreva com detalhe o motivo do seu contacto</span>
             </div>
             <br />
             <div class="form-group d-flex justify-content-between">

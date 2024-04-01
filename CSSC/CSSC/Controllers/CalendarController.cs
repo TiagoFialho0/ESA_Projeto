@@ -8,6 +8,7 @@ using CSSC.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using CSSC.Controllers;
+using CSSC.Extensions;
 
 public class CalendarController : Controller
 {
@@ -106,7 +107,9 @@ public class CalendarController : Controller
                 {
                     var services = _context.ServiceModel
                         .Include(r => r.csscUser)
-                        .Where(s => s.EstadoDoServico == EstadoDoServico.Entregue.ToString())
+                        .Where(s => s.EstadoDoServico == EstadoDoServico.Entregue.ToString() 
+                        || s.EstadoDoServico == EstadoDoServico.ReparacaoConcluida.GetEnumMemberValue() 
+                        || s.EstadoDoServico == EstadoDoServico.ProntoParaEntrega.GetEnumMemberValue())
                         .ToList();
                     foreach (var month in months)
                     {
@@ -162,7 +165,9 @@ public class CalendarController : Controller
                     var userServices = await _context.ServiceModel
                         .Include(r => r.csscUser)
                         .Where(r => r.ServIdUtilizador == Guid.Parse(userId))
-                        .Where(s => s.EstadoDoServico == EstadoDoServico.Entregue.ToString()).ToListAsync();
+                        .Where(s => s.EstadoDoServico == EstadoDoServico.Entregue.ToString() 
+                        || s.EstadoDoServico == EstadoDoServico.ReparacaoConcluida.GetEnumMemberValue()
+                        || s.EstadoDoServico == EstadoDoServico.ProntoParaEntrega.GetEnumMemberValue()).ToListAsync();
 
                     foreach (var month in months)
                     {
