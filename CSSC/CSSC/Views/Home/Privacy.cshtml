@@ -1,6 +1,55 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
+﻿<style>
+    body {
+        background-color: #ffe8d6; /* Laranja claro */
+    }
 
-<p>Use this page to detail your site's privacy policy.</p>
+    .about {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .about img {
+            display: block;
+            margin: 0 auto;
+            max-height: 250px;
+            margin-bottom: 20px;
+            border-radius: 8px; /* Arredonda os cantos da imagem */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+            transform: perspective(500px) rotateX(0deg); /* Aplica transformação 3D */
+        }
+
+        .about p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px; /* Adiciona espaço abaixo do parágrafo */
+        }
+
+        .about ul {
+            margin-left: 20px; /* Adiciona margem à esquerda da lista */
+        }
+
+            .about ul li {
+                list-style-type: disc; /* Usa bullets circulares */
+                margin-bottom: 10px; /* Adiciona espaço entre os itens da lista */
+            }
+</style>
+
+<div class="about">
+    <img src="~/icone.png" />
+    <p>
+        Sistema de gestão e otimização dos serviços da oficina Car Shop, destinado a proprietários de automóveis que necessitem de auxílio momentâneo ou pretendam assistência periódica.
+        <br />
+        <br />
+        Este tem como principais funcionalidades:
+    </p>
+    <ul>
+        <li>Manter o estado das ordens de serviço atualizados</li>
+        <li>Agendar ordens de serviço com os clientes</li>
+        <li>Analisar histórico dos serviços</li>
+    </ul>
+</div>

@@ -131,7 +131,7 @@ namespace CSSC.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Email ou password inválidos.");
                     return Page();
                 }
             }
