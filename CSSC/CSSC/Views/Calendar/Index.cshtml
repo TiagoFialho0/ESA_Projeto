@@ -94,6 +94,13 @@
             </script>
         }
 
+        @if (TempData["InvalidDates"] != null && (bool)TempData["InvalidDates"])
+        {
+            <script>
+                alert("O intervalo entre as datas não pode ser superior a 1 ano.");
+            </script>
+        }
+
         @section scripts {
         <script>
             $(document).ready(function () {
@@ -124,7 +131,7 @@
                 }
                 <input class="form-check-input" type="checkbox" id="agendadoCheckbox" name="agendadoCheckbox" value="true" @(agendadoChecked ? "checked" : "")>
                 <input type="hidden" name="agendadoCheckbox" value="false">
-                <label class="form-check-label" for="agendadoCheckbox">
+                <label class="form-check-label" for="agendadoCheckbox" style="margin-right: 10px;">
                     Agendado
                 </label>
             </div>

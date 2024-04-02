@@ -73,9 +73,14 @@ public class CalendarController : Controller
     [HttpPost]
     public async Task<ActionResult> Index(DateTime startDate, DateTime endDate, bool agendadoCheckbox, bool concluidoCheckbox)
     {
+        //fazer verificação das datas aqui
         if (startDate == DateTime.MinValue || endDate == DateTime.MinValue)
         {
             TempData["IncompleteDates"] = true;
+            return RedirectToAction("Index", "Calendar");
+        } else if (GetMonthsBetween(startDate, endDate).ToArray().Length > 12)
+        {
+            TempData["InvalidDates"] = true;
             return RedirectToAction("Index", "Calendar");
         }
         else
