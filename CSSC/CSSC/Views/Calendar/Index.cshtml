@@ -169,7 +169,7 @@
                         @* Check month of service and create corresponding data cells *@
                         @foreach (var month in Model.Months)
                         {
-                            @if (service.ServPrazo.Month == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month)
+                            @if (service.ServDataInicio.Month == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month)
                             {
                                 <td>
                                     <div class="card">

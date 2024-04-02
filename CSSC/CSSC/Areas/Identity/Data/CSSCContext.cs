@@ -40,7 +40,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                         ServMarcaVeiculo = "Fiat",
                         ServModeloVeiculo = "Punto",
                         ServMatriculaVeiculo = "AA-00-BB",
-                        ServPrazo = System.DateTime.Today.AddMonths(2),
+                        ServDataInicio = System.DateTime.Today.AddMonths(2),
                         EstadoDoServico = "Em espera"
                     },
                     new Services
@@ -51,7 +51,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                         ServMarcaVeiculo = "Seat",
                         ServModeloVeiculo = "Ibiza",
                         ServMatriculaVeiculo = "BB-11-CC",
-                        ServPrazo = System.DateTime.Today.AddMonths(1),
+                        ServDataInicio = System.DateTime.Today.AddMonths(1),
                         EstadoDoServico = "Em reparação"
                     },
                     new Services
@@ -62,7 +62,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                         ServMarcaVeiculo = "Ford",
                         ServModeloVeiculo = "Fiesta",
                         ServMatriculaVeiculo = "CC-22-DD",
-                        ServPrazo = System.DateTime.Today.AddMonths(4),
+                        ServDataInicio = System.DateTime.Today.AddMonths(4),
                         EstadoDoServico = "Pronto para entrega"
                     },
                     new Services
@@ -73,7 +73,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                         ServMarcaVeiculo = "Ferrari",
                         ServModeloVeiculo = "F40",
                         ServMatriculaVeiculo = "DD-33-EE",
-                        ServPrazo = System.DateTime.Today.AddMonths(1),
+                        ServDataInicio = System.DateTime.Today.AddMonths(1),
                         EstadoDoServico = "Reparação concluida"
                     }
                 );

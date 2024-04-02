@@ -59,43 +59,58 @@
 </head>
 <h1>Detalhes</h1>
 
-<div>
-    <hr />
-    <br />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IdServico)
-        </dt>
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.IdServico)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ServMarcaVeiculo)
-        </dt>
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.ServMarcaVeiculo)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ServModeloVeiculo)
-        </dt>
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.ServModeloVeiculo)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ServMatriculaVeiculo)
-        </dt>
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.ServMatriculaVeiculo)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ServPrazo)
-        </dt>
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.ServPrazo)
-        </dd>
-    </dl>
+<div class="row">
+    <div class="col-md-6">
+        <hr />
+        <br />
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.IdServico)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.IdServico)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.ServDataInicio)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ServDataInicio)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.DescricaoDoServico)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.DescricaoDoServico)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <hr />
+        <br />
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.ServMatriculaVeiculo)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ServMatriculaVeiculo)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.ServMarcaVeiculo)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ServMarcaVeiculo)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.ServModeloVeiculo)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ServModeloVeiculo)
+            </dd>
+        </dl>
+    </div>
 </div>
 
+<br />
 <div class="container">
 @foreach (var estado in Enum.GetValues(typeof(EstadoDoServico)).Cast<EstadoDoServico>())
 {
@@ -117,11 +132,14 @@
 </div>
 
 <br>
-@if (Model.EstadoDoServico.ToString() == "Entregue" /*|| Model.EstadoDoServico.ToString() == "Cancelado"*/)
+@if (User.IsInRole("Default"))
 {
-    <div align="right">
-        <a class="btn btn-secondary" style="background-color: #E36D3F; border-color: white;" asp-action="Classificacao" asp-route-id="@Model.IdServico">Classificar Serviço</a>
-    </div>
+    @if (Model.EstadoDoServico.ToString() == "Entregue" /*|| Model.EstadoDoServico.ToString() == "Cancelado"*/)
+    {
+        <div align="right">
+            <a class="btn btn-secondary" style="background-color: #E36D3F; border-color: white;" asp-action="Classificacao" asp-route-id="@Model.IdServico">Classificar Serviço</a>
+        </div>
+    }
 }
 
 <br />
@@ -151,7 +169,8 @@
             <br />
             <div class="form-group d-flex justify-content-between">
                 <!-- Adicionando classe d-flex e justify-content-between -->
-                <a href=" /Calendar/Index" class="btn btn-secondary" style="background-color: #E36D3F; border-color: white;">Voltar</a> <!-- Adicionando classe btn-secondary -->
+                @*<a href=" /Calendar/Index" class="btn btn-secondary" style="background-color: #E36D3F; border-color: white;">Voltar</a>*@
+                <a href="#" onclick="goBack()" class="btn btn-secondary" style="background-color: #E36D3F; border-color: white;">Voltar</a>
                 <button type="submit" class="btn btn-primary" style="background-color: #E36D3F; border-color: white;">Enviar</button>
             </div>
         </form>
@@ -172,4 +191,10 @@
         return estado.GetEnumMemberValue() == Model.EstadoDoServico ? "colored" : "";
     }
 }
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 

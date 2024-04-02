@@ -105,7 +105,7 @@ namespace CSSC.Controllers
         /// <returns>Um IActionResult redirecionando para a página principal se a criação for bem-sucedida, ou a vista de criação com erros se houver problemas de validação.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdServico,ServIdUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServPrazo,EstadoDoServico")] Services serviceModel)
+        public async Task<IActionResult> Create([Bind("IdServico,ServIdUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServDataInicio,EstadoDoServico,DescricaoDoServico")] Services serviceModel)
         {
             if (ModelState.IsValid)
             {
@@ -148,7 +148,7 @@ namespace CSSC.Controllers
         /// <returns>Um IActionResult redirecionando para a página principal se a edição for bem-sucedida, ou a vista de edição com erros se houver problemas de validação ou concorrência.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdServico,ServIdUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServPrazo,EstadoDoServico")] Services serviceModel)
+        public async Task<IActionResult> Edit(int id, [Bind("IdServico,ServIdUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServDataInicio,EstadoDoServico")] Services serviceModel)
         {
             if (id != serviceModel.IdServico)
             {
@@ -284,8 +284,8 @@ namespace CSSC.Controllers
                 var matricula = serviceModel.ServMatriculaVeiculo.ToString();
                 var campoMatricula = await _context.ServiceModel.FirstOrDefaultAsync(u => u.ServMarcaVeiculo == matricula);
 
-                var data = serviceModel.ServPrazo;
-                var campoData = await _context.ServiceModel.FirstOrDefaultAsync(u => u.ServPrazo == data);
+                var data = serviceModel.ServDataInicio;
+                var campoData = await _context.ServiceModel.FirstOrDefaultAsync(u => u.ServDataInicio == data);
 
                 string _emailSubject = "Serviço de Reparação Agendado";
                 string _message = "Foi agendado um serviço na sua oficina CarShopSolutions.\n\n" +

@@ -5,15 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
-    dd{
-        text-align: left;
-    }
-    dt{
-        text-align: right;
-    }
 
     body {
         background-color: #EAEAEA; /* Define a cor de fundo da página */
+    }
+
+    dd {
+        text-align: left;
+    }
+
+    dt {
+        text-align: left;
     }
 </style>
 <div class="text-center">
@@ -22,71 +24,75 @@
 </div>
 <div class="text-center">
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-5" hidden>
-            @Html.DisplayNameFor(model => model.ServIdUtilizador)
-        </dt>
-        <dd class = "col-sm-5" hidden>
-            @Html.DisplayFor(model => model.ServIdUtilizador)
-        </dd>
-        <dt class = "col-sm-5">
-            @Html.DisplayNameFor(model => model.ServMarcaVeiculo)
-        </dt>
-        <dd class = "col-sm-5">
-            @Html.DisplayFor(model => model.ServMarcaVeiculo)
-        </dd>
-        <dt class="col-sm-5">
-            @Html.DisplayNameFor(model => model.ServModeloVeiculo)
-        </dt>
-        <dd class="col-sm-5">
-            @Html.DisplayFor(model => model.ServModeloVeiculo)
-        </dd>
-        <dt class="col-sm-5">
-            @Html.DisplayNameFor(model => model.ServMatriculaVeiculo)
-        </dt>
-        <dd class="col-sm-5">
-            @Html.DisplayFor(model => model.ServMatriculaVeiculo)
-        </dd>
-        <dt class="col-sm-5">
-            @Html.DisplayNameFor(model => model.ServClassificacao)
-        </dt>
-        <dd class="col-sm-5">
-            @if (string.IsNullOrEmpty(Model.ServClassificacao.ToString()))
-            {
-                <text>Não tem nenhuma classificação</text>
-            }
-            else
-            {
-                @Html.DisplayFor(model => model.ServClassificacao)
-            }
-        </dd>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <dl class="row">
+                <dt class="col-sm-5">
+                    @Html.DisplayNameFor(model => model.ServMarcaVeiculo)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.ServMarcaVeiculo)
+                </dd>
+                <dt class="col-sm-5">
+                    @Html.DisplayNameFor(model => model.ServModeloVeiculo)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.ServModeloVeiculo)
+                </dd>
+                <dt class="col-sm-5">
+                    @Html.DisplayNameFor(model => model.ServMatriculaVeiculo)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.ServMatriculaVeiculo)
+                </dd>
+                
+                <dt class="col-sm-5">
+                    @Html.DisplayNameFor(model => model.EstadoDoServico)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.EstadoDoServico)
+                </dd>
+                <dt class="col-sm-5">
+                    @Html.DisplayNameFor(model => model.ServDataInicio)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.ServDataInicio)
+                </dd>
+                <dt class="col-sm-5">
+                    @Html.DisplayNameFor(model => model.ServClassificacao)
+                </dt>
+                <dd class="col-sm-5">
+                    @if (string.IsNullOrEmpty(Model.ServClassificacao.ToString()))
+                    {
+                        <text>Sem Classificação</text>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => model.ServClassificacao)
+                    }
+                </dd>
+                <dt class="col-sm-5">
+                    @Html.DisplayNameFor(model => model.ServComentario)
+                </dt>
+                <dd class="col-sm-7">
+                    @if (Model.ServComentario == null || string.IsNullOrEmpty(Model.ServComentario.ToString()))
+                    {
+                        <text>Sem Comentário</text>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => model.ServComentario)
+                    }
+                </dd>
+            </dl>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
 
-        <dt class="col-sm-5">
-            @Html.DisplayNameFor(model => model.ServComentario)
-        </dt>
-        <dd class="col-sm-5">
-            @if (Model.ServComentario == null || string.IsNullOrEmpty(Model.ServComentario.ToString()))
-            {
-                <text>Não contém nenhum comentário</text>
-            }
-            else
-            {
-                @Html.DisplayFor(model => model.ServComentario)
-            }
-        </dd>
-        <dt class="col-sm-5">
-            @Html.DisplayNameFor(model => model.ServPrazo)
-        </dt>
-        <dd class="col-sm-5">
-            @Html.DisplayFor(model => model.ServPrazo)
-        </dd>
-        <dt class="col-sm-5">
-            @Html.DisplayNameFor(model => model.EstadoDoServico)
-        </dt>
-        <dd class="col-sm-5" >
-            @Html.DisplayFor(model => model.EstadoDoServico)
-        </dd>
-    </dl>
+
+
+
 </div>
 <div class="form-group d-flex justify-content-center mt-3">
     <div style="margin-right: 100px;">

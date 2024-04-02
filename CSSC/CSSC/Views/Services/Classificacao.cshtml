@@ -59,7 +59,7 @@
 </style>
 
 
-<h2>Classificação de Serviços</h2>
+<center><h2>Classificação de Serviços</h2></center>
 
 
 <form asp-action="Classificacao" method="post">
@@ -78,10 +78,25 @@
         <input type="radio" id="rating-5" name="rating" value="5">
         <label for="rating-5">5</label>
     </div>
-    <div class="additional-comments">
-        <label for="comments">Comentários adicionais:</label><br>
-        <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
-    </div>
+
+        <div class="additional-comments" style="position: relative;">
+            <label for="comments" style="display: inline-block;">
+                Comentários adicionais:
+                <span class="info-icon" style="position: absolute; top: 0; right: 0;">
+                    <img src="/info-button.png" style="width: 20px; height: 20px;">
+                </span>
+                <span class="info-text" style="position: absolute; top: -50px; right: -120px;">Escreva um comentário curto com um máximo de 25 palavras</span>
+            </label><br>
+            <textarea id="comments" name="comments" rows="4" cols="50" oninput="limitWords()" onkeydown="checkLimit(event)"></textarea>
+            
+        </div>
+
+
+
+
+
+
+
     <div>
             <button type="submit" style="background-color: #E36D3F; border: 1px solid white; color:white;">Submeter</button>
     </div>
@@ -100,4 +115,31 @@ else if (TempData["Failed"] != null && (bool)TempData["Failed"])
     </script>
 }
 
+
+<script>
+    function limitWords() {
+        var textarea = document.getElementById("comments");
+        var words = textarea.value.trim().split(/\s+/);
+        var wordCount = words.length;
+        var limit = 25;
+
+        if (wordCount > limit) {
+            words = words.slice(0, limit);
+            textarea.value = words.join(" ");
+            wordCount = limit;
+        }
+
+        document.getElementById("wordCount").textContent = wordCount;
+    }
+
+    function checkLimit(event) {
+        var textarea = document.getElementById("comments");
+        var words = textarea.value.trim().split(/\s+/).length;
+        var limit = 25;
+
+        if (words >= limit && event.keyCode !== 8) {
+            event.preventDefault();
+        }
+    }
+</script>
 

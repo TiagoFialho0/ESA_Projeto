@@ -1,6 +1,7 @@
 ﻿using CSSC.Areas.Identity.Data;
 using CSSC.Controllers;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using KeyAttribute = System.ComponentModel.DataAnnotations.KeyAttribute;
 
 namespace CSSC.Models
@@ -82,8 +83,10 @@ namespace CSSC.Models
         /// Data em que o serviço vai ser realizado
         /// </summary>
         /// <return>DateTime com a data do serviço</return>
-        [DisplayName("Prazo do serviço")]
-        public DateTime ServPrazo { get; set; }
+        [DisplayName("Data de Início")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime ServDataInicio { get; set; }
 
         /// <summary>
         /// Estado atual do serviço
@@ -91,5 +94,12 @@ namespace CSSC.Models
         /// <return>String que apresenta o estado atual do serviço</return>
         [DisplayName("Estado do Serviço")]
         public string? EstadoDoServico { get; set; }
+
+        /// <summary>
+        /// Breve descrição do serviço
+        /// </summary>
+        /// <return>String que apresenta uma breve descrição do serviço</return>
+        [DisplayName("Descrição do Serviço")]
+        public string? DescricaoDoServico { get; set; }
     }
 }

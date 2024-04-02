@@ -25,6 +25,7 @@
     
 </style>
 
+
 @if (User.IsInRole("Operador"))
 {
     <div class="d-flex justify-content-end">
@@ -47,8 +48,9 @@
             }
 
             <th>
-                @Html.DisplayNameFor(model => model.ServPrazo)
+                @Html.DisplayNameFor(model => model.ServDataInicio)
             </th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -74,7 +76,7 @@
                 }
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.ServPrazo)
+                    @Html.DisplayFor(modelItem => item.ServDataInicio)
                 </td>
                 @if (User.IsInRole("Operador"))
                 {
@@ -85,13 +87,14 @@
                         <form style="margin-right: 10px;">
                             <button type="submit" class="btn btn-secondary" asp-action="Delete" asp-route-id="@item.IdServico" style="background-color: #B22222; border: 1px solid white;">Remover</button>
                         </form>
-                        @*<form style="margin-right: 10px;">
-                            <button type="submit" class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdServico">Details</button>
-                        </form>*@
                         <button class="btn btn-secondary toggle-details-btn dropdown-toggle" data-target="#detailsContainer-@item.IdServico" style="background-color: white; color: black;"></button>
                     </td>
-
                 }
+                <td>
+                    <form style="margin-right: 10px;">
+                        <button type="submit" class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdServico" style="background-color: #E36D3F; border: 1px solid white;">Detalhes</button>
+                    </form>
+                </td>
             </tr>
             <tr class="hidden-row">
                 <!--<td colspan="3">-->
@@ -101,7 +104,53 @@
                         <p><strong>Marca Veiculo:</strong> @item.ServMarcaVeiculo</p>
                         <p><strong>Modelo Veiculo:</strong> @item.ServModeloVeiculo</p>
                         <p><strong>Matricula Veiculo:</strong> @item.ServMatriculaVeiculo</p>
-                        <p><strong>Prazo de serviço:</strong> @item.ServPrazo</p>
+                        <p><strong>Data de Início:</strong> @item.ServDataInicio.ToString("dd/MM/yyyy")</p>
+
+                        @{
+                            string descricaoServico = item.DescricaoDoServico;
+                            if (!string.IsNullOrEmpty(descricaoServico))
+                            {
+                                string[] palavras = descricaoServico.Split(' ');
+                                string descricaoResumida = string.Join(" ", palavras.Take(8));
+                                string descricaoCompleta = string.Join(" ", palavras.Skip(8));
+
+                                if (palavras.Length > 8)
+                                {
+                                    <p><strong>Descrição do serviço:</strong> @descricaoResumida
+                                        <span id="toggleDescription" style="cursor:pointer;color:#E36D3F;">[...]</span>
+                                        <span id="descricaoCompleta" style="display:none;"> @descricaoCompleta</span><span id="toggleDescriptionCollapse" style="display:none; cursor:pointer;color:#E36D3F;">[recolher]</span>
+                                    </p>
+                                    <script>
+                                        var toggleDescription = document.getElementById('toggleDescription');
+                                        var descricaoCompletaElement = document.getElementById('descricaoCompleta');
+                                        var toggleDescriptionCollapse = document.getElementById('toggleDescriptionCollapse');
+
+                                        toggleDescription.addEventListener('click', function () {
+                                            descricaoCompletaElement.style.display = 'inline';
+                                            toggleDescription.style.display = 'none';
+                                            toggleDescriptionCollapse.style.display = 'inline';
+                                        });
+
+                                        toggleDescriptionCollapse.addEventListener('click', function () {
+                                            descricaoCompletaElement.style.display = 'none';
+                                            toggleDescription.style.display = 'inline';
+                                            toggleDescriptionCollapse.style.display = 'none';
+                                        });
+                                    </script>
+                                }
+                                else
+                                {
+                                    <p><strong>Descrição do serviço:</strong> @descricaoServico</p>
+                                }
+                            }
+                            else
+                            {
+                                <p><strong>Descrição do serviço:</strong> (Sem descrição disponível)</p>
+                            }
+                        }
+
+
+
                     </div>
                 </td>
                 <td>
@@ -163,4 +212,5 @@
             enableButton(this); // 'this' refers to the select element being changed
         });
     });
+
 </script>

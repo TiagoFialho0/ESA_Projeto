@@ -32,8 +32,8 @@ public class CalendarController : Controller
             var data = new List<List<Services>>();
             foreach (var month in months)
             {
-                var monthData = services.Where(s => s.ServPrazo.Month == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month
-                                                    && s.ServPrazo.Year == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
+                var monthData = services.Where(s => s.ServDataInicio.Month == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month
+                                                    && s.ServDataInicio.Year == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
                 data.Add(monthData);
             }
 
@@ -50,8 +50,8 @@ public class CalendarController : Controller
             var data = new List<List<Services>>();
             foreach (var month in months)
             {
-                var monthData = userServices.Where(s => s.ServPrazo.Month == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month
-                                                        && s.ServPrazo.Year == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
+                var monthData = userServices.Where(s => s.ServDataInicio.Month == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month
+                                                        && s.ServDataInicio.Year == DateTime.ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
                 data.Add(monthData);
             }
 
@@ -101,9 +101,9 @@ public class CalendarController : Controller
                     foreach (var month in months)
                     {
                         var monthData = services.Where(s =>
-                            s.ServPrazo.Month == DateTime.ParseExact(month, "MMMM yyyy",
+                            s.ServDataInicio.Month == DateTime.ParseExact(month, "MMMM yyyy",
                                 CultureInfo.CreateSpecificCulture("pt-PT")).Month
-                            && s.ServPrazo.Year == DateTime.ParseExact(month, "MMMM yyyy",
+                            && s.ServDataInicio.Year == DateTime.ParseExact(month, "MMMM yyyy",
                                 CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
                         data.Add(monthData);
                     }
@@ -119,9 +119,9 @@ public class CalendarController : Controller
                     foreach (var month in months)
                     {
                         var monthData = services.Where(s =>
-                            s.ServPrazo.Month == DateTime.ParseExact(month, "MMMM yyyy",
+                            s.ServDataInicio.Month == DateTime.ParseExact(month, "MMMM yyyy",
                                 CultureInfo.CreateSpecificCulture("pt-PT")).Month
-                            && s.ServPrazo.Year == DateTime.ParseExact(month, "MMMM yyyy",
+                            && s.ServDataInicio.Year == DateTime.ParseExact(month, "MMMM yyyy",
                                 CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
                         data.Add(monthData);
                     }
@@ -134,9 +134,9 @@ public class CalendarController : Controller
                     foreach (var month in months)
                     {
                         var monthData = services.Where(s =>
-                            s.ServPrazo.Month == DateTime.ParseExact(month, "MMMM yyyy",
+                            s.ServDataInicio.Month == DateTime.ParseExact(month, "MMMM yyyy",
                                 CultureInfo.CreateSpecificCulture("pt-PT")).Month
-                            && s.ServPrazo.Year == DateTime.ParseExact(month, "MMMM yyyy",
+                            && s.ServDataInicio.Year == DateTime.ParseExact(month, "MMMM yyyy",
                                 CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
                         data.Add(monthData);
                     }
@@ -158,9 +158,9 @@ public class CalendarController : Controller
                     foreach (var month in months)
                     {
                         var monthData = userServices.Where(s =>
-                            s.ServPrazo.Month == DateTime
+                            s.ServDataInicio.Month == DateTime
                                 .ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month
-                            && s.ServPrazo.Year == DateTime
+                            && s.ServDataInicio.Year == DateTime
                                 .ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
                         data.Add(monthData);
                     }
@@ -177,9 +177,9 @@ public class CalendarController : Controller
                     foreach (var month in months)
                     {
                         var monthData = userServices.Where(s =>
-                            s.ServPrazo.Month == DateTime
+                            s.ServDataInicio.Month == DateTime
                                 .ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month
-                            && s.ServPrazo.Year == DateTime
+                            && s.ServDataInicio.Year == DateTime
                                 .ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
                         data.Add(monthData);
                     }
@@ -193,9 +193,9 @@ public class CalendarController : Controller
                     foreach (var month in months)
                     {
                         var monthData = userServices.Where(s =>
-                            s.ServPrazo.Month == DateTime
+                            s.ServDataInicio.Month == DateTime
                                 .ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Month
-                            && s.ServPrazo.Year == DateTime
+                            && s.ServDataInicio.Year == DateTime
                                 .ParseExact(month, "MMMM yyyy", CultureInfo.CreateSpecificCulture("pt-PT")).Year).ToList();
                         data.Add(monthData);
                     }

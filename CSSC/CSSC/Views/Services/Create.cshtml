@@ -54,14 +54,19 @@
                 <span asp-validation-for="ServComentario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ServPrazo" class="control-label"></label>
-                <input asp-for="ServPrazo" class="form-control" />
-                <span asp-validation-for="ServPrazo" class="text-danger"></span>
+                <label asp-for="ServDataInicio" class="control-label"></label>
+                <input asp-for="ServDataInicio" class="form-control" />
+                <span asp-validation-for="ServDataInicio" class="text-danger"></span>
             </div>
             <div hidden class="form-group">
                 <label asp-for="EstadoDoServico" class="control-label"></label>
                 <select asp-for="EstadoDoServico" class="form-control" asp-items="ViewBag.Types"></select>
                 <span asp-validation-for="EstadoDoServico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescricaoDoServico" class="control-label"></label>
+                <input asp-for="DescricaoDoServico" class="form-control" />
+                <span asp-validation-for="DescricaoDoServico" class="text-danger"></span>
             </div>
             <div class="form-group d-flex justify-content-between mt-3">
                 <a asp-action="Index" class="btn btn-secondary" style="background-color: #E36D3F; border-color: white;">Voltar</a>

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSSC.Migrations
 {
     [DbContext(typeof(CSSCContext))]
-    [Migration("20240402084827_InitialMigration")]
+    [Migration("20240402181008_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -107,12 +107,12 @@ namespace CSSC.Migrations
                         {
                             Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c09f1136-dc3d-42d5-9677-c4d379593790",
+                            ConcurrencyStamp = "cf2aa17a-b120-4607-870e-8b740a040676",
                             Email = "tiagofialho2002@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e521c237-1ac1-49ee-bc34-505069582c09",
+                            SecurityStamp = "0d95fd03-8531-4503-8aff-1c3309e949b3",
                             TwoFactorEnabled = false,
                             UserName = "Tiago",
                             UtDataDeNascimento = "01/01/1970",
@@ -154,6 +154,9 @@ namespace CSSC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdServico"), 1L, 1);
 
+                    b.Property<string>("DescricaoDoServico")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("EstadoDoServico")
                         .HasColumnType("nvarchar(max)");
 
@@ -162,6 +165,9 @@ namespace CSSC.Migrations
 
                     b.Property<string>("ServComentario")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ServDataInicio")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid?>("ServIdOperador")
                         .HasColumnType("uniqueidentifier");
@@ -177,9 +183,6 @@ namespace CSSC.Migrations
 
                     b.Property<string>("ServModeloVeiculo")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ServPrazo")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("csscOperadorId")
                         .HasColumnType("nvarchar(450)");
@@ -200,45 +203,45 @@ namespace CSSC.Migrations
                         {
                             IdServico = 500,
                             EstadoDoServico = "Em espera",
+                            ServDataInicio = new DateTime(2024, 6, 2, 0, 0, 0, 0, DateTimeKind.Local),
                             ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
                             ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                             ServMarcaVeiculo = "Fiat",
                             ServMatriculaVeiculo = "AA-00-BB",
-                            ServModeloVeiculo = "Punto",
-                            ServPrazo = new DateTime(2024, 6, 2, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServModeloVeiculo = "Punto"
                         },
                         new
                         {
                             IdServico = 510,
                             EstadoDoServico = "Em reparação",
+                            ServDataInicio = new DateTime(2024, 5, 2, 0, 0, 0, 0, DateTimeKind.Local),
                             ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
                             ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                             ServMarcaVeiculo = "Seat",
                             ServMatriculaVeiculo = "BB-11-CC",
-                            ServModeloVeiculo = "Ibiza",
-                            ServPrazo = new DateTime(2024, 5, 2, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServModeloVeiculo = "Ibiza"
                         },
                         new
                         {
                             IdServico = 520,
                             EstadoDoServico = "Pronto para entrega",
+                            ServDataInicio = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Local),
                             ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
                             ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                             ServMarcaVeiculo = "Ford",
                             ServMatriculaVeiculo = "CC-22-DD",
-                            ServModeloVeiculo = "Fiesta",
-                            ServPrazo = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServModeloVeiculo = "Fiesta"
                         },
                         new
                         {
                             IdServico = 530,
                             EstadoDoServico = "Reparação concluida",
+                            ServDataInicio = new DateTime(2024, 5, 2, 0, 0, 0, 0, DateTimeKind.Local),
                             ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
                             ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                             ServMarcaVeiculo = "Ferrari",
                             ServMatriculaVeiculo = "DD-33-EE",
-                            ServModeloVeiculo = "F40",
-                            ServPrazo = new DateTime(2024, 5, 2, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServModeloVeiculo = "F40"
                         });
                 });
 
