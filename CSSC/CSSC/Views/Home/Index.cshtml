@@ -74,8 +74,27 @@
                             @foreach (var item in Model.Where(s => s.EstadoDoServico == CSSC.Controllers.EstadoDoServico.Entregue.GetEnumMemberValue()))
                             {
                                 <tr>
-                                    <td>@Html.DisplayFor(modelItem => item.ServClassificacao)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.ServComentario)</td>
+
+                                    <td>
+                                        @if (item.ServClassificacao != null)
+                                        {
+                                            @Html.DisplayFor(modelItem => item.ServClassificacao)
+                                        }
+                                        else
+                                        {
+                                            @: Sem classificação
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.ServComentario != null)
+                                        {
+                                            @Html.DisplayFor(modelItem => item.ServComentario)
+                                        }
+                                        else
+                                        {
+                                            @: Sem comentário
+                                        }
+                                    </td>
                                     <td>@Html.DisplayFor(modelItem => item.EstadoDoServico)</td>
 
 

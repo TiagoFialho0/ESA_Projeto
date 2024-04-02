@@ -90,7 +90,10 @@ namespace CSSC.Controllers
             List<CSSCUser> users = _context.Users.ToList();
             List<Guid> ids = users.Select(user => Guid.Parse(user.Id)).ToList();
             ViewBag.Users = new SelectList(users, "Id", "Email");
-            List<string> estados = typeof(EstadoDoServico).GetValuesWithDescriptions();
+            List<string> estados = typeof(EstadoDoServico).GetValuesWithDescriptions()
+                .OrderByDescending(state => state == "Em espera") // Move "Em espera" to the front
+                .ThenBy(state => state) // Sort the rest alphabetically
+                .ToList();
             ViewBag.Types = new SelectList(estados);
             return View();
         }

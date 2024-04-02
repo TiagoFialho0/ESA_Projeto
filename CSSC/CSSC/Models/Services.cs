@@ -19,7 +19,7 @@ namespace CSSC.Models
         /// Id do utilizador associado ao serviço
         /// </summary>
         /// <return>Guid do utilizador associado</return>
-        [DisplayName("Número de Cliente")]
+        [DisplayName("Email do Cliente")]
         public Guid ServIdUtilizador { get; set; }
 
         /// <summary>
