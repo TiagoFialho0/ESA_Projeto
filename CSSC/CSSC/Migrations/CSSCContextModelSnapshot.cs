@@ -105,12 +105,12 @@ namespace CSSC.Migrations
                         {
                             Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bdb288d7-e0f5-45f8-90de-cdc58ab8646d",
+                            ConcurrencyStamp = "c09f1136-dc3d-42d5-9677-c4d379593790",
                             Email = "tiagofialho2002@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f1d8349e-1d3b-4bba-9067-e8fef0e50da2",
+                            SecurityStamp = "e521c237-1ac1-49ee-bc34-505069582c09",
                             TwoFactorEnabled = false,
                             UserName = "Tiago",
                             UtDataDeNascimento = "01/01/1970",
@@ -203,7 +203,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Fiat",
                             ServMatriculaVeiculo = "AA-00-BB",
                             ServModeloVeiculo = "Punto",
-                            ServPrazo = new DateTime(2024, 6, 1, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 6, 2, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -214,7 +214,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Seat",
                             ServMatriculaVeiculo = "BB-11-CC",
                             ServModeloVeiculo = "Ibiza",
-                            ServPrazo = new DateTime(2024, 5, 1, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 5, 2, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -225,7 +225,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Ford",
                             ServMatriculaVeiculo = "CC-22-DD",
                             ServModeloVeiculo = "Fiesta",
-                            ServPrazo = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
@@ -236,7 +236,7 @@ namespace CSSC.Migrations
                             ServMarcaVeiculo = "Ferrari",
                             ServMatriculaVeiculo = "DD-33-EE",
                             ServModeloVeiculo = "F40",
-                            ServPrazo = new DateTime(2024, 5, 1, 0, 0, 0, 0, DateTimeKind.Local)
+                            ServPrazo = new DateTime(2024, 5, 2, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 
