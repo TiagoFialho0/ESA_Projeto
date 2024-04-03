@@ -5,6 +5,9 @@ using System.Xml.Linq;
 
 namespace CSSC.Controllers
 {
+    /// <summary>
+    /// Enumerado para representar os estados possíveis de um serviço
+    /// </summary>
     public enum EstadoDoServico
     {
         [EnumMember(Value = "Em espera")]

@@ -15,7 +15,11 @@ namespace CSSC.Controllers
         private readonly CSSCContext _context;
 
        
-
+        /// <summary>
+        /// Construtor do controlador HomeController
+        /// </summary>
+        /// <param name="logger">Instância do logger para registo de informações</param>
+        /// <param name="context">Instância do CSSCContext para o contexto da base de dados</param>
         public HomeController(ILogger<HomeController> logger, CSSCContext context)
         {
             _logger = logger;

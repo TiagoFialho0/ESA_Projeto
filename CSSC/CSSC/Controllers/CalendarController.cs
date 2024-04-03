@@ -14,6 +14,10 @@ public class CalendarController : Controller
 {
     private readonly CSSCContext _context;
 
+    /// <summary>
+    /// Construtor do controlador CalendarController
+    /// </summary>
+    /// <param name="context">Instância do CSSCContext para o contexto da base de dados</param>
     public CalendarController(CSSCContext context)
     {
         _context = context;

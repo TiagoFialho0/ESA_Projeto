@@ -4,6 +4,9 @@ using static System.Net.WebRequestMethods;
 
 namespace CSSC.Controllers
 {
+    /// <summary>
+    /// Enumerado para representar o código do país com base no formato NIF
+    /// </summary>
     public enum PaiseNIF
     {
         [EnumMember(Value = "pt")]

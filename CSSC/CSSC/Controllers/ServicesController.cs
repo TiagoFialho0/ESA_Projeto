@@ -20,6 +20,10 @@ namespace CSSC.Controllers
     {
         private readonly CSSCContext _context;
 
+        /// <summary>
+        /// Construtor do controlador ServicesController.
+        /// </summary>
+        /// <param name="context">Instância do CSSCContext para o contexto da base de dados</param>
         public ServicesController(CSSCContext context)
         {
             _context = context;
