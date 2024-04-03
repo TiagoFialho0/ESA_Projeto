@@ -47,6 +47,16 @@
         border-color: dimgrey;
     }
 
+    .circle.coloredPast {
+        background-color: dimgrey; 
+        border-color: dimgrey;
+    }
+
+    .circle.coloredCancel.Cancelado {
+        background-color: #B22222; 
+        border-color: dimgrey;
+    }
+
     .form-group {
         position: relative;
     }
@@ -112,23 +122,45 @@
 
 <br />
 <div class="container">
-@foreach (var estado in Enum.GetValues(typeof(EstadoDoServico)).Cast<EstadoDoServico>())
-{
-    <div class="option">
-        <div class="circle @GetCircleClass(estado)"></div>
+    @{
+        // Variável para controlar se um círculo laranja já foi encontrado
+        bool laranjaEncontrado = false;
+        bool canceladoEncontrado = false;
+    }
+
+    @foreach (var estado in Enum.GetValues(typeof(EstadoDoServico)).Cast<EstadoDoServico>())
+    {
+        <div class="option">
+            <div class="circle @(laranjaEncontrado ? "" : (estado.GetEnumMemberValue() == Model.EstadoDoServico ? "colored" : "coloredPast")) @(canceladoEncontrado? " coloredCancel":"") @estado.GetEnumMemberValue()"></div>
             <div class="text">@estado.GetEnumMemberValue()</div>
-    
-        @foreach (var servicesStates in ViewBag.ServicesStates)
-        {
-            if (servicesStates.EstadoDoServico == estado.GetEnumMemberValue())
+
+            @foreach (var servicesStates in ViewBag.ServicesStates)
             {
+                if (servicesStates.EstadoDoServico == estado.GetEnumMemberValue())
+                {
                     <div class="text" style="font-weight: normal;">
                         @servicesStates.alteracaoEstado
-                    </div>            
+                    </div>
+                }
             }
-        }
-    </div>
-}
+
+            @{
+                // Se este estado é o laranja, marcar como encontrado
+                if (estado.GetEnumMemberValue() == Model.EstadoDoServico)
+                {
+                    laranjaEncontrado = true;
+                }
+            }
+
+            @{
+                // Se este estado é cancelado, marcar como encontrado
+                if (Model.EstadoDoServico=="Cancelado")
+                {
+                    canceladoEncontrado = true;
+                }
+            }
+        </div>
+    }
 </div>
 
 <br>
@@ -185,12 +217,14 @@
 }
 
 
-@functions {
+@* @functions {
+    //string GetCircleClass(EstadoDoServico estado)
     string GetCircleClass(EstadoDoServico estado)
     {
-        return estado.GetEnumMemberValue() == Model.EstadoDoServico ? "colored" : "";
+        //return estado.GetEnumMemberValue() == Model.EstadoDoServico ? "colored" : "";
+        return Model.EstadoDoServico == "Cancelado" ? "coloredCancel" : "";
     }
-}
+} *@
 
 <script>
     function goBack() {
