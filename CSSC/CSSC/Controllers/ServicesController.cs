@@ -383,6 +383,15 @@ namespace CSSC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        /// <summary>
+        /// Processa o contato com a oficina.
+        /// </summary>
+        /// <param name="idServico">O ID do serviço a ser agendado.</param>
+        /// <param name="subject">O assunto do contato.</param>
+        /// <param name="description">A descrição do contato.</param>
+        /// <returns>
+        /// Um <see cref="Task"/> que representa a operação assíncrona. Redireciona para a página de calendário se o contato for bem-sucedido.
+        /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ContactOficina(string idServico, string subject, string description)
@@ -407,6 +416,15 @@ namespace CSSC.Controllers
             return RedirectToAction("Index", "Calendar");
         }
 
+        /// <summary>
+        /// Retorna a visualização para a classificação de um serviço específico.
+        /// </summary>
+        /// <param name="id">O ID do serviço a ser classificado.</param>
+        /// <returns>
+        /// Um <see cref="Task"/> que representa a operação assíncrona. 
+        /// Retorna a visualização para a classificação do serviço se o ID for válido e o serviço for encontrado.
+        /// Retorna um resultado NotFound se o ID for nulo ou se o serviço não for encontrado.
+        /// </returns>
         public async Task<IActionResult> Classificacao(int? id)
         {
             if (id == null || _context.ServiceModel == null)
@@ -423,6 +441,17 @@ namespace CSSC.Controllers
             return View(serviceModel);
         }
 
+        /// <summary>
+        /// Processa a classificação e os comentários para um serviço específico.
+        /// </summary>
+        /// <param name="id">O ID do serviço a ser classificado.</param>
+        /// <param name="rating">A classificação atribuída ao serviço.</param>
+        /// <param name="comments">Os comentários associados à classificação.</param>
+        /// <returns>
+        /// Um <see cref="Task"/> que representa a operação assíncrona. 
+        /// Redireciona para a página inicial se a classificação for bem-sucedida.
+        /// Retorna um resultado NotFound se o serviço não for encontrado.
+        /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Classificacao(int id, int rating, string comments)
@@ -484,11 +513,24 @@ namespace CSSC.Controllers
           return (_context.ServiceModel?.Any(e => e.IdServico == id)).GetValueOrDefault();
         }
 
+        /// <summary>
+        /// Verifica se existe um estado de serviço com o ID especificado.
+        /// </summary>
+        /// <param name="id">O ID do estado de serviço a ser verificado.</param>
+        /// <returns>
+        /// Retorna true se um estado de serviço com o ID especificado existe, caso contrário, retorna false.
+        /// </returns>
         private bool ServicesStatesExists(int id)
         {
             return (_context.ServicesStates?.Any(e => e.IdEstadoServico == id)).GetValueOrDefault();
         }
 
+        /// <summary>
+        /// Cria uma nova instância de ServicesStates.
+        /// </summary>
+        /// <returns>
+        /// Uma nova instância de ServicesStates.
+        /// </returns>
         private ServicesStates CreateServicesStates()
         {
             try

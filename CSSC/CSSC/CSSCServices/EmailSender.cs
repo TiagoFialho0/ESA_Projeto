@@ -9,6 +9,18 @@ namespace CSSC.CSSCServices
     /// </summary>
     public class EmailSender
     {
+        private readonly ISendGridClient _client;
+
+        public EmailSender()
+        {
+        }
+
+        // Ajuste o construtor para aceitar ISendGridClient como dependência
+        public EmailSender(ISendGridClient client)
+        {
+            _client = client;
+        }
+
         /// <summary>
         /// Envia um e-mail de forma assíncrona para o destinatário especificado.
         /// </summary>
@@ -26,24 +38,7 @@ namespace CSSC.CSSCServices
         /// await emailSender.SendEmail("Teste de Assunto", "destinatario@example.com", "Este é um teste de mensagem.");
         /// </code>
         /// </example>
-        /// 
-
-
-        private readonly ISendGridClient _client;
-
-
-        public EmailSender()
-        {
-        }
-
-        // Ajuste o construtor para aceitar ISendGridClient como dependência
-        public EmailSender(ISendGridClient client)
-        {
-            _client = client;
-        }
-
-
-
+        ///
         public async Task<Response> SendEmail(string subject, string toEmail, string message)
         {
             var apiKey = "";
@@ -58,6 +53,17 @@ namespace CSSC.CSSCServices
             return response;
         }
 
+        /// <summary>
+        /// Envia um email para a oficina usando o serviço SendGrid.
+        /// </summary>
+        /// <param name="subject">O assunto do email.</param>
+        /// <param name="fromEmail">O endereço de email do remetente.</param>
+        /// <param name="fromUserName">O nome do remetente.</param>
+        /// <param name="message">O corpo do email.</param>
+        /// <returns>
+        /// Um <see cref="Task"/> que representa a operação assíncrona. 
+        /// Retorna um objeto <see cref="Response"/> contendo informações sobre o envio do email.
+        /// </returns>
         public async Task<Response> SendEmailToOficina(string subject, string fromEmail, string fromUserName, string message)
         {
             var apiKey = "";

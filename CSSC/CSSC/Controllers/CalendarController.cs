@@ -19,6 +19,13 @@ public class CalendarController : Controller
         _context = context;
     }
 
+    /// <summary>
+    /// Retorna a visualização do calendário com os serviços agendados para os próximos 6 meses, de acordo com o papel do utilizador.
+    /// </summary>
+    /// <returns>
+    /// Um <see cref="ActionResult"/> contendo a visualização do calendário com os serviços agendados para os próximos 6 meses,
+    /// redireciona para a página de login se o utilizador não estiver autenticado, ou redireciona para a página principal se o utilizador for um operador.
+    /// </returns>
     public async Task<ActionResult> Index()
     {
         var months = GetMonthsBetween(DateTime.Today, DateTime.Today.AddMonths(5));

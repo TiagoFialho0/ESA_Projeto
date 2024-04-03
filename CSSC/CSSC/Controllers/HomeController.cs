@@ -22,6 +22,14 @@ namespace CSSC.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Retorna a visualização dos serviços de acordo com o papel do utilizador.
+        /// </summary>
+        /// <returns>
+        /// Um <see cref="Task"/> que representa a operação assíncrona. O resultado contém um <see cref="IActionResult"/>.
+        /// A visualização dos serviços é retornada se o utilizador estiver autenticado como operador ou padrão.
+        /// Redireciona para a página de login se o utilizador não estiver autenticado.
+        /// </returns>
         public async Task<IActionResult> Index()
         {
             if (User.IsInRole("Operador"))
@@ -45,11 +53,23 @@ namespace CSSC.Controllers
             }
         }
 
+        /// <summary>
+        /// Retorna a visualização da política de privacidade.
+        /// </summary>
+        /// <returns>
+        /// Um <see cref="IActionResult"/> que representa a visualização da política de privacidade.
+        /// </returns>
         public IActionResult Privacy()
         {
             return View();
         }
 
+        /// <summary>
+        /// Retorna a visualização de erro.
+        /// </summary>
+        /// <returns>
+        /// Um <see cref="IActionResult"/> que representa a visualização de erro.
+        /// </returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
