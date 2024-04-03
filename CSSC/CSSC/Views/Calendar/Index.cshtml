@@ -70,23 +70,33 @@
         <div class="col-md-2">
             <div class="form-group">
                 @Html.LabelFor(m => m.StartDate, "Data de Inicio:")
-                @Html.TextBoxFor(m => m.StartDate, new { @type = "date", @class = "form-control form-control-sm", @min = "2023-01-01", @id = "StartDateField" })
-                <span class="text-danger" asp-validation-for="StartDate"></span>
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.StartDate, new { @type = "date", @class = "form-control form-control-sm", @min = "2023-01-01", @id = "StartDateField" })
+                </div>
             </div>
         </div>
         <div class="col-md-2">
             <div class="form-group">
-                @Html.LabelFor(m => m.EndDate, "Data de Fim:")
+                <div class="input-group">
+                    @Html.LabelFor(m => m.EndDate, "Data de Fim:")
+                    <div>
+                        <span class="info-icon" style="width: 20px; height: 20px; align-items: center;">
+                            <img src="/info-button.png" style="width: 100%; height: 100%; margin-left: 20px;">
+                        </span>
+                        <span class="info-text" style="margin-left: 20px;">O intervalo entre as datas não pode ser superior a 1 ano</span>
+                    </div>
+                </div>
                 @Html.TextBoxFor(m => m.EndDate, new { @type = "date", @class = "form-control form-control-sm", @id = "EndDateField" })
-                <span class="text-danger" asp-validation-for="EndDate"></span>
             </div>
         </div>
+
         <div class="col-md-1">
             <button type="submit" class="btn btn-primary btn-sm float-end" style="background-color: #E36D3F; border: 1px solid white;">Pesquisar</button>
         </div>
         <div class="col-md-1">
             <button type="button" class="btn btn-secondary btn-sm float-end" onclick="window.location.href='@Url.Action("Index", "Calendar")'" style="background-color: #B22222; border: 1px solid white;">Limpar</button>
         </div>
+
         @if (TempData["IncompleteDates"] != null && (bool)TempData["IncompleteDates"])
         {
             <script>
@@ -142,16 +152,23 @@
                     bool concluidoChecked = TempData["ConcluidoChecked"] != null ? (bool)TempData["ConcluidoChecked"] : false;
                 }
                 <input class="form-check-input" type="checkbox" id="concluidoCheckbox" name="concluidoCheckbox" value="true" @(concluidoChecked ? "checked" : "")>
-                <input type="hidden" name="concluidoCheckbox" value="false" />
-                <label class="form-check-label" for="concluidoCheckbox">
-                    Concluído
-                </label>
+                <div class="input-group">
+                    <input type="hidden" name="concluidoCheckbox" value="false" />
+                    <label class="form-check-label" for="concluidoCheckbox">
+                        Concluído
+                    </label>
+                    <div>
+                        <span class="info-icon" style="width: 20px; height: 20px;">
+                            <img src="/info-button.png" style="width: 100%; height: 100%;">
+                        </span>
+                        <span class="info-text">Pode filtrar os serviços preechendo o intervalo de data e selecionando se os mesmos foram agendados e/ou concluídos</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="calendar-container">
-
         <table>
             <tbody>
                 @* Create a header row for months *@

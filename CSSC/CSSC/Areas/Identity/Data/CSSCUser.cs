@@ -18,7 +18,8 @@ public class CSSCUser : IdentityUser
     public string UtDataDeNascimento {  get; set; }
     public string UtNIF { get; set; }
     public string UtMorada {  get; set; }
-   // public string UtContactoTelefonico { get; set; }
+
+    // public string UtContactoTelefonico { get; set; }
 
 }
 
