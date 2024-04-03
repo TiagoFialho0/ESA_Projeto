@@ -3,6 +3,7 @@
     ViewData["Title"] = "AgendarNotif";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <style>
     .row {
         justify-content: center;
@@ -15,48 +16,50 @@
 
 <div class="text-center">
     <h1>Agendar Notificação</h1>
-    
 </div>
 
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="AgendarNotifForm" onsubmit="return validarAgendarNotif();">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdServico" />
             <div class="form-group">
                 <label asp-for="IdServico" class="control-label"></label>
                 <input asp-for="IdServico" class="form-control" readonly />
                 <span asp-validation-for="IdServico" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="DataInicial" class="control-label"></label>
-                <input asp-for="DataInicial" class="form-control" value="" required/>
+                <input asp-for="DataInicial" class="form-control" value="" required />
                 <span asp-validation-for="DataInicial" class="text-danger"></span>
             </div>
             <div class="form-group" style="position: relative;">
                 <label asp-for="TipoDeNotif" class="control-label"></label>
                 <div style="position: relative;">
-                    <select name="TipoDeNotif" class="form-select">
+                    <select id="tipoDeNotifSelect" asp-for="TipoDeNotif" class="form-select">
+                        <option value="Pontual" selected>Pontual</option>
                         @foreach (var estadoServico in Enum.GetValues(typeof(CSSC.Controllers.TipoNotif)))
                         {
-                            <option value="@estadoServico">@estadoServico</option>
+                            if (estadoServico.ToString() != "Pontual") // This line ensures "Pontual" is not added again.
+                            {
+                                <option value="@estadoServico">@estadoServico</option>
+                            }
                         }
                     </select>
                     <span class="info-icon" style="width: 20px; height: 20px; position: absolute; right: -25px; top: 5px;">
                         <img src="/info-button.png" style="width: 100%; height: 100%;">
                     </span>
-                    <span class="info-text" style="position: absolute; right: -270px; top: -38px;">Pontual: Envia uma notificação na data que definiu no campo acima.</span>
+                    <span class="info-text" style="position: absolute; right: -280px; top: 0px; width: 250px;height:155px;padding: 10px;">
+                        Pontual: Envia uma notificação na data que definiu no campo acima.<br>Periódica: Envia uma notificação com um intervalo de tempo a definir.
+                    </span>
                 </div>
                 <span asp-validation-for="TipoDeNotif" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="IntervaloDeEnvio" class="control-label"></label>
                 <div class="form-group">
                     <div style="position: relative;">
-                        <select name="IntervaloDeEnvio" class="form-select">
+                        <select id="intervaloDeEnvioSelect" asp-for="IntervaloDeEnvio" class="form-select" disabled>
                             <option value="1">Mês a mês</option>
                             <option value="2">2 em 2 meses</option>
                             <option value="3">3 em 3 meses</option>
@@ -64,17 +67,35 @@
                         <span class="info-icon" style="width: 20px; height: 20px; position: absolute; right: -25px; top: 5px;">
                             <img src="/info-button.png" style="width: 100%; height: 100%;">
                         </span>
-                        <span class="info-text" style="position: absolute; right: -270px; top: -38px;">Periódica: Envia uma notificação com um intervalo de tempo a definir.</span>
+                        <span class="info-text" style="position: absolute; right: -280px; top: 0px; width: 250px;height:95px;padding: 10px;">
+                            Escolha um intervalo de tempo que pretende para o envio da notificação.
+                        </span>
                     </div>
                     <span asp-validation-for="IntervaloDeEnvio" class="text-danger"></span>
                 </div>
             </div>
             <br />
-            <div class="form-group d-flex justify-content-between " >
+            <div class="form-group d-flex justify-content-between ">
                 <a asp-action="Index" class="btn btn-secondary me-auto" style="background-color: #E36D3F; border-color: white;">Voltar</a>
                 <input type="submit" value="Gravar" class="btn btn-primary" style="background-color: #E36D3F; border-color: white;" />
-                
+
             </div>
         </form>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tipoDeNotifSelect = document.getElementById('tipoDeNotifSelect');
+        var intervaloDeEnvioSelect = document.getElementById('intervaloDeEnvioSelect');
+
+        tipoDeNotifSelect.addEventListener('change', function () {
+            // Ensure you replace 'Periódica' with the exact value for periodic notifications in your Enum
+            if (this.value === 'Periódica') {
+                intervaloDeEnvioSelect.removeAttribute('disabled');
+            } else {
+                intervaloDeEnvioSelect.setAttribute('disabled', 'disabled');
+            }
+        });
+    });
+</script>

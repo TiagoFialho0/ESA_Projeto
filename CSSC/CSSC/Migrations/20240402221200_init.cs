@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CSSC.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -231,7 +231,7 @@ namespace CSSC.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "UtDataDeNascimento", "UtMorada", "UtNIF" },
-                values: new object[] { "3e303350-d578-4a3a-abbb-1f9b76454f8e", 0, "cf2aa17a-b120-4607-870e-8b740a040676", "tiagofialho2002@gmail.com", false, false, null, null, null, null, null, false, "0d95fd03-8531-4503-8aff-1c3309e949b3", false, "Tiago", "01/01/1970", "Rua das Laranjas", "123456789" });
+                values: new object[] { "3e303350-d578-4a3a-abbb-1f9b76454f8e", 0, "a710168b-978b-4bf2-b38f-5d330c70f7ee", "tiagofialho2002@gmail.com", false, false, null, null, null, null, null, false, "7f3f9732-21bf-4924-ad2d-e9f6adb60055", false, "Tiago", "01/01/1970", "Rua das Laranjas", "123456789" });
 
             migrationBuilder.InsertData(
                 table: "ServiceModel",
