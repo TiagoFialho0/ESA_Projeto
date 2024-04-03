@@ -156,7 +156,7 @@
                 <td>
                     <div class="details-container" id="detailsContainer-@item.IdServico">
                         <p><strong>Cliente</strong></p>
-                        <p><strong>Nome do cliente:</strong>@Html.DisplayFor(modelItem => item.csscUser.Email)</p>
+                        <p><strong>Email do cliente: </strong>@Html.DisplayFor(modelItem => item.csscUser.Email)</p>
                         <p><strong>Morada:</strong> @Html.DisplayFor(modelItem => item.csscUser.UtMorada)</p>
                         <p><strong>Contacto:</strong> @Html.DisplayFor(modelItem => item.csscUser.PhoneNumber)</p>
                         <p><strong>NIF:</strong> @Html.DisplayFor(modelItem => item.csscUser.UtNIF)</p>
@@ -166,10 +166,9 @@
                 <td>
                     <div class="details-container" id="detailsContainer-@item.IdServico">
                         <p><strong>Colaborador</strong></p>
-                        <p><strong>Nome do Colaborador:</strong>@Html.DisplayFor(modelItem => item.csscOperador.Email)</p>
-                        <p><strong>Contacto:</strong>@Html.DisplayFor(modelItem => item.csscOperador.PhoneNumber)</p>
+                        <p><strong>Email do Colaborador: </strong>@Html.DisplayFor(modelItem => item.csscOperador.UserName)</p>
                     </div>
-                </td>
+            </td>
                 <td>
                     <div class="form-group">
                         <span class="info-icon" style="width: 20px; height: 20px; right: 55px;">
@@ -182,7 +181,9 @@
                             <select asp-items="ViewBag.Types" name="EstadoDoServico" class="form-select" style="margin-right: 10px;" onchange="enableButton(this)">
                                 <option disabled selected value="@item.EstadoDoServico">@item.EstadoDoServico</option>
                             </select>
-                            <button type="submit" id="submitButton" class="btn btn-secondary ml-auto" style="background-color: #E36D3F; border: 1px solid white; text-shadow: 1px 1px 2px black;" disabled>Confirmar</button>
+                            @if(item.EstadoDoServico != "Entregue" && item.EstadoDoServico != "Cancelado"){
+                                <button type="submit" id="submitButton" class="btn btn-secondary ml-auto" style="background-color: #E36D3F; border: 1px solid white; text-shadow: 1px 1px 2px black;" disabled>Confirmar</button>
+                            }
                         </form>
                     </div>
                     <div style="margin-top: 10px;">
@@ -198,6 +199,13 @@
         
     </tbody>
 </table>
+
+@if (TempData["Success"] != null && (bool)TempData["Success"])
+{
+    <script>
+        alert("Dados submetidos com sucesso!");
+    </script>
+}
 
 <script>
     function enableButton(select) {

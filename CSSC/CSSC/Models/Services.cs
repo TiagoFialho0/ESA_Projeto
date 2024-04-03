@@ -62,7 +62,8 @@ namespace CSSC.Models
         /// Matrícula do veiculo
         /// </summary>
         /// <return>String da matriculo do veículo</return>
-        [DisplayName("Matricula do Veiculo")]
+        [RegularExpression(@"^\b(?:\d{2}-\d{2}-[A-Z]{2}|\d{2}-[A-Z]{2}-\d{2}|[A-Z]{2}-\d{2}-[A-Z]{2})\b$", ErrorMessage = "A {0} deve estar em um dos formatos: 00-00-XX, 00-XX-00 ou XX-00-XX.")]
+        [DisplayName("Matrícula do Veículo")]
         public string? ServMatriculaVeiculo { get; set; }
 
         /// <summary>

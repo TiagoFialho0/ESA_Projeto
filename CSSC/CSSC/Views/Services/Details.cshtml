@@ -8,7 +8,7 @@
 }
 
 <style>
-    .container {
+    .containerStates {
         display: flex;
         justify-content: space-evenly;
         align-items: flex-start;
@@ -67,11 +67,12 @@
     <!-- Include Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
-<h1>Detalhes</h1>
+<center><h1>Detalhes</h1></center>
+<hr />
 
 <div class="row">
     <div class="col-md-6">
-        <hr />
+        
         <br />
         <dl class="row">
             <dt class="col-sm-3">
@@ -89,13 +90,17 @@
             <dt class="col-sm-3">
                 @Html.DisplayNameFor(model => model.DescricaoDoServico)
             </dt>
-            <dd class="col-sm-9">
+            @if (string.IsNullOrEmpty(Model.DescricaoDoServico))
+            {
+                <text>Sem descrição</text>
+            }
+            else
+            {
                 @Html.DisplayFor(model => model.DescricaoDoServico)
-            </dd>
+            }
         </dl>
     </div>
     <div class="col-md-6">
-        <hr />
         <br />
         <dl class="row">
             <dt class="col-sm-3">
@@ -121,7 +126,7 @@
 </div>
 
 <br />
-<div class="container">
+<div class="containerStates">
     @{
         // Variável para controlar se um círculo laranja já foi encontrado
         bool laranjaEncontrado = false;
@@ -143,7 +148,6 @@
                     </div>
                 }
             }
-
             @{
                 // Se este estado é o laranja, marcar como encontrado
                 if (estado.GetEnumMemberValue() == Model.EstadoDoServico)
@@ -166,7 +170,7 @@
 <br>
 @if (User.IsInRole("Default"))
 {
-    @if (Model.EstadoDoServico.ToString() == "Entregue" /*|| Model.EstadoDoServico.ToString() == "Cancelado"*/)
+    @if (Model.EstadoDoServico.ToString() == "Entregue" && Model.ServClassificacao == null)
     {
         <div align="right">
             <a class="btn btn-secondary" style="background-color: #E36D3F; border-color: white;" asp-action="Classificacao" asp-route-id="@Model.IdServico">Classificar Serviço</a>
@@ -209,13 +213,6 @@
     </div>
 </div>
 
-@if (TempData["Success"] != null && (bool)TempData["Success"])
-{
-    <script>
-        alert("Dados submetidos com sucesso!");
-    </script>
-}
-
 
 @* @functions {
     //string GetCircleClass(EstadoDoServico estado)
@@ -228,7 +225,7 @@
 
 <script>
     function goBack() {
-        window.history.back();
+        window.location.replace(document.referrer);
     }
 </script>
 

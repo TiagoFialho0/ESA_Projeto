@@ -17,11 +17,20 @@
     body {
         background-color: #EAEAEA; /* Define a cor de fundo da página */
     }
+
+    #registerSubmit {
+        background-color: #000; /* Change background color to white */
+        color: #fff; /* Change text color to black */
+        font-size: 14px; /* Adjust font size */
+        padding: 0.5rem 1rem; /* Adjust padding */
+        border: 1px solid #000; /* Add border */
+    }
 </style>
 
 <head>
     <!-- Include Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="caminho/para/estilos.css">
 </head>
 <div class="text-center">
     <h1>@ViewData["Title"]</h1>
@@ -35,7 +44,8 @@
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating" style="margin-top: 10px; position: relative;">
-                    <input asp-for="Input.Password" id="passwordInput" class="form-control" autocomplete="new-password" aria-required="true" />
+                    <input asp-for="Input.Password" id="passwordInput" class="form-control" autocomplete="new-password" aria-required="true" onclick="mostrarInstrucoesSenha();" />
+
                     <label asp-for="Input.Password"></label>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                     <span id="toggleRegisterPassword" onclick="togglePasswordVisibility('register')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
@@ -45,39 +55,44 @@
                 <div id="passwordStrength" class="progress mt-2" style="height: 10px;">
                     <div id="strengthBar" class="progress-bar bg-danger" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p>A tua palavra-passe deve ter:</p>
-                <ul class="list-unstyled">
-                    <li class="eight-character">
-                        <span>
-                            <i class="fas fa-circle" aria-hidden="true"></i>
-                            &nbsp;Pelo menos, 6 caracteres
-                        </span>
-                    </li>
-                    <li class="upper-case">
-                        <span>
-                            <i class="fas fa-circle" aria-hidden="true"></i>
-                            &nbsp;Letras maiúsculas
-                        </span>
-                    </li>
-                    <li class="low-case">
-                        <span>
-                            <i class="fas fa-circle" aria-hidden="true"></i>
-                            &nbsp;Letras minúsculas
-                        </span>
-                    </li>
-                    <li class="one-number">
-                        <span>
-                            <i class="fas fa-circle" aria-hidden="true"></i>
-                            &nbsp;Números (0-9)
-                        </span>
-                    </li>
-                    <li class="one-special-char">
-                        <span>
-                            <i class="fas fa-circle" aria-hidden="true"></i>
-                            &nbsp;Caracteres especiais @Html.Raw("(!@#$%^_&*)")
-                        </span>
-                    </li>
-                </ul>
+                <div id="passwordInstructions" style="display: none; text-align: center;">
+                    <div style="display: inline-block; text-align: left;">
+                        <p>A tua palavra-passe deve ter:</p>
+                        <ul class="list-unstyled">
+                            <li class="eight-character">
+                                <span>
+                                    <i class="fas fa-circle" aria-hidden="true"></i>
+                                    &nbsp;Pelo menos, 6 caracteres
+                                </span>
+                            </li>
+                            <li class="upper-case">
+                                <span>
+                                    <i class="fas fa-circle" aria-hidden="true"></i>
+                                    &nbsp;Letras maiúsculas
+                                </span>
+                            </li>
+                            <li class="low-case">
+                                <span>
+                                    <i class="fas fa-circle" aria-hidden="true"></i>
+                                    &nbsp;Letras minúsculas
+                                </span>
+                            </li>
+                            <li class="one-number">
+                                <span>
+                                    <i class="fas fa-circle" aria-hidden="true"></i>
+                                    &nbsp;Números (0-9)
+                                </span>
+                            </li>
+                            <li class="one-special-char">
+                                <span>
+                                    <i class="fas fa-circle" aria-hidden="true"></i>
+                                    &nbsp;Caracteres especiais @Html.Raw("(!@#$%^_&*)")
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="form-floating" style="margin-top: 10px;">
                     <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
                     <label asp-for="Input.ConfirmPassword"></label>
@@ -131,21 +146,8 @@
                 </div>
 
                 <div style="width: 20%; margin: 0 auto; text-align: center; margin-top: 30px;">
-                    <style>
-                        /* Custom button styles */
-                        #registerSubmit {
-                            background-color: #000; /* Change background color to white */
-                            color: #fff; /* Change text color to black */
-                            font-size: 14px; /* Adjust font size */
-                            padding: 0.5rem 1rem; /* Adjust padding */
-                            border: 1px solid #000; /* Add border */
-                        }
-                    </style>
-
                     <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary" style="background-color: #E36D3F; border: 1px solid white;">Registar</button>
-
                 </div>
-
             </form>
         </div>
     </div>
@@ -163,4 +165,38 @@
             return true;
         }
     </script>
+    <script>
+        function mostrarInstrucoesSenha() {
+            var passwordInstructions = document.getElementById("passwordInstructions");
+            passwordInstructions.classList.remove("fadeOut");
+            passwordInstructions.classList.add("fadeIn");
+            passwordInstructions.style.display = "block";
+        }
+
+        function ocultarInstrucoesSenha() {
+            var passwordInstructions = document.getElementById("passwordInstructions");
+            passwordInstructions.classList.remove("fadeIn");
+            passwordInstructions.classList.add("fadeOut");
+
+            setTimeout(function () {
+                passwordInstructions.style.display = "none";
+            }, 500); // tempo de duração da animação
+        }
+
+        // Adiciona um evento ao documento para ocultar as instruções quando clicar em qualquer lugar fora do campo de senha
+        document.addEventListener("click", function (event) {
+            var passwordInput = document.getElementById("passwordInput");
+            var passwordInstructions = document.getElementById("passwordInstructions");
+
+            if (event.target !== passwordInput) {
+                ocultarInstrucoesSenha();
+            }
+        });
+    </script>
+
+
+
+
+
+
 }

@@ -7,7 +7,22 @@
     body {
         background-color: #EAEAEA; /* Define a cor de fundo da página */
     }
+
+    #login-submit {
+        background-color: #000; /* Change background color to white */
+        color: #fff; /* Change text color to black */
+        font-size: 14px; /* Adjust font size */
+        padding: 0.5rem 1rem; /* Adjust padding */
+        border: 1px solid #000; /* Add border */
+    }
 </style>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
 
 <head>
     <!-- Include Font Awesome CSS -->
@@ -34,19 +49,7 @@
                         </span>
                     </div>
                     <div style="width: 20%; margin: 0 auto; text-align: center; margin-top: 30px;">
-                        <style>
-                           /* Custom button styles */
-                           #login-submit {
-                                background-color: #000; /* Change background color to white */
-                                color: #fff; /* Change text color to black */
-                                font-size: 14px; /* Adjust font size */
-                                padding: 0.5rem 1rem; /* Adjust padding */
-                                border: 1px solid #000; /* Add border */
-                            }
-                        </style>
-
                         <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary" style="background-color: #E36D3F; border: 1px solid white;">Iniciar Sessão</button>
-                    
                     </div>
                     <div style="margin-top: 10px;">
                         <p>

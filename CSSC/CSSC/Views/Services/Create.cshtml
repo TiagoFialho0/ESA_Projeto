@@ -12,9 +12,17 @@
 </style>
 
 
-<div class="text-center">
-    <h1>Criar um Serviço</h1>
+<div class="text-center" style="position: relative;">
+    <h1 style="display: inline-block;">Criar um Serviço</h1>
+    <span class="info-icon" style="width: 20px; height: 20px; position: absolute; top: 50%; transform: translateY(-50%); right: 415px;">
+        <img src="/info-button.png" style="width: 100%; height: 100%;">
+    </span>
+    <span class="info-text" style="position: absolute; top: 90%; transform: translateY(-50%); right: 160px; width: 250px; height: 70px; padding: 10px; text-align: left;">
+        Por defeito, um serviço, é criado com o estado "Em Espera".
+    </span>
 </div>
+
+
 
 <hr />
 <div class="row justify-content-center">
@@ -38,10 +46,16 @@
                 <input asp-for="ServModeloVeiculo" class="form-control" />
                 <span asp-validation-for="ServModeloVeiculo" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="position: relative;">
                 <label asp-for="ServMatriculaVeiculo" class="control-label"></label>
                 <input asp-for="ServMatriculaVeiculo" class="form-control" />
                 <span asp-validation-for="ServMatriculaVeiculo" class="text-danger"></span>
+                <span class="info-icon" style="width: 20px; height: 20px; position: absolute; top: 30px; right: -25px;">
+                    <img src="/info-button.png" style="width: 100%; height: 100%;">
+                </span>
+                <span class="info-text" style="position: absolute; top: 30px; right: -280px; width: 250px;height: 100px;padding: 10px;">
+                    Escreva em maiúsculas, a matricula do veiculo consoante o formato atual das matriculas.
+                </span>
             </div>
             <div class="form-group" hidden>
                 <label asp-for="ServClassificacao" class="control-label"></label>

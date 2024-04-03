@@ -82,20 +82,16 @@
         <div class="additional-comments" style="position: relative;">
             <label for="comments" style="display: inline-block;">
                 Comentários adicionais:
-                <span class="info-icon" style="position: absolute; top: 0; right: 0;">
-                    <img src="/info-button.png" style="width: 20px; height: 20px;">
-                </span>
-                <span class="info-text" style="position: absolute; top: -50px; right: -120px;">Escreva um comentário curto com um máximo de 25 palavras</span>
+                <div>
+                    <span class="info-icon" style="width: 20px; height: 20px;">
+                        <img src="/info-button.png" style="width: 100%; height: 100%;">
+                    </span>
+                    <span class="info-text" style="position: absolute; right: -360px; top: -45px; width: 350px;height:65px;padding: 10px;">Escreva um comentário curto com um máximo de 25 palavras</span>
+                </div>
             </label><br>
             <textarea id="comments" name="comments" rows="4" cols="50" oninput="limitWords()" onkeydown="checkLimit(event)"></textarea>
             
         </div>
-
-
-
-
-
-
 
     <div>
             <button type="submit" style="background-color: #E36D3F; border: 1px solid white; color:white;">Submeter</button>

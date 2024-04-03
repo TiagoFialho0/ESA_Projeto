@@ -94,9 +94,9 @@ public class CalendarController : Controller
             {
                 if (agendadoCheckbox == true && concluidoCheckbox == false)
                 {
-                    var services = _context.ServiceModel
+                     var services = _context.ServiceModel
                         .Include(r => r.csscUser)
-                        .Where(s => s.EstadoDoServico == EstadoDoServico.Espera.ToString())
+                        .Where(s => s.EstadoDoServico == EstadoDoServico.Espera.GetEnumMemberValue())
                         .ToList();
                     foreach (var month in months)
                     {
@@ -153,7 +153,7 @@ public class CalendarController : Controller
                     var userServices = await _context.ServiceModel
                         .Include(r => r.csscUser)
                         .Where(r => r.ServIdUtilizador == Guid.Parse(userId))
-                        .Where(s => s.EstadoDoServico == EstadoDoServico.Espera.ToString()).ToListAsync();
+                        .Where(s => s.EstadoDoServico == EstadoDoServico.Espera.GetEnumMemberValue()).ToListAsync();
 
                     foreach (var month in months)
                     {

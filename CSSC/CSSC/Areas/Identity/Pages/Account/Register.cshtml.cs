@@ -85,11 +85,11 @@ namespace CSSC.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "A Password é obrigatoria!")] 
             [StringLength(100, ErrorMessage = "A {0} tem de ter no minimo {2} caracteres e no máximo {1}.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [DisplayName("Password")]
-            [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_#^])[A-Za-z\d@$!%*?&_#^]{6,}$", ErrorMessage = "A {0} tem de ter pelo menos uma letra minúscula, uma letra maiúscula, um dígito, um caráter especial (!@#$%^_&*) e ter pelo menos 6 caracteres.")]
+            [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_#^])[A-Za-z\d@$!%*?&_#^]{6,}$", ErrorMessage = "A {0} não é valida.")]
             public string Password { get; set; }
 
             /// <summary>
@@ -179,6 +179,7 @@ namespace CSSC.Areas.Identity.Pages.Account
                     await _userManager.AddToRoleAsync(user, "Default");
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    await _userManager.ConfirmEmailAsync(user, code);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
@@ -191,7 +192,8 @@ namespace CSSC.Areas.Identity.Pages.Account
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        TempData["SuccessMessage"] = "Você foi registrado com sucesso!";
+                        return RedirectToPage("Login");
                     }
                     else
                     {

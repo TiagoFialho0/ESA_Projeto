@@ -35,6 +35,7 @@ namespace CSSC.Controllers
             {
                 var services = _context.ServiceModel
                     .Include(r => r.csscUser)
+                    .Include(r => r.csscOperador)
                     .ToList();
                 List<string> estados = typeof(EstadoDoServico).GetValuesWithDescriptions();
                 ViewBag.Types = new SelectList(estados);
@@ -61,6 +62,7 @@ namespace CSSC.Controllers
         /// <returns>Um IActionResult representando a vista de detalhes do serviço ou NotFound se o ID for nulo ou não existir.</returns>
         public async Task<IActionResult> Details(int? id)
         {
+
             if (id == null || _context.ServiceModel == null)
             {
                 return NotFound();
@@ -105,13 +107,19 @@ namespace CSSC.Controllers
         /// <returns>Um IActionResult redirecionando para a página principal se a criação for bem-sucedida, ou a vista de criação com erros se houver problemas de validação.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdServico,ServIdUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServDataInicio,EstadoDoServico,DescricaoDoServico")] Services serviceModel)
+        public async Task<IActionResult> Create([Bind("IdServico,ServIdOperador,ServIdUtilizador,ServMarcaVeiculo,ServModeloVeiculo,ServMatriculaVeiculo,ServClassificacao,ServComentario,ServDataInicio,EstadoDoServico,DescricaoDoServico")] Services serviceModel)
         {
             if (ModelState.IsValid)
             {
                 var userId = serviceModel.ServIdUtilizador.ToString();
                 var csscUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
                 serviceModel.csscUser = csscUser;
+
+                var operadorId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                serviceModel.ServIdOperador = Guid.Parse(operadorId);
+
+                var operadorUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == operadorId);
+                serviceModel.csscOperador = operadorUser;
 
                 _context.Add(serviceModel);
                 await _context.SaveChangesAsync();
@@ -458,7 +466,7 @@ namespace CSSC.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Details", new { id = serviceModel.IdServico });
+                return RedirectToAction("Index");
             }
             TempData["Failed"] = true;
             return RedirectToAction("Classificacao", new { id = serviceModel.IdServico });
