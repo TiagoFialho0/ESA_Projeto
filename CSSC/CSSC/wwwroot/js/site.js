@@ -60,14 +60,7 @@ function validarCampos() {
         return false; // Impede o envio do formulário
     }
 
-    var nifInput = document.getElementById('nifInput');
-    var nifValue = nifInput.value;
-
-    //Verifica se nif inserido tem tamanho diferente de 9
-    if (nifValue.length !== 9) {
-        alert('O NIF deve ter 9 dígitos.');
-        return false; // Impede o envio do formulário
-    }
+   
     var dataNascimento = new Date(document.getElementById("dataNascimentoInput").value);
     var hoje = new Date();
     var idadeMinima = 18;
