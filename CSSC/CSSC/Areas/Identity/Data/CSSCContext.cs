@@ -36,7 +36,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                     {
                         IdServico = 500,
                         ServIdUtilizador = Guid.Parse("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
-                        ServIdOperador = Guid.Parse("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
+                        ServIdOperador = Guid.Parse("35117df6-e153-43d0-83b9-ab7c1d8a2249"),
                         ServMarcaVeiculo = "Fiat",
                         ServModeloVeiculo = "Punto",
                         ServMatriculaVeiculo = "AA-00-BB",
@@ -47,7 +47,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                     {
                         IdServico = 510,
                         ServIdUtilizador = Guid.Parse("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
-                        ServIdOperador = Guid.Parse("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
+                        ServIdOperador = Guid.Parse("35117df6-e153-43d0-83b9-ab7c1d8a2249"),
                         ServMarcaVeiculo = "Seat",
                         ServModeloVeiculo = "Ibiza",
                         ServMatriculaVeiculo = "BB-11-CC",
@@ -58,7 +58,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                     {
                         IdServico = 520,
                         ServIdUtilizador = Guid.Parse("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
-                        ServIdOperador = Guid.Parse("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
+                        ServIdOperador = Guid.Parse("35117df6-e153-43d0-83b9-ab7c1d8a2249"),
                         ServMarcaVeiculo = "Ford",
                         ServModeloVeiculo = "Fiesta",
                         ServMatriculaVeiculo = "CC-22-DD",
@@ -69,7 +69,7 @@ public class CSSCContext : IdentityDbContext<CSSCUser>
                     {
                         IdServico = 530,
                         ServIdUtilizador = Guid.Parse("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
-                        ServIdOperador = Guid.Parse("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
+                        ServIdOperador = Guid.Parse("35117df6-e153-43d0-83b9-ab7c1d8a2249"),
                         ServMarcaVeiculo = "Ferrari",
                         ServModeloVeiculo = "F40",
                         ServMatriculaVeiculo = "DD-33-EE",
