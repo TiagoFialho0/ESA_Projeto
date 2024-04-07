@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSSC.Migrations
 {
     [DbContext(typeof(CSSCContext))]
-    [Migration("20240404102622_InitialMigration")]
+    [Migration("20240407155519_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -107,12 +107,12 @@ namespace CSSC.Migrations
                         {
                             Id = "3e303350-d578-4a3a-abbb-1f9b76454f8e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4e33e8b6-3ebf-4469-bb57-2b9fc113d193",
+                            ConcurrencyStamp = "2c2e485b-9524-475c-b9bb-11da303a581a",
                             Email = "tiagofialho2002@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "80ca6276-c966-4e06-ae51-692bddb6dfee",
+                            SecurityStamp = "c4a59d7e-7523-4d2e-9d34-d7c3ddd2e273",
                             TwoFactorEnabled = false,
                             UserName = "Tiago",
                             UtDataDeNascimento = "01/01/1970",
@@ -203,8 +203,8 @@ namespace CSSC.Migrations
                         {
                             IdServico = 500,
                             EstadoDoServico = "Em espera",
-                            ServDataInicio = new DateTime(2024, 6, 4, 0, 0, 0, 0, DateTimeKind.Local),
-                            ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
+                            ServDataInicio = new DateTime(2024, 6, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            ServIdOperador = new Guid("35117df6-e153-43d0-83b9-ab7c1d8a2249"),
                             ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                             ServMarcaVeiculo = "Fiat",
                             ServMatriculaVeiculo = "AA-00-BB",
@@ -214,8 +214,8 @@ namespace CSSC.Migrations
                         {
                             IdServico = 510,
                             EstadoDoServico = "Em reparação",
-                            ServDataInicio = new DateTime(2024, 5, 4, 0, 0, 0, 0, DateTimeKind.Local),
-                            ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
+                            ServDataInicio = new DateTime(2024, 5, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            ServIdOperador = new Guid("35117df6-e153-43d0-83b9-ab7c1d8a2249"),
                             ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                             ServMarcaVeiculo = "Seat",
                             ServMatriculaVeiculo = "BB-11-CC",
@@ -225,8 +225,8 @@ namespace CSSC.Migrations
                         {
                             IdServico = 520,
                             EstadoDoServico = "Pronto para entrega",
-                            ServDataInicio = new DateTime(2024, 8, 4, 0, 0, 0, 0, DateTimeKind.Local),
-                            ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
+                            ServDataInicio = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            ServIdOperador = new Guid("35117df6-e153-43d0-83b9-ab7c1d8a2249"),
                             ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                             ServMarcaVeiculo = "Ford",
                             ServMatriculaVeiculo = "CC-22-DD",
@@ -236,8 +236,8 @@ namespace CSSC.Migrations
                         {
                             IdServico = 530,
                             EstadoDoServico = "Reparação concluida",
-                            ServDataInicio = new DateTime(2024, 5, 4, 0, 0, 0, 0, DateTimeKind.Local),
-                            ServIdOperador = new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"),
+                            ServDataInicio = new DateTime(2024, 5, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            ServIdOperador = new Guid("35117df6-e153-43d0-83b9-ab7c1d8a2249"),
                             ServIdUtilizador = new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"),
                             ServMarcaVeiculo = "Ferrari",
                             ServMatriculaVeiculo = "DD-33-EE",

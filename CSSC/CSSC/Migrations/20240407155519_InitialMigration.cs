@@ -231,17 +231,17 @@ namespace CSSC.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "UtDataDeNascimento", "UtMorada", "UtNIF" },
-                values: new object[] { "3e303350-d578-4a3a-abbb-1f9b76454f8e", 0, "4e33e8b6-3ebf-4469-bb57-2b9fc113d193", "tiagofialho2002@gmail.com", false, false, null, null, null, null, null, false, "80ca6276-c966-4e06-ae51-692bddb6dfee", false, "Tiago", "01/01/1970", "Rua das Laranjas", "123456789" });
+                values: new object[] { "3e303350-d578-4a3a-abbb-1f9b76454f8e", 0, "2c2e485b-9524-475c-b9bb-11da303a581a", "tiagofialho2002@gmail.com", false, false, null, null, null, null, null, false, "c4a59d7e-7523-4d2e-9d34-d7c3ddd2e273", false, "Tiago", "01/01/1970", "Rua das Laranjas", "123456789" });
 
             migrationBuilder.InsertData(
                 table: "ServiceModel",
                 columns: new[] { "IdServico", "DescricaoDoServico", "EstadoDoServico", "ServClassificacao", "ServComentario", "ServDataInicio", "ServIdOperador", "ServIdUtilizador", "ServMarcaVeiculo", "ServMatriculaVeiculo", "ServModeloVeiculo", "csscOperadorId", "csscUserId" },
                 values: new object[,]
                 {
-                    { 500, null, "Em espera", null, null, new DateTime(2024, 6, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Fiat", "AA-00-BB", "Punto", null, null },
-                    { 510, null, "Em reparação", null, null, new DateTime(2024, 5, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Seat", "BB-11-CC", "Ibiza", null, null },
-                    { 520, null, "Pronto para entrega", null, null, new DateTime(2024, 8, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Ford", "CC-22-DD", "Fiesta", null, null },
-                    { 530, null, "Reparação concluida", null, null, new DateTime(2024, 5, 4, 0, 0, 0, 0, DateTimeKind.Local), new Guid("97d0a3ff-e183-452d-8af1-5789c4fd7207"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Ferrari", "DD-33-EE", "F40", null, null }
+                    { 500, null, "Em espera", null, null, new DateTime(2024, 6, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("35117df6-e153-43d0-83b9-ab7c1d8a2249"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Fiat", "AA-00-BB", "Punto", null, null },
+                    { 510, null, "Em reparação", null, null, new DateTime(2024, 5, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("35117df6-e153-43d0-83b9-ab7c1d8a2249"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Seat", "BB-11-CC", "Ibiza", null, null },
+                    { 520, null, "Pronto para entrega", null, null, new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("35117df6-e153-43d0-83b9-ab7c1d8a2249"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Ford", "CC-22-DD", "Fiesta", null, null },
+                    { 530, null, "Reparação concluida", null, null, new DateTime(2024, 5, 7, 0, 0, 0, 0, DateTimeKind.Local), new Guid("35117df6-e153-43d0-83b9-ab7c1d8a2249"), new Guid("3e303350-d578-4a3a-abbb-1f9b76454f8e"), "Ferrari", "DD-33-EE", "F40", null, null }
                 });
 
             migrationBuilder.CreateIndex(

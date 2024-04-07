@@ -65,7 +65,7 @@ namespace CSSC_Tests
             // Assert
             var redirectToActionResult = Assert.IsType<RedirectToActionResult>(result);
 
-            Assert.Equal("Details", redirectToActionResult.ActionName);
+            Assert.Equal("Index", redirectToActionResult.ActionName);
         }
     }
 }
