@@ -1,1 +1,1 @@
-var breadcrumbs=[['-1',"",""],['2',"CSSC Reference","topic_0000000000000081.html"],['10',"CSSC.Areas.Identity.Data Namespace","topic_0000000000000000.html"],['23',"UserEntityConfiguration Class","topic_0000000000000006.html"],['24',"Methods","topic_0000000000000006_methods--.html"],['25',"Configure Method","topic_0000000000000007.html"]];
+var breadcrumbs=[['-1',"",""],['2',"CSSC Reference","topic_0000000000000092.html"],['10',"CSSC.Areas.Identity.Data Namespace","topic_0000000000000000.html"],['24',"UserEntityConfiguration Class","topic_0000000000000007.html"]];

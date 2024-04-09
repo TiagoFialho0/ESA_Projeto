@@ -1,1 +1,1 @@
-search_result['167']=["topic_0000000000000052.html","ServicesController.AtualizarEstado Method","Atualiza o estado de um serviço com base no ID e no novo estado fornecidos."];
+search_result['167']=["topic_0000000000000039_overloads--.html","CalendarController.Index Method","Retorna a visualização do calendário com os serviços agendados para os próximos 6 meses, de acordo com o papel do utilizador."];

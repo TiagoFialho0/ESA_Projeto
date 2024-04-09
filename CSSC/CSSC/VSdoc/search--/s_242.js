@@ -1,1 +1,1 @@
-search_result['242']=["topic_0000000000000073.html","Services Class",""];
+search_result['242']=["topic_0000000000000054.html","ServicesController.Delete Method","Exibe a página de confirmação para apagar um serviço com base no ID fornecido."];

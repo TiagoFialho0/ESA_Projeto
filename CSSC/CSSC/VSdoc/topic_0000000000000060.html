@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; https://www.helixoft.com" />
 	<link rel="icon" href="favicon.ico">
-	<title>InitialMig Class</title>
+	<title>EmailSender Class</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn2019/toc.css" />
 	<script src="msdn2019/toc.js"></script>
@@ -74,11 +74,11 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
   </div>
 
 <div id="mainBody">
-		<h1 class="title">InitialMig Class</h1>
+		<h1 class="title">EmailSender Class</h1>
         
 		<div class="metadata">
         Namespace:
-<a href="topic_000000000000005F.html">CSSC.Migrations</a>
+<a href="topic_000000000000005F.html">CSSC.CSSCServices</a>
 
 
 
@@ -89,6 +89,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 
        
        
+        <summary-info>Classe responsável por enviar e-mails utilizando o serviço SendGrid.</summary-info>
 
 
 
@@ -138,7 +139,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">&lt;DbContext(typeof(CSSCContext))&gt; _&nbsp;<br />&lt;Migration(&quot;20240313184610_InitialMig&quot;)&gt; _&nbsp;<br />Public Class InitialMig</pre>			
+					<pre xml:space="preserve" class="brush: vb">Public Class EmailSender</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -177,7 +178,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">[DbContext(typeof(CSSCContext))]&nbsp;<br />[Migration(&quot;20240313184610_InitialMig&quot;)]&nbsp;<br />public class InitialMig</pre>			
+					<pre xml:space="preserve" class="brush: csharp">public class EmailSender</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -217,7 +218,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">[DbContext(typeof(CSSCContext))]&nbsp;<br />[Migration(&quot;20240313184610_InitialMig&quot;)]&nbsp;<br />public ref class InitialMig </pre>			
+					<pre xml:space="preserve" class="brush: cpp">public ref class EmailSender </pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -256,7 +257,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">public &nbsp;<br />   DbContext(typeof(CSSCContext))&nbsp;<br />   Migration(&quot;20240313184610_InitialMig&quot;)&nbsp;<br />class InitialMig</pre>			
+					<pre xml:space="preserve" class="brush: js">public class EmailSender</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -286,6 +287,77 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 
 
 
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Constructors</a></span>
+		<div>&nbsp;</div>
+	</div>
+
+	<div id="ConstructorsSection" class="section">	
+  <table class="memberListTable">
+    <tr>
+      <th></th>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+
+
+							<tr class="
+	
+	
+	">
+	  <td>
+    <img alt="Public constructor" title="Public constructor" src="msdn2019/pubmethod.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a href="topic_0000000000000061.html">EmailSender()</a>
+
+	  </td>
+	  <td>
+	
+	
+	
+		</td>
+	</tr>
+						<tr class="
+	
+	
+	">
+	  <td>
+    <img alt="Public constructor" title="Public constructor" src="msdn2019/pubmethod.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a href="topic_0000000000000062.html">EmailSender(ISendGridClient)</a>
+
+	  </td>
+	  <td>
+	
+	
+	
+		</td>
+	</tr>
+		
+	
+
+
+  </table>
+
+  <a href="#mainBody">
+    Top
+  </a>
+
+	</div>					
+</div>
 
 
 
@@ -310,68 +382,6 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
         Description
       </th>
     </tr>
-
-
-
-
-	<tr class="
-
-
-">
-	<td>
-   <img alt="Protected method" title="Protected method" src="msdn2019/protmethod.png"></img>
-
-    
-	  
-
-
-    
-	</td>
-	<td>
-	<a href="topic_0000000000000063.html">BuildTargetModel(ModelBuilder)</a>
-
-	</td>
-	<td>
-
-
-
-	</td>
-</tr>
-
-
-
-
-
-
-
-
-	<tr class="
-
-
-">
-	<td>
-   <img alt="Protected method" title="Protected method" src="msdn2019/protmethod.png"></img>
-
-    
-	  
-
-
-    
-	</td>
-	<td>
-	<a href="topic_0000000000000062.html">Down(MigrationBuilder)</a>
-
-	</td>
-	<td>
-
-
-
-	</td>
-</tr>
-
-
-
-
 
 
 
@@ -533,6 +543,62 @@ inheritedMember
 
 
 	<tr class="
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2019/pubmethod.png"></img>
+
+
+    
+	</td>
+	<td>
+	<a href="topic_0000000000000063.html">SendEmail(string, string, string)</a>
+
+	</td>
+	<td>
+
+Envia um e-mail de forma assíncrona para o destinatário especificado.
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2019/pubmethod.png"></img>
+
+
+    
+	</td>
+	<td>
+	<a href="topic_0000000000000064.html">SendEmailToOficina(string, string, string, string)</a>
+
+	</td>
+	<td>
+
+Envia um email para a oficina usando o serviço SendGrid.
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
 inheritedMember 
 
 
@@ -560,37 +626,6 @@ inheritedMember
 
 
 
-
-
-	<tr class="
-
-
-">
-	<td>
-   <img alt="Protected method" title="Protected method" src="msdn2019/protmethod.png"></img>
-
-    
-	  
-
-
-    
-	</td>
-	<td>
-	<a href="topic_0000000000000061.html">Up(MigrationBuilder)</a>
-
-	</td>
-	<td>
-
-
-
-	</td>
-</tr>
-
-
-
-
-
-
   </table>
 
   <a href="#mainBody">
@@ -599,7 +634,6 @@ inheritedMember
 
 	</div>					
 </div>
-
 
 
 
@@ -656,7 +690,7 @@ inheritedMember
 
 
 
-<div style="padding-left:1em;">CSSC.Migrations.InitialMig</div>
+<div style="padding-left:1em;">CSSC.CSSCServices.EmailSender</div>
 
 				
 </div>
@@ -724,7 +758,7 @@ inheritedMember
 
 	<div id="seeAlsoSection" class="section">	
 		<div>
-	<a href="topic_000000000000005F.html">CSSC.Migrations Namespace</a><br />
+	<a href="topic_000000000000005F.html">CSSC.CSSCServices Namespace</a><br />
 
 
 	

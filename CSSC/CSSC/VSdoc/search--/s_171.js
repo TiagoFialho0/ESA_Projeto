@@ -1,1 +1,1 @@
-search_result['171']=["topic_0000000000000053_methods--.html","EnumExtensions Methods",""];
+search_result['171']=["topic_000000000000003C.html","EstadoDoServico Enumeration","Enumerado para representar os estados possíveis de um serviço"];

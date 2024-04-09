@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"CSSC Reference","topic_0000000000000092.html"],['122',"CSSC.Migrations Namespace","topic_0000000000000069.html"],['123',"InitialMigration Class","topic_000000000000006A.html"],['124',"Methods","topic_000000000000006A_methods--.html"]];

@@ -1,1 +1,1 @@
-search_result['106']=["topic_0000000000000035_attached_props--.html","CalendarController Attached Properties",""];
+search_result['106']=["topic_0000000000000022.html","InputModel Class","This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used\r\n    directly from your code. This API may change or be removed in future releases."];

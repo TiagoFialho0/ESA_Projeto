@@ -1,1 +1,1 @@
-var breadcrumbs=[['-1',"",""],['2',"CSSC Reference","topic_0000000000000081.html"],['120',"CSSC.Models Namespace","topic_0000000000000064.html"],['138',"Services Class","topic_0000000000000073.html"]];
+var breadcrumbs=[['-1',"",""],['2',"CSSC Reference","topic_0000000000000092.html"],['128',"CSSC.Models Namespace","topic_000000000000006E.html"],['129',"CalendarViewModel Class","topic_000000000000006F.html"],['130',"Properties","topic_000000000000006F_props--.html"],['132',"EndDate Property","topic_0000000000000073.html"]];

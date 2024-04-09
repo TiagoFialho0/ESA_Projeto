@@ -1,1 +1,1 @@
-search_result['54']=["topic_0000000000000019_events--.html","LogoutModel Events",""];
+search_result['54']=["topic_0000000000000011.html","LoginModel.ExternalLogins Property","This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used\r\n    directly from your code. This API may change or be removed in future releases."];

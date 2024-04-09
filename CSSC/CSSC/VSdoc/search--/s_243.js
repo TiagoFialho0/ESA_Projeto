@@ -1,1 +1,1 @@
-search_result['243']=["topic_0000000000000073_attached_props--.html","Services Attached Properties",""];
+search_result['243']=["topic_0000000000000055.html","ServicesController.DeleteConfirmed Method","Confirma o apagamento de um serviço com base no ID fornecido."];

@@ -1,1 +1,1 @@
-c['84']=[['85',"HomeController Class","topic_0000000000000041.html",1],['91',"ServicesController Class","topic_0000000000000046.html",1],['107',"EstadoDoServico Enumeration","topic_000000000000003A.html",0],['108',"TipoNotif Enumeration","topic_0000000000000053.html",0]];
+c['84']=[['85',"SendEmail Method","topic_0000000000000063.html",0],['86',"SendEmailToOficina Method","topic_0000000000000064.html",0]];

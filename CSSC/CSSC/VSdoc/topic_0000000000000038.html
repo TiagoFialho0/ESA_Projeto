@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; https://www.helixoft.com" />
 	<link rel="icon" href="favicon.ico">
-	<title>CalendarController.Index (DateTime, DateTime, Boolean, Boolean) Method</title>
+	<title>CalendarController Constructor</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn2019/toc.css" />
 	<script src="msdn2019/toc.js"></script>
@@ -74,11 +74,11 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
   </div>
 
 <div id="mainBody">
-		<h1 class="title">CalendarController.Index (DateTime, DateTime, Boolean, Boolean) Method</h1>
+		<h1 class="title">CalendarController Constructor</h1>
         
 		<div class="metadata">
         Namespace:
-<a href="topic_0000000000000083.html">&lt;default&gt;</a>
+<a href="topic_0000000000000094.html">&lt;default&gt;</a>
 
 
 
@@ -89,7 +89,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 
        
        
-        <summary-info>Apresenta um calendário com base no intervalo de datas especificado.</summary-info>
+        <summary-info>Construtor do controlador CalendarController</summary-info>
 
 
 
@@ -139,7 +139,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">&lt;HttpPost()&gt; _&nbsp;<br />Public Function Index( _&nbsp;<br />   ByVal <i>startDate</i> As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime">Date</a>, _&nbsp;<br />   ByVal <i>endDate</i> As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime">Date</a>, _&nbsp;<br />   ByVal <i>agendadoCheckbox</i> As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean">Boolean</a>, _&nbsp;<br />   ByVal <i>concluidoCheckbox</i> As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean">Boolean</a> _&nbsp;<br />) As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1">Task</a>(Of <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.actionresult">ActionResult</a>)</pre>			
+					<pre xml:space="preserve" class="brush: vb">Public Sub New( _&nbsp;<br />   ByVal <i>context</i> As <a target="_top" href="topic_0000000000000001.html" onclick="this.target='';return true;">CSSCContext</a> _&nbsp;<br />)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -178,7 +178,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">[HttpPost()]&nbsp;<br />public <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.actionresult">ActionResult</a>&gt; Index(&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime">DateTime</a> <i>startDate</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime">DateTime</a> <i>endDate</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean">bool</a> <i>agendadoCheckbox</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean">bool</a> <i>concluidoCheckbox</i>&nbsp;<br />)</pre>			
+					<pre xml:space="preserve" class="brush: csharp">public CalendarController(&nbsp;<br />   <a target="_top" href="topic_0000000000000001.html" onclick="this.target='';return true;">CSSCContext</a> <i>context</i>&nbsp;<br />)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -218,7 +218,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">[HttpPost()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.actionresult">ActionResult</a>^&gt;^ Index(&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime">DateTime</a> <i>startDate</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime">DateTime</a> <i>endDate</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean">bool</a> <i>agendadoCheckbox</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean">bool</a> <i>concluidoCheckbox</i>&nbsp;<br />) </pre>			
+					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br />CalendarController(&nbsp;<br />   <a target="_top" href="topic_0000000000000001.html" onclick="this.target='';return true;">CSSCContext</a>^ <i>context</i>&nbsp;<br />) </pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -257,7 +257,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">JScript does not support generic types and methods.</pre>			
+					<pre xml:space="preserve" class="brush: js">public function CalendarController(&nbsp;<br />    <i>context</i> : <a target="_top" href="topic_0000000000000001.html" onclick="this.target='';return true;">CSSCContext</a>&nbsp;<br />);</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -269,68 +269,22 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 
 
 <h4 class="subHeading">
-	Parameters</h4><dl paramName="startDate" class="parameterList">
+	Parameters</h4><dl paramName="context" class="parameterList">
 	<dt>
 		<span class="parameter">
-			startDate
+			context
 		</span>
 	</dt>
 	<dd>
-		<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime">DateTime</a> 
+		<a target="_top" href="topic_0000000000000001.html" onclick="this.target='';return true;">CSSCContext</a> 
 	</dd>
 </dl>
 <p>
-	A data de início do calendário. 
-</p>
-<dl paramName="endDate" class="parameterList">
-	<dt>
-		<span class="parameter">
-			endDate
-		</span>
-	</dt>
-	<dd>
-		<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime">DateTime</a> 
-	</dd>
-</dl>
-<p>
-	A data de término do calendário. 
-</p>
-<dl paramName="agendadoCheckbox" class="parameterList">
-	<dt>
-		<span class="parameter">
-			agendadoCheckbox
-		</span>
-	</dt>
-	<dd>
-		<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean">bool</a> 
-	</dd>
-</dl>
-<p>
-	 
-</p>
-<dl paramName="concluidoCheckbox" class="parameterList">
-	<dt>
-		<span class="parameter">
-			concluidoCheckbox
-		</span>
-	</dt>
-	<dd>
-		<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean">bool</a> 
-	</dd>
-</dl>
-<p>
-	 
+	Instância do CSSCContext para o contexto da base de dados 
 </p>
 
 <p />
 
-	<h4 class="subHeading">
-		Return Value</h4>
-	<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.actionresult">ActionResult</a>&gt; 
-		<p>
-		Um ActionResult representando a vista do calendário. 
-	</p>
-	
 
 
 
@@ -418,11 +372,11 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 
 	<div id="seeAlsoSection" class="section">	
 		<div>
-			<a href="topic_0000000000000035.html">CalendarController Class</a><br />
+			<a href="topic_0000000000000037.html">CalendarController Class</a><br />
 
 
 
-<a href="topic_0000000000000083.html">&lt;default&gt; Namespace</a><br />
+<a href="topic_0000000000000094.html">&lt;default&gt; Namespace</a><br />
 
 
 			

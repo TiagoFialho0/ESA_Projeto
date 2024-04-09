@@ -1,1 +1,1 @@
-c['79']=[['80',"EmailSender() Constructor","topic_0000000000000058.html",0],['81',"EmailSender(ISendGridClient) Constructor","topic_0000000000000059.html",0]];
+c['79']=[['80',"EmailSender Class","topic_0000000000000060.html",1]];

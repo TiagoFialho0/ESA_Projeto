@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; https://www.helixoft.com" />
 	<link rel="icon" href="favicon.ico">
-	<title>RegisterModel Constructor</title>
+	<title>RegisterModel Class</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn2019/toc.css" />
 	<script src="msdn2019/toc.js"></script>
@@ -74,11 +74,11 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
   </div>
 
 <div id="mainBody">
-		<h1 class="title">RegisterModel Constructor</h1>
+		<h1 class="title">RegisterModel Class</h1>
         
 		<div class="metadata">
         Namespace:
-<a href="topic_000000000000000C.html">CSSC.Areas.Identity.Pages.Account</a>
+<a href="topic_000000000000000D.html">CSSC.Areas.Identity.Pages.Account</a>
 
 
 
@@ -138,7 +138,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">Public Sub New( _&nbsp;<br />   ByVal <i>userManager</i> As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.usermanager-1">UserManager</a>(Of <a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>), _&nbsp;<br />   ByVal <i>userStore</i> As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1">IUserStore</a>(Of <a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>), _&nbsp;<br />   ByVal <i>signInManager</i> As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1">SignInManager</a>(Of <a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>), _&nbsp;<br />   ByVal <i>logger</i> As <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>(Of <a target="_top" href="topic_000000000000001C.html" onclick="this.target='';return true;">RegisterModel</a>), _&nbsp;<br />   ByVal <i>emailSender</i> As <a target="_top" href=".html" onclick="this.target='';return true;">IEmailSender</a> _&nbsp;<br />)</pre>			
+					<pre xml:space="preserve" class="brush: vb">Public Class RegisterModel&nbsp;<br />    Inherits <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel">PageModel</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -177,7 +177,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">public RegisterModel(&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.usermanager-1">UserManager</a>&lt;<a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>&gt; <i>userManager</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1">IUserStore</a>&lt;<a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>&gt; <i>userStore</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1">SignInManager</a>&lt;<a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>&gt; <i>signInManager</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a target="_top" href="topic_000000000000001C.html" onclick="this.target='';return true;">RegisterModel</a>&gt; <i>logger</i>,&nbsp;<br />   <a target="_top" href=".html" onclick="this.target='';return true;">IEmailSender</a> <i>emailSender</i>&nbsp;<br />)</pre>			
+					<pre xml:space="preserve" class="brush: csharp">public class RegisterModel : <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel">PageModel</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -217,7 +217,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br />RegisterModel(&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.usermanager-1">UserManager</a>&lt;<a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>^&gt;^ <i>userManager</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1">IUserStore</a>&lt;<a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>^&gt;^ <i>userStore</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1">SignInManager</a>&lt;<a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>^&gt;^ <i>signInManager</i>,&nbsp;<br />   <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a target="_top" href="topic_000000000000001C.html" onclick="this.target='';return true;">RegisterModel</a>^&gt;^ <i>logger</i>,&nbsp;<br />   <a target="_top" href=".html" onclick="this.target='';return true;">IEmailSender</a>^ <i>emailSender</i>&nbsp;<br />) </pre>			
+					<pre xml:space="preserve" class="brush: cpp">public ref class RegisterModel : public <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft::aspnetcore::mvc::razorpages::pagemodel">PageModel</a>^</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -256,7 +256,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">JScript does not support generic types and methods.</pre>			
+					<pre xml:space="preserve" class="brush: js">public class RegisterModel&nbsp;<br />   extends <a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel">PageModel</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -266,75 +266,6 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 		
 	</div>
 
-
-<h4 class="subHeading">
-	Parameters</h4><dl paramName="userManager" class="parameterList">
-	<dt>
-		<span class="parameter">
-			userManager
-		</span>
-	</dt>
-	<dd>
-		<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.usermanager-1">UserManager</a>&lt;<a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>&gt; 
-	</dd>
-</dl>
-<p>
-	 
-</p>
-<dl paramName="userStore" class="parameterList">
-	<dt>
-		<span class="parameter">
-			userStore
-		</span>
-	</dt>
-	<dd>
-		<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1">IUserStore</a>&lt;<a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>&gt; 
-	</dd>
-</dl>
-<p>
-	 
-</p>
-<dl paramName="signInManager" class="parameterList">
-	<dt>
-		<span class="parameter">
-			signInManager
-		</span>
-	</dt>
-	<dd>
-		<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1">SignInManager</a>&lt;<a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">CSSCUser</a>&gt; 
-	</dd>
-</dl>
-<p>
-	 
-</p>
-<dl paramName="logger" class="parameterList">
-	<dt>
-		<span class="parameter">
-			logger
-		</span>
-	</dt>
-	<dd>
-		<a target="_top" href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a target="_top" href="topic_000000000000001C.html" onclick="this.target='';return true;">RegisterModel</a>&gt; 
-	</dd>
-</dl>
-<p>
-	 
-</p>
-<dl paramName="emailSender" class="parameterList">
-	<dt>
-		<span class="parameter">
-			emailSender
-		</span>
-	</dt>
-	<dd>
-		<a target="_top" href=".html" onclick="this.target='';return true;">IEmailSender</a> 
-	</dd>
-</dl>
-<p>
-	 
-</p>
-
-<p />
 
 
 
@@ -352,6 +283,355 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 
 	</div>
 </div>
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Constructors</a></span>
+		<div>&nbsp;</div>
+	</div>
+
+	<div id="ConstructorsSection" class="section">	
+  <table class="memberListTable">
+    <tr>
+      <th></th>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+
+
+	
+			<tr class="
+	
+	
+	">
+	  <td>
+    <img alt="Public constructor" title="Public constructor" src="msdn2019/pubmethod.png"></img>
+
+	
+	    
+	  </td>
+	  <td>
+	    <a href="topic_000000000000001E.html">RegisterModel(UserManager&lt;CSSCUser&gt;, IUserStore&lt;CSSCUser&gt;, SignInManager&lt;CSSCUser&gt;, ILogger&lt;RegisterModel&gt;, IEmailSender)</a>
+
+	  </td>
+	  <td>
+	
+	
+	
+		</td>
+	</tr>
+	
+
+
+  </table>
+
+  <a href="#mainBody">
+    Top
+  </a>
+
+	</div>					
+</div>
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Properties</a></span>
+		<div>&nbsp;</div>
+	</div>
+
+	<div id="PropertiesSection" class="section">	
+  <table class="memberListTable">
+    <tr>
+      <th></th>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+
+
+	
+		<tr class="
+
+
+">
+	<td>
+<img alt="Public property" title="Public property" src="msdn2019/pubproperty.png"></img>
+
+
+    
+	</td>
+	<td>
+	<a href="topic_0000000000000021.html">ExternalLogins</a>
+
+	</td>
+	<td>
+
+This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+    directly from your code. This API may change or be removed in future releases.
+
+	</td>
+</tr>
+	
+
+
+	
+		<tr class="
+
+
+">
+	<td>
+<img alt="Public property" title="Public property" src="msdn2019/pubproperty.png"></img>
+
+
+    
+	</td>
+	<td>
+	<a href="topic_000000000000001F.html">Input</a>
+
+	</td>
+	<td>
+
+This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+    directly from your code. This API may change or be removed in future releases.
+
+	</td>
+</tr>
+	
+
+
+	
+		<tr class="
+
+
+">
+	<td>
+<img alt="Public property" title="Public property" src="msdn2019/pubproperty.png"></img>
+
+
+    
+	</td>
+	<td>
+	<a href="topic_0000000000000020.html">ReturnUrl</a>
+
+	</td>
+	<td>
+
+This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+    directly from your code. This API may change or be removed in future releases.
+
+	</td>
+</tr>
+	
+
+
+  </table>
+
+  <a href="#mainBody">
+    Top
+  </a>
+
+	</div>					
+</div>
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Methods</a></span>
+		<div>&nbsp;</div>
+	</div>
+
+	<div id="MethodsSection" class="section">	
+  <table class="memberListTable">
+    <tr>
+      <th></th>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+
+
+
+
+	<tr class="
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2019/pubmethod.png"></img>
+
+	<img alt="Static" title="Static" src="msdn2019/static.png"></img>
+
+    
+	</td>
+	<td>
+	<a href="topic_000000000000002C.html">IsValidSpainNIF(string)</a>
+
+	</td>
+	<td>
+
+
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2019/pubmethod.png"></img>
+
+
+    
+	</td>
+	<td>
+	<a href="topic_000000000000002A.html">OnGetAsync(string)</a>
+
+	</td>
+	<td>
+
+
+
+	</td>
+</tr>
+
+
+
+
+
+
+
+
+	<tr class="
+
+
+">
+	<td>
+<img alt="Public method" title="Public method" src="msdn2019/pubmethod.png"></img>
+
+
+    
+	</td>
+	<td>
+	<a href="topic_000000000000002B.html">OnPostAsync(string)</a>
+
+	</td>
+	<td>
+
+
+
+	</td>
+</tr>
+
+
+
+
+
+
+  </table>
+
+  <a href="#mainBody">
+    Top
+  </a>
+
+	</div>					
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Classes</a></span>
+		<div>&nbsp;</div>
+	</div>
+
+	<div id="ClassSection" class="section">	
+  <table class="memberListTable">
+    <tr>
+      <th></th>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+
+
+<!-- Classes -->
+	<tr class="
+	
+	
+	">
+	  <td>
+    <img alt="Public class" title="Public class" src="msdn2019/pubclass.png"></img>
+
+
+    
+	  </td>
+	  <td>
+	    <a href="topic_0000000000000022.html">InputModel</a>
+	  </td>
+	  <td>
+
+This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+    directly from your code. This API may change or be removed in future releases.
+
+		</td>
+	</tr>
+
+<!-- Classes End -->
+
+<!-- Standard Modules -->
+
+<!-- Standard Modules End -->
+
+  </table>
+
+  <a href="#mainBody">
+    Top
+  </a>
+
+	</div>					
+</div>
+
+
+
+
 
 
 
@@ -415,6 +695,7 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 	</div>					
 </div>
 
+
 <div class="section_container">
 	<div class="section_heading">
 		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">See Also</a></span>
@@ -423,14 +704,10 @@ document.write(getCssCustomProperty('--headerTopCustomLineHtml'));
 
 	<div id="seeAlsoSection" class="section">	
 		<div>
-			<a href="topic_000000000000001C.html">RegisterModel Class</a><br />
+	<a href="topic_000000000000000D.html">CSSC.Areas.Identity.Pages.Account Namespace</a><br />
 
 
-
-<a href="topic_000000000000000C.html">CSSC.Areas.Identity.Pages.Account Namespace</a><br />
-
-
-			
+	
 
 		</div>
 	</div>					

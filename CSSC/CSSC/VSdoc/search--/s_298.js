@@ -1,0 +1,1 @@
+search_result['298']=["topic_0000000000000068.html","EnumExtensions.GetValuesWithDescriptions Method","Obtém uma lista de valores de enumeração com descrições, utilizando o atributo EnumMember, se presente."];

@@ -1,1 +1,1 @@
-search_result['259']=["topic_000000000000007F.html","Services.EstadoDoServico Property","Estado atual do serviço"];
+search_result['259']=["topic_000000000000005C.html","TipoNotif Enumeration","Enumerado para representar tipos de notificação"];

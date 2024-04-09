@@ -1,1 +1,1 @@
-search_result['166']=["topic_0000000000000051.html","ServicesController.AgendarNotifForm Method","Processa o formulário de agendamento de notificação."];
+search_result['166']=["topic_0000000000000039.html","CalendarController.Index  Method","Retorna a visualização do calendário com os serviços agendados para os próximos 6 meses, de acordo com o papel do utilizador."];

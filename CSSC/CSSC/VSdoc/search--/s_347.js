@@ -1,0 +1,1 @@
+search_result['347']=["topic_000000000000007B.html","Notificacao.IntervaloDeEnvio Property","Intervalo de tempo (em meses) para o envio da notificação, caso seja periódica"];
