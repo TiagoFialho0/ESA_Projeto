@@ -1,4 +1,7 @@
-﻿using SendGrid;
+﻿using CSSC.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Drawing;
 
@@ -7,8 +10,10 @@ namespace CSSC.CSSCServices
     /// <summary>
     /// Classe responsável por enviar e-mails utilizando o serviço SendGrid.
     /// </summary>
+    /// 
     public class EmailSender
     {
+        private const string API_KEY = "";
         private readonly ISendGridClient _client;
 
         public EmailSender()
@@ -41,7 +46,7 @@ namespace CSSC.CSSCServices
         ///
         public async Task<Response> SendEmail(string subject, string toEmail, string message)
         {
-            var apiKey = "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";
+            var apiKey = API_KEY;
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("cssc.esa@gmail.com", "CSSC");
             var to = new EmailAddress(toEmail);
@@ -64,18 +69,24 @@ namespace CSSC.CSSCServices
         /// Um <see cref="Task"/> que representa a operação assíncrona. 
         /// Retorna um objeto <see cref="Response"/> contendo informações sobre o envio do email.
         /// </returns>
-        public async Task<Response> SendEmailToOficina(string subject, string fromEmail, string fromUserName, string message)
+        public async Task<Response> SendEmailToOficina(Services serviceModel, string subject, string fromEmail, string fromUserName, string message)
         {
-            var apiKey = "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";
+            string updatedSubject = subject + " (Email enviado a partir do website)";
+            var apiKey = API_KEY;
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress(fromEmail);
             from.Name = fromUserName;
 
             var to = new EmailAddress("cssc.esa@gmail.com", "CSSC");
-            var plainTextContent = "Dados do cliente:\n" + "Nome: " + from.Name + "\nEmail: " + from.Email + "\n\n" + message;
-            var htmlContent = "";
-            var msg = MailHelper.CreateSingleEmail(to, to, subject, plainTextContent, htmlContent);
+            var plainTextContent = ""; // Deixe o conteúdo em branco para enviar apenas HTML
+            var htmlContent = "<h3>Dados do cliente:</h3>" +
+                              "<b>  Nome:</b> " + from.Name + "<br/><b>  Email:</b> " + from.Email + "<br/>" +
+                              "<h3>Dados do veiculo:</h3>" +
+                              "<b>  Veiculo:</b> " + serviceModel.ServMarcaVeiculo + " " + serviceModel.ServModeloVeiculo + "<br/><b>  Matricula:</b> " + serviceModel.ServMatriculaVeiculo +
+                              "<br/><h3>  Conteúdo:</h3>" + message + "<br/><br/>";
+            var msg = MailHelper.CreateSingleEmail(to, to, updatedSubject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
+
 
             return response;
         }

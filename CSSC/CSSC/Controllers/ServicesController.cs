@@ -301,7 +301,7 @@ namespace CSSC.Controllers
 
                 string _emailSubject = "Serviço de Reparação Agendado";
                 string _message = "Foi agendado um serviço na sua oficina CarShopSolutions.\n\n" +
-                    "Matricula:"+ matricula + "\nVeículo:"+ marca +" "+ modelo +"\nData:" + data;
+                    "Matricula: " + matricula + "\nVeículo: " + marca + " " + modelo + "\nData: " + data;
 
                 //envia um mail de agendamento para o cliente
                EmailSender emailSender = new EmailSender();
@@ -413,7 +413,7 @@ namespace CSSC.Controllers
 
                 //envia um mail de agendamento para o cliente
                 EmailSender emailSender = new EmailSender();
-                var responseEmail = await emailSender.SendEmailToOficina(subject, fromUserEmail, fromUserName, description);
+                var responseEmail = await emailSender.SendEmailToOficina(serviceModel, subject, fromUserEmail, fromUserName, description);
 
                 return RedirectToAction("Index", "Calendar");
             }
