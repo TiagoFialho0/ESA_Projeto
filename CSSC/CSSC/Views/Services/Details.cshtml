@@ -75,50 +75,54 @@
         
         <br />
         <dl class="row">
-            <dt class="col-sm-3">
+            <dt class="col-sm-4">
                 @Html.DisplayNameFor(model => model.IdServico)
             </dt>
-            <dd class="col-sm-9">
+            <dd class="col-sm-8">
                 @Html.DisplayFor(model => model.IdServico)
             </dd>
-            <dt class="col-sm-3">
+            <dt class="col-sm-4">
                 @Html.DisplayNameFor(model => model.ServDataInicio)
             </dt>
-            <dd class="col-sm-9">
+            <dd class="col-sm-8">
                 @Html.DisplayFor(model => model.ServDataInicio)
             </dd>
-            <dt class="col-sm-3">
+            <dt class="col-sm-4">
                 @Html.DisplayNameFor(model => model.DescricaoDoServico)
             </dt>
             @if (string.IsNullOrEmpty(Model.DescricaoDoServico))
             {
-                <text>Sem descrição</text>
+                <dd class="col-sm-8">
+                    <text>Sem descrição</text>
+                </dd>
             }
             else
             {
-                @Html.DisplayFor(model => model.DescricaoDoServico)
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.DescricaoDoServico)
+                </dd>
             }
         </dl>
     </div>
     <div class="col-md-6">
         <br />
         <dl class="row">
-            <dt class="col-sm-3">
+            <dt class="col-sm-4">
                 @Html.DisplayNameFor(model => model.ServMatriculaVeiculo)
             </dt>
-            <dd class="col-sm-9">
+            <dd class="col-sm-8">
                 @Html.DisplayFor(model => model.ServMatriculaVeiculo)
             </dd>
-            <dt class="col-sm-3">
+            <dt class="col-sm-4">
                 @Html.DisplayNameFor(model => model.ServMarcaVeiculo)
             </dt>
-            <dd class="col-sm-9">
+            <dd class="col-sm-8">
                 @Html.DisplayFor(model => model.ServMarcaVeiculo)
             </dd>
-            <dt class="col-sm-3">
+            <dt class="col-sm-4">
                 @Html.DisplayNameFor(model => model.ServModeloVeiculo)
             </dt>
-            <dd class="col-sm-9">
+            <dd class="col-sm-8">
                 @Html.DisplayFor(model => model.ServModeloVeiculo)
             </dd>
         </dl>

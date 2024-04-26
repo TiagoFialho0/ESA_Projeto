@@ -13,6 +13,9 @@ using System.Runtime.Serialization;
 using CSSC.Extensions;
 using CSSC.CSSCServices;
 using System.Net;
+using Humanizer;
+using SendGrid.Helpers.Mail.Model;
+using SendGrid.Helpers.Mail;
 
 namespace CSSC.Controllers
 {
@@ -286,7 +289,6 @@ namespace CSSC.Controllers
                 var csscUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
                 var _destEmail = csscUser.Email;
 
-
                 var marca = serviceModel.ServMarcaVeiculo.ToString();
                 var campoMarca = await _context.ServiceModel.FirstOrDefaultAsync(u => u.ServMarcaVeiculo == marca);
 
@@ -300,12 +302,15 @@ namespace CSSC.Controllers
                 var campoData = await _context.ServiceModel.FirstOrDefaultAsync(u => u.ServDataInicio == data);
 
                 string _emailSubject = "Serviço de Reparação Agendado";
-                string _message = "Foi agendado um serviço na sua oficina CarShopSolutions.\n\n" +
-                    "Matricula: " + matricula + "\nVeículo: " + marca + " " + modelo + "\nData: " + data;
+                var _message = "<h3>Foi agendado um serviço na sua oficina CarShopSolutions.</h3><br/>" +
+                                "<h3>Dados do veiculo:</h3><b>Veículo:</b> " + marca + " " + modelo + "<br/><b>Matrícula:</b> " + matricula +
+                                "<br/><br/><h3>Data do serviço: " + data.Date + "</h3>" +
+                                "<br/><b>Clique <a href='https://carshopsolutionsandcontrol.azurewebsites.net/Services/Details/" + serviceModel.IdServico + "'>aqui</a> para consultar o estado do serviço.</b><br/>";
 
                 //envia um mail de agendamento para o cliente
-               EmailSender emailSender = new EmailSender();
+                EmailSender emailSender = new EmailSender();
                 await emailSender.SendEmail(_emailSubject, _destEmail, _message);
+                
 
                 return RedirectToAction(nameof(Index));
             }

@@ -52,7 +52,7 @@ namespace CSSC.CSSCServices
             var to = new EmailAddress(toEmail);
             var plainTextContent = message;
             var htmlContent = "";
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, htmlContent, plainTextContent);
             var response = await client.SendEmailAsync(msg);
 
             return response;
