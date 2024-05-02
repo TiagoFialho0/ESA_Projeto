@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Drawing;
+using System.Windows;
 
 namespace CSSC.CSSCServices
 {
@@ -13,7 +14,7 @@ namespace CSSC.CSSCServices
     /// 
     public class EmailSender
     {
-        private const string API_KEY = "";
+        private const string API_KEY = "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";
         private readonly ISendGridClient _client;
 
         public EmailSender()
@@ -85,8 +86,8 @@ namespace CSSC.CSSCServices
                               "<b>  Veiculo:</b> " + serviceModel.ServMarcaVeiculo + " " + serviceModel.ServModeloVeiculo + "<br/><b>  Matricula:</b> " + serviceModel.ServMatriculaVeiculo +
                               "<br/><h3>  Conteúdo:</h3>" + message + "<br/><br/>";
             var msg = MailHelper.CreateSingleEmail(to, to, updatedSubject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg);
 
+            var response = await client.SendEmailAsync(msg);
 
             return response;
         }
