@@ -313,7 +313,7 @@ namespace CSSC.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    TempData["Alerta"] = "Email enviado/agendado com sucesso.";
+                    TempData["Alerta"] = "Email enviado com sucesso.";
                 }
                 else
                 {
