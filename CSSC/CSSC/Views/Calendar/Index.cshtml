@@ -64,6 +64,15 @@
     }
 
 </style>
+
+@if (TempData["Alerta"] != null)
+{
+    <script>
+        alert('@TempData["Alerta"]');
+        TempData["Alerta"] = null
+    </script>
+}
+
 @using (Html.BeginForm("Index", "Calendar", FormMethod.Post))
 {
     <div class="row align-items-end">
