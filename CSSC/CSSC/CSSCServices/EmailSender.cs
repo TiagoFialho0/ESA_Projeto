@@ -14,7 +14,7 @@ namespace CSSC.CSSCServices
     /// 
     public class EmailSender
     {
-        private const string API_KEY = "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";
+        private const string API_KEY = "";
         private readonly ISendGridClient _client;
 
         public EmailSender()
