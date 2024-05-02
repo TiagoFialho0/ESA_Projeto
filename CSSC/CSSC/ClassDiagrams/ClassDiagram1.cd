@@ -129,13 +129,6 @@
       <FileName>Areas\Identity\Pages\Account\Logout.cshtml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CSSC.CSSCServices.EmailSender">
-    <Position X="9.5" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAEAAAAAAAAgAAAQAAAAAAAAAAAAA=</HashCode>
-      <FileName>CSSCServices\EmailSender.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Enum Name="CSSC.Controllers.PaiseNIF">
     <Position X="5.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>

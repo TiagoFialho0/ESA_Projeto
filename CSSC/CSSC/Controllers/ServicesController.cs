@@ -16,7 +16,6 @@ using System.Net;
 using Humanizer;
 using SendGrid.Helpers.Mail.Model;
 using SendGrid.Helpers.Mail;
-using Microsoft.CodeAnalysis.Scripting;
 
 namespace CSSC.Controllers
 {
@@ -305,20 +304,13 @@ namespace CSSC.Controllers
                 string _emailSubject = "Serviço de Reparação Agendado";
                 var _message = "<h3>Foi agendado um serviço na sua oficina CarShopSolutions.</h3><br/>" +
                                 "<h3>Dados do veiculo:</h3><b>Veículo:</b> " + marca + " " + modelo + "<br/><b>Matrícula:</b> " + matricula +
-                                "<br/><br/><h3>Data do serviço: " + data.Date + "</h3><br/>";
+                                "<br/><br/><h3>Data do serviço: " + data.Date + "</h3>" +
+                                "<br/><b>Clique <a href='https://carshopsolutionsandcontrol.azurewebsites.net/Services/Details/" + serviceModel.IdServico + "'>aqui</a> para consultar o estado do serviço.</b><br/>";
 
                 //envia um mail de agendamento para o cliente
                 EmailSender emailSender = new EmailSender();
-                var response = await emailSender.SendEmail(_emailSubject, _destEmail, _message);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    TempData["Alerta"] = "Email enviado/agendado com sucesso.";
-                }
-                else
-                {
-                    TempData["Alerta"] = "Ocorreu um erro ao enviar o Email, por favor tente mais tarde.";
-                }
+                await emailSender.SendEmail(_emailSubject, _destEmail, _message);
+                
 
                 return RedirectToAction(nameof(Index));
             }
@@ -428,17 +420,9 @@ namespace CSSC.Controllers
                 EmailSender emailSender = new EmailSender();
                 var responseEmail = await emailSender.SendEmailToOficina(serviceModel, subject, fromUserEmail, fromUserName, description);
 
-                if (responseEmail.IsSuccessStatusCode)
-                {
-                    TempData["Alerta"] = "Email enviado com sucesso.";
-                }
-                else
-                {
-                    TempData["Alerta"] = "Ocorreu um erro ao enviar o Email, por favor tente mais tarde.";
-                }
-
+                return RedirectToAction("Index", "Calendar");
             }
-            return RedirectToAction(nameof(Index)); // RedirectToAction("Index", "Calendar");
+            return RedirectToAction("Index", "Calendar");
         }
 
         /// <summary>
